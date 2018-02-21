@@ -81,45 +81,67 @@
         body{
             padding: 0;
             margin: 0;
+            overflow: hidden;
         }
         #container{
             background-color: white;
         }
         #gradient{
             margin: auto;
+            width: 95%;
+            height: 90%;
+            border-radius: 20px;
             position: absolute;
             left: 0;right: 0;top: 0;bottom: 0;
             overflow: hidden;
-            width: 80%;
-            height: 80%;
         }
-        #outter{
-            margin: auto;
-            width:100% ;
-            height: 100%;
-            background-image: url('pattern-big.png');
-            background-size: 100%;
-            background-position: center;
+        ::-webkit-scrollbar { 
+            display: none; 
         }
-        #inner{
-            margin: auto;
-            width:100% ;
+        #menu{
+            width: 100px;
+            height: 100px;
+            position: fixed;
+            top: 5%;left: 10%;
+            background-color: black;
+            z-index: 30000;
+        }
+        #main{
+            position: relative;
+            overflow: hidden;
+            width: 100%;
             height: 100%;
-            background-image: url('pattern-small.png');
-            background-size: 100%;
-            background-position: center;
+        }
+        #outterPng{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            margin:auto;
+            top: 0;bottom: 0;
+            z-index: 40;
+        }
+        #innerPng{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            margin:auto;
+            top: 0;bottom: 0;
+            z-index: 41;
             -webkit-animation: rotation 30s infinite linear;
         }
-        #logo{
-            margin: auto;
-            width:100% ;
-            height: 100%;
-            background-image: url('logo.png');
-            background-size: 100%;
-            background-position: center;
-            -webkit-animation: antirotation 30s infinite linear;
+        #logoPng{
+            width: 100%;
+            height: auto;
+            position: absolute;
+            margin:auto;
+            top: 0;bottom: 0;
+            z-index: 42;
         }
-                
+        .content{
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }   
         @-webkit-keyframes rotation {
                 from {
                         -webkit-transform: rotate(0deg);
@@ -128,27 +150,43 @@
                         -webkit-transform: rotate(359deg);
                 }
         }
-        @-webkit-keyframes antirotation {
-                from {
-                        -webkit-transform: rotate(360deg);
-                }
-                to {
-                        -webkit-transform: rotate(1deg);
-                }
+
+        @media (max-width:768px){
+            #gradient{
+                width: 100%;
+                height: 100%;
+                border-radius:0px;
+            }
+            #outterPng{
+                display: none;
+            }
+            #innerPng{
+                display: none;
+            }
+            #logoPng{
+                display: none;
+            }
+            #main{
+                background-image: url('phone.png');
+                background-position-x: center;
+                background-position-y: center;
+            }
         }
     </style>
 </head>
 <body>
     <div id="container">
         <div id="gradient">
-            <div class="" id="outter">
-                <div class="" id="inner">
-                    <div class="" id="logo">
-                        
-                    </div>
+            <div class="content">
+                <div class="" id="menu"></div>
+                <div class="" id="main">
+                    <img src="pattern-big.png" alt="" class="" id="outterPng">
+                    <img src="pattern-small.png" alt="" class="" id="innerPng">
+                    <img src="logo.png" alt="" class="" id="logoPng">
                 </div>
-            </div>
+            </div>    
         </div>
+
     </div>
 </body>
 </html>
