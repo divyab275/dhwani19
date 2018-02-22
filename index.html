@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dhwani 18</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
     <script>
         window.onload= function(){
             var width = window.innerWidth;
@@ -177,12 +178,15 @@
             display: block;
             margin-bottom: 15px;
         }
-        .behemian{
+        #behemian{
             width: 100%;
             height: 150px;
             background-image: url('bohemian.png');
-            display: block;
-            margin-bottom: 0px;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        #bohemian-mob{
+            display: none;
         }
         #split1{
             width: 75px;
@@ -198,6 +202,8 @@
         }
         #split2 h1{
             text-align: center;
+            font-family: 'Titillium Web', sans-serif;
+            font-weight: 300;
         }
         #people{
             width: 100%;
@@ -289,7 +295,19 @@
                 }
             }
             #social{
-                display:none;
+                display: none;
+            }
+            #bohemian-mob{
+                position: absolute;
+                display: inline-block;
+                bottom: 5%;
+                width: 100px;
+                height: 75px;
+                left: 0;right: 0;
+                margin: auto;
+                z-index: 70;
+                background-image: url('bohemian.png');
+                background-size: 100%;
             }
         }
     </style>
@@ -305,7 +323,7 @@
                     <img src="logo.png" alt="" class="" id="logoPng">
                     <div class="" id="phone-view"></div>
                     <div class="" id="social">
-                        <span class="behemian" id="">
+                        <span class="" id="behemian">
                         </span>
                         <span class="user-counter">
                             <span class="" id="split1"><img src="people.png" alt="" class="" id="people"></span>
@@ -317,6 +335,7 @@
                             <div class="" id="insta"></div>
                         </span>
                     </div>
+                    <div class="" id="bohemian-mob"></div>
                 </div>
             </div>    
         </div>
