@@ -15,11 +15,67 @@
             messagingSenderId: "866486690145"
           };
           firebase.initializeApp(config);
-        </script>
-    <script type="text/javascript">
-      initApp = function() {
+
+         </script>
+
+         <script>
+
+             var providerGoogle = new firebase.auth.GoogleAuthProvider();
+             var providerFacebook = new firebase.auth.FacebookAuthProvider();
+
+            function googleSignIn(){
+              SignIn(providerGoogle);
+            }
+
+            function facebookSignIn(){
+              SignIn(providerFacebook);
+            }
+
+
+            function SignIn(provider){  
+
+             firebase.auth().signInWithPopup(provider).then(function(result) {
+
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
+            // ...
+          }).catch(function(error) {
+
+            console.log(error);
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // The email of the user's account used.
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
+            var credential = error.credential;
+            // ...
+          });
+
+          
+        }
+
+        function signOut(){
+                  firebase.auth().signOut().then(function() {
+          // Sign-out successful.
+        }).catch(function(error) {
+          // An error happened.
+        });
+        
+       }
+
+        initApp = function check() {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
+
+                  document.getElementById('sign-in-status').style.visibility = 'visible';
+            document.getElementById('account-details').style.visibility = 'visible';
+           document.getElementById('sign-out').style.visibility = 'visible';
+
+             document.getElementById('Gsign-in').style.visibility = 'hidden';
+             document.getElementById('Fsign-in').style.visibility = 'hidden';
             // User is signed in.
             var displayName = user.displayName;
             var email = user.email;
@@ -30,7 +86,6 @@
             var providerData = user.providerData;
             user.getIdToken().then(function(accessToken) {
               document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
               document.getElementById('account-details').textContent = JSON.stringify({
                 displayName: displayName,
                 email: email,
@@ -43,9 +98,17 @@
               }, null, '  ');
             });
           } else {
+
+            document.getElementById('sign-in-status').style.visibility = 'hidden';
+            document.getElementById('account-details').style.visibility = 'hidden';
+           document.getElementById('sign-out').style.visibility = 'hidden';
+             document.getElementById('Gsign-in').style.visibility = 'visible';
+            document.getElementById('Fsign-in').style.visibility = 'visible';
+
+
+
             // User is signed out.
             document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
             document.getElementById('account-details').textContent = 'null';
           }
         }, function(error) {
@@ -56,12 +119,14 @@
       window.addEventListener('load', function() {
         initApp()
       });
-    </script>
-  </head>
-  <body>
-    <h1>Welcome to My Awesome App</h1>
-    <div id="sign-in-status"></div>
-    <div id="sign-in"></div>
-    <div id="account-details"></div>
-  </body>
-</html>
+        </script>
+        </head>
+        <body>
+          <button id="Fsign-in" onclick="facebookSignIn()"> facebook</button>
+          <button id="Gsign-in" onclick="googleSignIn()"> google</button>
+
+          <div id="sign-in-status"></div>
+         <div id="account-details"></div>
+
+         <button id="sign-out" onclick="signOut()"> signout</button>
+        </body>
