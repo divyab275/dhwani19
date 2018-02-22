@@ -99,13 +99,13 @@
             overflow: hidden;
         }
         #menu{
-	    display: none;
+	        display: none;
             width: 100px;
             height: 100px;
             position: fixed;
             top: 5%;left: 10%;
             background-color: black;
-            z-index: 30000;
+            z-index: 50;
         }
         #main{
             position: relative;
@@ -151,10 +151,105 @@
                         -webkit-transform: rotate(359deg);
                 }
         }
+        @-webkit-keyframes antirotation {
+                from {
+                        -webkit-transform: rotate(360deg);
+                }
+                to {
+                        -webkit-transform: rotate(1deg);
+                }
+        }
         #phone-view{
             display:none;
         }
-
+        #social{
+            position: absolute;
+            bottom:8%;left: 6%;
+            width: 200px;
+            height: auto;
+            z-index: 60;
+            color: white;
+        }
+        .user-counter{
+            width: 154;
+            height: 75;
+            margin: 0px auto;
+            display: block;
+            margin-bottom: 15px;
+        }
+        .behemian{
+            width: 100%;
+            height: 150px;
+            background-image: url('bohemian.png');
+            display: block;
+            margin-bottom: 0px;
+        }
+        #split1{
+            width: 75px;
+            height: 100%;
+            display: inline-block;
+            float: left;
+        }
+        #split2{
+            width: 75px;
+            height: 100%;
+            display: block;
+            float: right;
+        }
+        #split2 h1{
+            text-align: center;
+        }
+        #people{
+            width: 100%;
+            height: 100%;
+            -webkit-animation: antirotation 15s infinite linear;
+        }
+        #fb{
+            background-image: url('facebook-normal.png');
+            background-size: 80%;
+            background-position:center;
+            width: 60px;
+            height: 55px;
+            margin: 0px auto;
+            display: inline-block;
+        }
+        #you{
+            background-image: url('youtube-normal.png');
+            background-size: 80% auto;
+            background-position:center;
+            width: 60px;
+            height: 55px;
+            margin: 0px auto;
+            margin-left: -3px;
+            display: inline-block;
+        }
+        #insta{
+            background-image: url('instagram-normal.png');
+            background-size: 80% ;
+            background-position:center;
+            width: 60px;
+            height: 55px;
+            margin: auto;
+            display: inline-block;
+            margin-left: -3px;
+        }
+        .couple{
+            width: 182px;
+            height: 55px;
+            margin: 0px auto;
+            display: block;
+            border-radius: 15px; 
+            overflow: hidden;
+        }
+        #fb:hover{
+            background-image: url('facebook-hover.png');
+        }
+        #insta:hover{
+            background-image: url('instagram-hover.png');
+        }
+        #you:hover{
+            background-image: url('youtube-hover.png');
+        }
         @media (max-width:768px){
             #gradient{
                 width: 100%;
@@ -192,7 +287,10 @@
                 to {
                         -webkit-transform: rotate(359deg);
                 }
-        }
+            }
+            #social{
+                display:none;
+            }
         }
     </style>
 </head>
@@ -206,6 +304,19 @@
                     <img src="pattern-small.png" alt="" class="" id="innerPng">
                     <img src="logo.png" alt="" class="" id="logoPng">
                     <div class="" id="phone-view"></div>
+                    <div class="" id="social">
+                        <span class="behemian" id="">
+                        </span>
+                        <span class="user-counter">
+                            <span class="" id="split1"><img src="people.png" alt="" class="" id="people"></span>
+                            <span class="" id="split2"><h1>273</h1></span>
+                        </span>
+                        <span class="couple">
+                            <div class="" id="fb"></div>
+                            <div class="" id="you"></div>
+                            <div class="" id="insta"></div>
+                        </span>
+                    </div>
                 </div>
             </div>    
         </div>
