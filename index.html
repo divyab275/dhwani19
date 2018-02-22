@@ -1,5 +1,8 @@
 <html>
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dhwani 18</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script>
@@ -95,9 +98,6 @@
             left: 0;right: 0;top: 0;bottom: 0;
             overflow: hidden;
         }
-        ::-webkit-scrollbar { 
-            display: none; 
-        }
         #menu{
 	    display: none;
             width: 100px;
@@ -151,6 +151,9 @@
                         -webkit-transform: rotate(359deg);
                 }
         }
+        #phone-view{
+            display:none;
+        }
 
         @media (max-width:768px){
             #gradient{
@@ -172,6 +175,22 @@
                 background-position-x: center;
                 background-position-y: center;
             }
+            #phone-view{
+                display: block;
+                background-image: url('phonePng.png');
+                background-position: center;
+                -webkit-animation: rotation 30s infinite linear;
+                width: 100%;
+                height: 100%;
+            }
+            @-webkit-keyframes rotation {
+                from {
+                        -webkit-transform: rotate(0deg);
+                }
+                to {
+                        -webkit-transform: rotate(359deg);
+                }
+        }
         }
     </style>
 </head>
@@ -184,6 +203,7 @@
                     <img src="pattern-big.png" alt="" class="" id="outterPng">
                     <img src="pattern-small.png" alt="" class="" id="innerPng">
                     <img src="logo.png" alt="" class="" id="logoPng">
+                    <div class="" id="phone-view"></div>
                 </div>
             </div>    
         </div>
