@@ -1,0 +1,255 @@
+
+body{
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+#container{
+    background-color: white;
+}
+#gradient{
+    margin: auto;
+    width: 95%;
+    height: 90%;
+    border-radius: 20px;
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;
+    overflow: hidden;
+}
+
+#main{
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+#outterPng{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin:auto;
+    top: 0;bottom: 0;
+    z-index: 40;
+}
+#innerPng{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin:auto;
+    top: 0;bottom: 0;
+    z-index: 41;
+    -webkit-animation: rotation 30s infinite linear;
+}
+#logoPng{
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin:auto;
+    top: 0;bottom: 0;
+    z-index: 42;
+}
+.content{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}   
+@-webkit-keyframes rotation {
+        from {
+                -webkit-transform: rotate(0deg);
+        }
+        to {
+                -webkit-transform: rotate(359deg);
+        }
+}
+@-webkit-keyframes antirotation {
+        from {
+                -webkit-transform: rotate(360deg);
+        }
+        to {
+                -webkit-transform: rotate(1deg);
+        }
+}
+#phone-view{
+    display:none;
+}
+#social{
+    position: absolute;
+    bottom:8%;left: 6%;
+    width: 200px;
+    height: auto;
+    z-index: 60;
+    color: white;
+}
+.user-counter{
+    width: 154;
+    height: 75;
+    margin: 0px auto;
+    display: block;
+    margin-bottom: 15px;
+}
+#behemian{
+    width: 100%;
+    height: 150px;
+    background-image: url('../img/bohemian.png');
+    display: inline-block;
+    margin-bottom: 5px;
+}
+#bohemian-mob{
+    display: none;
+}
+#split1{
+    width: 75px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+#split2{
+    width: 75px;
+    height: 100%;
+    display: block;
+    float: right;
+}
+#split2 h1{
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: 300;
+}
+#people{
+    width: 100%;
+    height: 100%;
+    -webkit-animation: antirotation 15s infinite linear;
+}
+#fb{
+    background-image: url('../img/facebook-normal.png');
+    background-size: 80%;
+    background-position:center;
+    width: 60px;
+    height: 55px;
+    margin: 0px auto;
+    display: inline-block;
+}
+#you{
+    background-image: url('../img/youtube-normal.png');
+    background-size: 80% auto;
+    background-position:center;
+    width: 60px;
+    height: 55px;
+    margin: 0px auto;
+    margin-left: -3px;
+    display: inline-block;
+}
+#insta{
+    background-image: url('../img/instagram-normal.png');
+    background-size: 80% ;
+    background-position:center;
+    width: 60px;
+    height: 55px;
+    margin: auto;
+    display: inline-block;
+    margin-left: -3px;
+}
+.couple{
+    width: 182px;
+    height: 55px;
+    margin: 0px auto;
+    display: block;
+    border-radius: 15px; 
+    overflow: hidden;
+}
+#fb:hover{
+    background-image: url('../img/facebook-hover.png');
+    cursor: pointer;
+}
+#insta:hover{
+    background-image: url('../img/instagram-hover.png');
+    cursor: pointer;
+}
+#you:hover{
+    background-image: url('../img/youtube-hover.png');
+    cursor: pointer;
+}
+
+
+
+
+
+#menu-content{
+    width: 100%;
+    height: 100%;;
+    position: absolute;
+    left: 100%;
+}
+#menu{
+    display: block;
+    border-radius: 80px;
+    width: 80px;
+    height: 80px;
+    background-image: url('../img/hamburger.png'); 
+    position: absolute;
+    right: -40px;top: 0;bottom: 0;
+    margin: auto;
+    background-color:none;
+    z-index: 100;
+}
+#menu:hover{
+    background-image: url('../img/hamburger-hover.png');
+    cursor: pointer;
+}
+
+@media (max-width:768px){
+    #gradient{
+        width: 100%;
+        height: 100%;
+        border-radius:0px;
+    }
+    #outterPng{
+        display: none;
+    }
+    #innerPng{
+        display: none;
+    }
+    #logoPng{
+        display: none;
+    }
+    #main{
+        background-image: url('../img/phone-new.png');
+        background-position-x: center;
+        background-position-y: center;
+        background-size: auto 100%;
+    }
+    #phone-view{
+        display: block;
+        background-image: url('../img/phonePng-new.png');
+        background-position: center;
+        -webkit-animation: rotation 30s infinite linear;
+        width: 100%;
+        height: 100%;
+        background-size: auto 100%;
+    }
+    @-webkit-keyframes rotation {
+        from {
+                -webkit-transform: rotate(0deg);
+        }
+        to {
+                -webkit-transform: rotate(359deg);
+        }
+    }
+    #social{
+        display: none;
+    }
+    #bohemian-mob{
+        position: absolute;
+        display: inline-block;
+        bottom: 2%;
+        width: 150px;
+        height: 112.5;
+        left: 0;right: 0;
+        margin: auto;
+        z-index: 70;
+        background-image: url('../img/bohemian.png');
+        background-size: 100%;
+    }
+    #menu{
+        top: 5%;bottom: auto;
+    }
+}
