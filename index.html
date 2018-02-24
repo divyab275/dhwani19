@@ -242,12 +242,15 @@
         }
         #fb:hover{
             background-image: url('facebook-hover.png');
+            cursor: pointer;
         }
         #insta:hover{
             background-image: url('instagram-hover.png');
+            cursor: pointer;
         }
         #you:hover{
             background-image: url('youtube-hover.png');
+            cursor: pointer;
         }
 
 
@@ -262,14 +265,20 @@
             left: 100%;
         }
         #menu{
-	        display: none;
-            width: 100px;
-            height: 100px;
+	        display: block;
+            border-radius: 80px;
+            width: 80px;
+            height: 80px;
+            background-image: url('hamburger.png'); 
             position: absolute;
-            right: 0;top: 0;bottom: 0;
+            right: -40px;top: 0;bottom: 0;
             margin: auto;
-            background-color: black;
+            background-color:none;
             z-index: 100;
+        }
+        #menu:hover{
+            background-image: url('hamburger-hover.png');
+            cursor: pointer;
         }
 
 
@@ -327,6 +336,9 @@
                 z-index: 70;
                 background-image: url('bohemian.png');
                 background-size: 100%;
+            }
+            #menu{
+                top: 5%;bottom: auto;
             }
         }
     </style>
