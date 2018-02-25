@@ -192,9 +192,9 @@ body{
     z-index: 100;
 }
 #menu:hover{
-    background-image: url('../img/hamburger-hover.png');
     cursor: pointer;
 }
+
 
 @media (max-width:768px){
     #gradient{

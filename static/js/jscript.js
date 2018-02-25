@@ -4,12 +4,14 @@ $( window ).on( "load", function() {
     var toggle = false;
     $( "#menu" ).on( "click", function() {
         if(toggle == false){
-            $("#main").animate( {"right":"100%"} );
-            $("#menu-content").animate({"left":"0%"});
+            $(this).css("background-image","url('./static/img/close.png')");
+            $("#main").animate( {"right":"100%"},600);
+            $("#menu-content").animate({"left":"0%"},600);
             toggle = true;
         }else{
-            $("#main").animate( {"right":"0%"} );
-            $("#menu-content").animate({"left":"100%"});  
+            $(this).css("background-image","url('./static/img/hamburger.png')");
+            $("#main").animate( {"right":"0%"},600 );
+            $("#menu-content").animate({"left":"100%"},600);  
             toggle = false;
         }
     });
