@@ -338,6 +338,15 @@ body{
     display: none;
 }
 
+#overlay{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    text-align: center;
+    z-index: 9999999;
+}
+
 @media (max-width:768px){
     #gradient{
         width: 100%;

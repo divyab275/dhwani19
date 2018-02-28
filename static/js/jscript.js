@@ -1,20 +1,37 @@
 
 
 $( window ).on( "load", function() {
+    $("#overlay").animate({"bottom":"100vh"},400);
+
+
+
     var toggle = false;
-    if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
-    $( "#menu" ).on( "click", function() {
-        if(toggle == false){
-            $(this).css("background-image","url('./static/img/close.png')");
-            $("#main").animate( {"right":"100%"},anim);
+    var lastActive = "#main";
+
+    function animateMenu(){
+        if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
+        if(toggle==false){
+            $("#menu").css("background-image","url('./static/img/close.png')");
+            $(lastActive).animate( {"right":"100%"},anim);
             $("#menu-content").animate({"left":"0%"},anim);
             toggle = true;
         }else{
-            $(this).css("background-image","url('./static/img/hamburger.png')");
-            $("#main").animate( {"right":"0%"},anim );
-            $("#menu-content").animate({"left":"100%"},anim);  
-            toggle = false;
+            $("#menu").css("background-image","url('./static/img/hamburger.png')");
+            $(lastActive).animate( {"right":"0%"},anim );
+            $("#menu-content").animate({"left":"100%"},anim);
+            toggle = false; 
         }
+    }
+
+    $( "#menu" ).on( "click", function() {
+            animateMenu();
+    });
+
+    $( "#home" ).on( "click", function() {
+            animateMenu();
+    });
+    $( "#home-mob" ).on( "click", function() {
+            animateMenu();
     });
 });
 

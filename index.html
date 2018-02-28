@@ -1,5 +1,39 @@
 <html>
 <head>
+    <style>
+        @keyframes flickerAnimation {
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+        }
+        @-o-keyframes flickerAnimation{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+        }
+        @-moz-keyframes flickerAnimation{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+        }
+        @-webkit-keyframes flickerAnimation{
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+        }
+        .animate-flicker {
+            width:150px;
+            height: 150px;
+            position: absolute;
+            top: 0;right: 0;left: 0;bottom: 0;
+            margin: auto;
+            display: block;
+        -webkit-animation: flickerAnimation 3s infinite;
+        -moz-animation: flickerAnimation 3s infinite;
+        -o-animation: flickerAnimation 3s infinite;
+            animation: flickerAnimation 3s infinite;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +45,9 @@
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
 </head>
 <body>
+    <div class="" id="overlay">
+        <img src="./static/img/logo-orginal.png" alt="" class="animate-flicker">
+    </div>
     <div id="container">
         <div id="gradient">
             <div class="content">
