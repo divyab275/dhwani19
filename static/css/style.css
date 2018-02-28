@@ -193,6 +193,8 @@ body{
 }
 #menu:hover{
     cursor: pointer;
+    background-color: none;
+    border: none;
 }
 #inside{
     position: absolute;
@@ -411,7 +413,7 @@ body{
         margin-right: auto;
         text-align: center;
     }
-    #mob-inside-content h2{
+    #mob-inside-content a{
         padding: 0px;
         margin: 0px;
         font-size: 25px;
@@ -419,9 +421,12 @@ body{
         font-family: 'Titillium Web', sans-serif;
         font-weight: 300;
         cursor: pointer;
+        display: block;
     }
-    #mob-inside-content h2:active{
+    #mob-inside-content a:active{
         color: grey;
+        background-color: none;
+        border: none;
     }
     #profile-bottom{
         width: 100%;
@@ -432,7 +437,7 @@ body{
         right: 0;left: 0;
         text-align: center;
     }
-    #profile-bottom h2{
+    #profile-bottom a{
         padding: 0px;
         margin: 0px;
         font-size: 20px;
@@ -441,7 +446,9 @@ body{
         font-weight: 300;
         cursor: pointer;
     }
-    #profile-bottom h2:active{
+    #profile-bottom a:active{
         color: grey;
+        background-color: none;
+        border: none;
     }
 }
