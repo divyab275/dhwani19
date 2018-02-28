@@ -112,7 +112,7 @@ body{
 #split2 h1{
     text-align: center;
     font-family: 'Titillium Web', sans-serif;
-    font-weight: 300;
+    font-weight: 900;
 }
 #people{
     width: 100%;
@@ -194,7 +194,147 @@ body{
 #menu:hover{
     cursor: pointer;
 }
-
+#inside{
+    position: absolute;
+    width: 628px;
+    height: 312px;
+    display: block;
+    margin:auto;
+    left: 0;right: 0;top: 0;bottom:0;
+}
+.menu-element{
+    background-image: url('../img/pattern-square.png');
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+    margin: 2px;
+}
+.anti{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.anti:hover{
+    -webkit-animation: antirotation 15s infinite linear;
+}
+.menu-element:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+#home{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/home.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#home:hover{
+    background-image: url('../img/home-text.png');
+}
+#about{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/about.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#about:hover{
+    background-image: url('../img/about-text.png');
+}
+#proshow{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/proshow.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#proshow:hover{
+    background-image: url('../img/proshow-text.png');
+}
+#event{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/events.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#event:hover{
+    background-image: url('../img/events-text.png');
+}
+#sponsors{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/sponsors.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#sponsors:hover{
+    background-image: url('../img/sponsors-text.png');
+}
+#contact{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/contact.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#contact:hover{
+    background-image: url('../img/contact-text.png');
+}
+#login{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/login.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#login:hover{
+    background-image: url('../img/login-text.png');
+}
+#accomodation{
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;    
+    display: block;
+    margin: auto;
+    background-image: url('../img/accomodation.png');
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+#accomodation:hover{
+    background-image: url('../img/accomodation-text.png');
+}
+#mob-inside{
+    display: none;
+}
 
 @media (max-width:768px){
     #gradient{
@@ -251,5 +391,57 @@ body{
     }
     #menu{
         top: 5%;bottom: auto;
+    }
+    #inside{
+        display: none;
+    }
+    #mob-inside{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    #mob-inside-content{
+        display: block;
+        width: 100%;
+        height: 60%;
+        margin-top: 20%;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    #mob-inside-content h2{
+        padding: 0px;
+        margin: 0px;
+        font-size: 25px;
+        color: white;
+        font-family: 'Titillium Web', sans-serif;
+        font-weight: 300;
+        cursor: pointer;
+    }
+    #mob-inside-content h2:active{
+        color: grey;
+    }
+    #profile-bottom{
+        width: 100%;
+        height: 60px;
+        position: absolute;
+        display: block;
+        top: 70%;
+        right: 0;left: 0;
+        text-align: center;
+    }
+    #profile-bottom h2{
+        padding: 0px;
+        margin: 0px;
+        font-size: 20px;
+        color: white;
+        font-family: 'Titillium Web', sans-serif;
+        font-weight: 300;
+        cursor: pointer;
+    }
+    #profile-bottom h2:active{
+        color: grey;
     }
 }
