@@ -8,18 +8,31 @@ $( window ).on( "load", function() {
     var toggle = false;
     var lastActive = "#main";
 
-    function animateMenu(){
+    function resetPage(){
+        if(lastActive == "#about-content"){
+            $("#main").animate({"bottom":"0%"},0);
+            $("#main").animate({"right":"100%"},0);
+            $("#about-content").animate({"top":"100%"},0);
+            $("#about-content").animate({"right":"0%"},0);
+        }
+    }
+
+    if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
+
+    function animateMenu(callback){
         if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
         if(toggle==false){
             $("#menu").css("background-image","url('./static/img/close.png')");
             $(lastActive).animate( {"right":"100%"},anim);
             $("#menu-content").animate({"left":"0%"},anim);
             toggle = true;
+            callback();
         }else{
             $("#menu").css("background-image","url('./static/img/hamburger.png')");
             $(lastActive).animate( {"right":"0%"},anim );
             $("#menu-content").animate({"left":"100%"},anim);
-            toggle = false; 
+            toggle = false;
+            callback(); 
         }
     }
 
@@ -28,10 +41,58 @@ $( window ).on( "load", function() {
     });
 
     $( "#home" ).on( "click", function() {
+        if(lastActive == "#main"){
             animateMenu();
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu();
+        }
     });
     $( "#home-mob" ).on( "click", function() {
+        if(lastActive == "#main"){
             animateMenu();
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu();
+        }
+    });
+    $( "#about" ).on( "click", function() {
+        function animateAbout(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"100%"},anim );
+                $("#about-content").animate({"top":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateAbout);
+            console.log('hello');
+            lastActive = "#about-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateAbout);
+            lastActive = "#about-content";
+        }
+    });
+    $( "#about-mob" ).on( "click", function() {
+        function animateAbout(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"100%"},anim );
+                $("#about-content").animate({"top":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateAbout);
+            console.log('hello');
+            lastActive = "#about-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateAbout);
+            lastActive = "#about-content";
+        }
     });
 });
 

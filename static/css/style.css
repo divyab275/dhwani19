@@ -347,7 +347,91 @@ body{
     z-index: 9999999;
 }
 
+
+
+
+#about-content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    overflow-y: auto;
+}
+.section{
+    display: block;
+    width: 50%;
+    height: 100%;
+    float: left;
+    overflow: hidden;
+}
+#secOne{
+    font-family: 'Titillium Web', sans-serif;
+    color: white;
+    text-align: center; 
+}
+#secOne h2{
+    font-size: 30px;
+    font-weight: 300;
+}
+#secOne p{
+    width: 80%;
+    display: block;
+    margin: 0 auto;
+}
+#secTwo{
+    position: relative;
+}
+#allMedia{
+    width: 90%;
+    height: 90%;
+    display: block;
+    position: absolute;
+    left: 0;right: 0;top: 0;bottom: 0;
+    margin: auto;
+}
+.eachBox{
+    height: 30%;
+    width: 30%;
+    display: block;
+    float: left;
+    margin: 1.6%;
+    text-align: center;
+    font-family: 'Titillium Web', sans-serif;
+    overflow: hidden;
+}
+.eachBox img{
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+.eachBox h3{
+    color: white;
+    font-size: 30px;
+    margin-top: 10px; 
+    margin-bottom: 10px;  
+}
+.eachBox p{
+    color: white;
+    margin-top: 5px;
+}
 @media (max-width:768px){
+    .eachBox p{
+        font-size: 12px;
+        margin-top: 0px;
+        padding: 0px;
+    }
+    .eachBox h3{
+        padding: 0px;
+        margin: 0 auto;
+    }
+    .section{
+        width: 100vw;
+        height: 100vh;
+    }
+    #secOne p{
+        font-size: 10px;
+    }
     #gradient{
         width: 100%;
         height: 100%;
