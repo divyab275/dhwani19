@@ -9,12 +9,12 @@ $( window ).on( "load", function() {
     var lastActive = "#main";
 
     function resetPage(){
-        if(lastActive == "#about-content"){
             $("#main").animate({"bottom":"0%"},0);
             $("#main").animate({"right":"100%"},0);
             $("#about-content").animate({"top":"100%"},0);
             $("#about-content").animate({"right":"0%"},0);
-        }
+            $("#proshow-content").animate({"bottom":"100%"},0);
+            $("#proshow-content").animate({"right":"0%"},0);
     }
 
     if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
@@ -93,6 +93,48 @@ $( window ).on( "load", function() {
             animateMenu(animateAbout);
             lastActive = "#about-content";
         }
+    });
+    $( "#proshow" ).on( "click", function() {
+        function animateProshow(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"-100%"},anim );
+                $("#proshow-content").animate({"bottom":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateProshow);
+            console.log('hello');
+            lastActive = "#proshow-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateProshow);
+            lastActive = "#proshow-content";
+        }
+    });
+    $( "#proshow-mob" ).on( "click", function() {
+        function animateProshow(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"-100%"},anim );
+                $("#proshow-content").animate({"bottom":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateProshow);
+            console.log('hello');
+            lastActive = "#proshow-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateProshow);
+            lastActive = "#proshow-content";
+        }
+    });
+    $( "#sponsors" ).on( "click", function() {
+        window.open('https://sponsors.dhwani.org.in');
+    });
+    $( "#sponsors-mob" ).on( "click", function() {
+        window.open('https://sponsors.dhwani.org.in');
     });
 });
 
