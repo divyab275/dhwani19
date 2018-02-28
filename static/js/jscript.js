@@ -1,7 +1,7 @@
 
 
 $( window ).on( "load", function() {
-    $("#overlay").animate({"bottom":"100vh"},400);
+    $("#overlay").animate({"bottom":"100vh"},600);
 
 
 
