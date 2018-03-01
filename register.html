@@ -5,8 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dhwani 18</title>
-    <link rel="stylesheet" type="text/css" href="./static/css/regstyle.css">
-    
+    <link rel="stylesheet" type="text/css" href="./static/css/regstyle.css">   
     <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -15,8 +14,8 @@
     </script>
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
     <script src="static/js/jscript.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
-        <script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script>
           // Initialize Firebase
           var config = {
             apiKey: "AIzaSyAcc11rgCRK5Ygd1WpFX556Sn36HGCI-hA",
@@ -28,9 +27,9 @@
           };
           firebase.initializeApp(config);
 
-         </script>
+      </script>
 
-         <script>
+      <script>
 
              var providerGoogle = new firebase.auth.GoogleAuthProvider();
              var providerFacebook = new firebase.auth.FacebookAuthProvider();
@@ -65,6 +64,8 @@
             var email = error.email;
             // The firebase.auth.AuthCredential type that was used.
             var credential = error.credential;
+
+            document.getElementById("login_failed").innerHTML = "Login Failed.";
             // ...
           });
 
@@ -76,6 +77,7 @@
           // Sign-out successful.
         }).catch(function(error) {
           // An error happened.
+
         });
         
        }
@@ -83,8 +85,6 @@
         initApp = function check() {
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
-
-            
 
             user.getIdToken().then(function(accessToken) {
 
@@ -100,63 +100,17 @@
                 .then(function(response){
                     if(response.data.registered===true){
                       
-                          document.getElementById('account').style.display='block';
-                          document.getElementById('account').style.visibility='visible';
-                          /*
-                          document.getElementById('sign-in-status').style.visibility = 'visible';
-                          document.getElementById('account-details').style.visibility = 'visible';
-                          document.getElementById('sign-out').style.visibility = 'visible';
-                          */
+                        window.location.href = "./profile.html";
 
-                          document.getElementById('regpage').style.display='none';
-                          document.getElementById('register').style.display='none';
-                       /*
-                       document.getElementById('Gsign-in').style.visibility = 'hidden';
-                       document.getElementById('Fsign-in').style.visibility = 'hidden';
-                      */
-                      
-                      // User is signed in.
-                      var displayName = user.displayName;
-                      var email = user.email;
-                      var emailVerified = user.emailVerified;
-                      var photoURL = user.photoURL;
-                      var uid = user.uid;
-                      var phoneNumber = user.phoneNumber;
-                      var providerData = user.providerData;
-                      user.getIdToken().then(function(accessToken) {
-                        document.getElementById('sign-in-status').textContent = 'Signed in';
-                        document.getElementById('account-details').textContent = JSON.stringify({
-                          displayName: displayName,
-                          email: email,
-                          emailVerified: emailVerified,
-                          phoneNumber: phoneNumber,
-                          photoURL: photoURL,
-                          uid: uid,
-                          accessToken: accessToken,
-                          providerData: providerData
-                        }, null, '  ');
-                      });
-                      axios.get('http://admin.dhwanicet.org:3000/public/student/'+email)
-                      .then(function(response){
-                        console.log(response.data)
-                        document.getElementById('unique-id').innerHTML=response.data.id;
-                      });
-                      document.getElementById("displayName").innerHTML=displayName;
-                      document.getElementById("email").innerHTML=email;
-                      document.getElementById('profilepic').setAttribute('src',photoURL);
-                              }
+
+                      }
                     else{
 
                          document.getElementById('register').style.display='block';
                           document.getElementById('register').style.visibility='visible';
-                          /*
-                          document.getElementById('sign-in-status').style.visibility = 'visible';
-                          document.getElementById('account-details').style.visibility = 'visible';
-                          document.getElementById('sign-out').style.visibility = 'visible';
-                          */
+                       
 
                           document.getElementById('regpage').style.display='none';
-                          document.getElementById('account').style.display='none';
 
 
                     }
@@ -167,24 +121,10 @@
 
               
           } else {
-
-            /*document.getElementById('sign-in-status').style.visibility = 'hidden';
-            document.getElementById('account-details').style.visibility = 'hidden';
-           document.getElementById('sign-out').style.visibility = 'hidden';
-           */
            document.getElementById("regpage").style.display="block";
-           /*
-             document.getElementById('Gsign-in').style.visibility = 'visible';
-            document.getElementById('Fsign-in').style.visibility = 'visible';
-            */
-
-
-            // User is signed out.
-            document.getElementById('account').style.display='none';
+           
             document.getElementById('register').style.display='none';
 
-            document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('account-details').textContent = 'null';
           }
         }, function(error) {
           console.log(error);
@@ -201,35 +141,21 @@
             <div id="container">
                 <div id="gradient">
                     <div class="content">
-                        <div class="row">
-                            <div class="col-12">
-                                <img src="./static/img/logos.png" id="logo"/>
-                            </div>
-                        </div>
                         <div class="row" id="regpage">
                             <div class="col-6" id="colregimg">
         
                             </div>
                             <div class="col-6" id="colbut">
                               <h4 id="registerhead">REGISTER</h4>
+
+                              <p id="login_failed" style="text-align:center;"></p>
+
                               <button id="Fsign-in" class="loginBtn loginBtn--facebook" onclick="facebookSignIn()">Log in With Facebook</button>
                               <button id="Gsign-in" class="loginBtn loginBtn--google" onclick="googleSignIn()">Log in With Google</button>
                               <p id="logintext">After registering you get a unique ID number. You need this ID number for registering for competitions,attending talk shows,proshows etc..</p>
                             </div>   
                         </div>
-                        <div class="row" id="account" style="visibility:none;">
-                            <div class="col-6">
-                                <div id="sign-in-status" style="text-align: center;font-size:20px;"></div>
-                                <p id="displayName" style="font-size:40px;text-align:center;margin:20px;"></p>
-                                <p id="email" style="font-size:20px;text-align:center;"></p>
-                                <img id="profilepic" style="width:200px;height:200px; display:block;margin-left:auto;margin-right:auto;">
-                                <p style="text-align:center;margin-top:5px;">Your DHWANI id:</p>
-                                <p id="unique-id" style=" text-align:center;"></p>
-                                <button style="margin-top:0px;" id="sign-out" onclick="signOut()" class="submitbtn"> SIGN OUT</button>
-                            </div>
-                            <div class="col-6">
-                              <h4 id="" style="font-size:30px;text-align:center;">YOUR REGISTERED COMPETITIONS</h4>
-                            </div>
+                      
                         </div>
                         <div class="row" id="register" style="visibility:none;">
                           <div class="col-6" id="colregimg">
