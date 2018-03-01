@@ -450,18 +450,25 @@ body{
     display: block;
     right: 100%;
     text-align: center;
-    background-color: red;
     color: white;
 }
 #secOneContact{
     position: relative;
-    background-color: red;
 }
 #secTwoContact{
     position: relative;
-    background-color: black;
 }
-.secContent{
+.secContentOne{
+    width: 90%;
+    height: 40%;
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;left: 0;right: 0;bottom: 0;
+    text-align: center;
+    overflow-y: hidden;
+}
+.secContentTwo{
     width: 90%;
     height: 90%;
     display: block;
@@ -469,16 +476,18 @@ body{
     margin: auto;
     top: 0;left: 0;right: 0;bottom: 0;
     text-align: center;
-    background-color: yellow;
+    overflow-y: hidden;
 }
 #secOneContact h2{
     font-size: 40px;
     font-weight: 300;
 }
+.secContentTwo p{
+    font-size: 15px;
+}
 .smallBox{
     width: 23%;
     height: 50px;
-    background-color: black;
     display: inline-block;
 }
 .smallBox img{
@@ -486,6 +495,36 @@ body{
 }
 
 @media (max-width:768px){
+    #contact-content{
+        overflow-y: scroll;
+    }
+    #secOneContact{
+        height: 40%;
+        margin-top: 30px;
+    }
+    #secTwoContact{
+        position: relative;
+        height: 180%;
+    }
+    .secContentTwo{
+        height: 100%;
+    }
+    .secContentOne{
+        height: 100%;
+        width: 100%;
+    }
+    .secContentOne h3{
+        margin-top: 5px;
+    }
+    .secContent{
+        overflow-y: scroll;
+    }
+    #secTwoContact{
+    }
+    .smallBox img{
+        width: 30px;
+        height: 30px;
+    }
     #centerComing{
         width: 100%;
     }
