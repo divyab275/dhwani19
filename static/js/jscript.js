@@ -136,6 +136,63 @@ $( window ).on( "load", function() {
     $( "#sponsors-mob" ).on( "click", function() {
         window.open('https://sponsors.dhwani.org.in');
     });
+    $( "#contact-fb" ).on( "click", function() {
+        window.open('https://facebook.com/dhwanifest');
+    });
+    $( "#fb" ).on( "click", function() {
+        window.open('https://facebook.com/dhwanifest');
+    });
+    $( "#contact-twitter" ).on( "click", function() {
+        window.open('https://twitter.com/dhwanifest');
+    });
+    $( "#contact-insta" ).on( "click", function() {
+        window.open('https://instagram.com/dhwanifest');
+    });
+    $( "#insta" ).on( "click", function() {
+        window.open('https://instagram.com/dhwanifest');
+    });
+    $( "#contact-youtube" ).on( "click", function() {
+        window.open('https://www.youtube.com/channel/UCUGXXOIJVE6jpuQY2EubYTA');
+    });
+    $( "#you" ).on( "click", function() {
+        window.open('https://www.youtube.com/channel/UCUGXXOIJVE6jpuQY2EubYTA');
+    });
+    $( "#contact" ).on( "click", function() {
+        function animateContact(){
+            setTimeout(function() {
+                $("#main").animate( {"right":"-100%"},anim );
+                $("#contact-content").animate({"right":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateContact);
+            console.log('hello');
+            lastActive = "#contact-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateContact);
+            lastActive = "#contact-content";
+        }
+    });
+    $( "#contact-mob" ).on( "click", function() {
+        function animateContact(){
+            setTimeout(function() {
+                $("#main").animate( {"right":"-100%"},anim );
+                $("#contact-content").animate({"right":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateContact);
+            console.log('hello');
+            lastActive = "#contact-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateContact);
+            lastActive = "#contact-content";
+        }
+    });
 });
 
 $( document ).ready(function() {

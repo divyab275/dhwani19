@@ -441,6 +441,50 @@ body{
 }
 
 
+
+#contact-content{
+    font-family: 'Titillium Web', sans-serif;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    right: 100%;
+    text-align: center;
+    background-color: red;
+    color: white;
+}
+#secOneContact{
+    position: relative;
+    background-color: red;
+}
+#secTwoContact{
+    position: relative;
+    background-color: black;
+}
+.secContent{
+    width: 90%;
+    height: 90%;
+    display: block;
+    position: absolute;
+    margin: auto;
+    top: 0;left: 0;right: 0;bottom: 0;
+    text-align: center;
+    background-color: yellow;
+}
+#secOneContact h2{
+    font-size: 40px;
+    font-weight: 300;
+}
+.smallBox{
+    width: 23%;
+    height: 50px;
+    background-color: black;
+    display: inline-block;
+}
+.smallBox img{
+    cursor: pointer;
+}
+
 @media (max-width:768px){
     #centerComing{
         width: 100%;
