@@ -84,13 +84,18 @@
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
 
+            
 
             user.getIdToken().then(function(accessToken) {
+
+              localStorage.setItem("accessToken", accessToken);
+
                 var config = {
                  headers: {'Content-Type': 'application/x-www-form-urlencoded',
                'x-auth-token' : accessToken}
                 };
 
+                console.log(accessToken);
                 axios.post('http://admin.dhwanicet.org:3000/student/login', {}, config)
                 .then(function(response){
                     if(response.data.registered===true){
@@ -130,6 +135,11 @@
                           accessToken: accessToken,
                           providerData: providerData
                         }, null, '  ');
+                      });
+                      axios.get('http://admin.dhwanicet.org:3000/public/student/'+email)
+                      .then(function(response){
+                        console.log(response.data)
+                        document.getElementById('unique-id').innerHTML=response.data.id;
                       });
                       document.getElementById("displayName").innerHTML=displayName;
                       document.getElementById("email").innerHTML=email;
@@ -185,6 +195,7 @@
         initApp()
       });
         </script>
+         
         </head>
         <body>
             <div id="container">
@@ -212,7 +223,8 @@
                                 <p id="displayName" style="font-size:40px;text-align:center;margin:20px;"></p>
                                 <p id="email" style="font-size:20px;text-align:center;"></p>
                                 <img id="profilepic" style="width:200px;height:200px; display:block;margin-left:auto;margin-right:auto;">
-                                <p style="text-align:center;margin-top:5px;">Your Unique id:<p id="unique-id" style="display: inline-block; text-align:center;"></p></p>
+                                <p style="text-align:center;margin-top:5px;">Your DHWANI id:</p>
+                                <p id="unique-id" style=" text-align:center;"></p>
                                 <button style="margin-top:0px;" id="sign-out" onclick="signOut()" class="submitbtn"> SIGN OUT</button>
                             </div>
                             <div class="col-6">
@@ -231,7 +243,7 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="inputcollege">College</label>
-                                            <input type="text" id="selectedcollege" list="json-collegelist" placeholder="e.g. datalist" class="formelement">
+                                            <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement">
                                 <datalist id="json-collegelist">
                                 </datalist>
                                         </div>
@@ -262,13 +274,11 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="submitbtn btn btn-default" data-dismiss="modal">
-                                        Close
-                                    </button>
-
-                                    <button type="button" class="submitbtn 
-                                    .btn btn-primary register-button" onclick="findCollegeId()">
+                                    <button style="text-align:right;" type="button" class="submitbtn" onclick="register()">
                                         Register
+                                    </button>
+                                    <button style="text-align:left;" type="button" class="submitbtn" data-dismiss="modal" onclick="signOut()">
+                                        Close
                                     </button>
                                 </div>   
                              </div>
@@ -280,4 +290,92 @@
 
           
         </body>
+
+        <script type="text/javascript">
+                    // Get the <datalist> and <input> elements.
+              var collegeList = document.getElementById('json-collegelist');
+              var input = document.getElementById('selectedcollege');
+              var collegeId ;
+              
+              // Create a new XMLHttpRequest.
+
+              var request = new XMLHttpRequest();
+
+              var jsonOptionsTemp;
+
+              // Handle state changes for the request.
+              request.onreadystatechange = function(response) {
+                if (request.readyState === 4) {
+                  if (request.status === 200) {
+                    // Parse the JSON
+                    var jsonOptions = JSON.parse(request.responseText);
+
+                    jsonOptionsTemp =jsonOptions;
+                    // Loop over the JSON array.
+                    jsonOptions.forEach(function(item) {
+                      // Create a new <option> element.
+                      var option = document.createElement('option');
+                      // Set the value using the item in the JSON array.
+                      option.value = item.name;
+                      option.id = item.id;
+                      // Add the <option> element to the <datalist>.
+                      collegeList.appendChild(option);
+                    });
+
+                    
+                    // Update the placeholder text.
+                    input.placeholder = "enter college name";
+                  } else {
+                    // An error occured :(
+                    input.placeholder = "Couldn't load datalist options :(";
+                  }
+                }
+              };
+
+              // Update the placeholder text.
+              input.placeholder = "Loading options...";
+
+              // Set up and make the request.
+              request.open('GET', 'http://admin.dhwanicet.org:3000/public/college', true);
+              request.send();
+
+
+
+              function register(input){
+                var inputTemp = document.getElementById('selectedcollege');
+                 jsonOptionsTemp.forEach(function(item) {
+                  if(inputTemp.value===item.name){
+                    collegeId=item.id;
+                  }
+                 });
+                 var accomodation;
+                 var phone = document.getElementById('inputphone').value;
+                  var accoCheck = document.getElementById('inputacco').checked;
+                  if(accoCheck===true)
+                     accomodation = document.querySelector('input[name = "sex"]:checked').value;
+                   else
+                    accomodation = 'none'
+                 console.log(collegeId);
+                  console.log(phone);
+                  console.log(accoCheck);
+                  console.log(accomodation);
+
+                var accessToken = localStorage.getItem("accessToken");
+
+                  var config = {
+                 headers: {'Content-Type': 'application/x-www-form-urlencoded',
+               'x-auth-token' : accessToken}
+                };
+
+                axios.post('http://admin.dhwanicet.org:3000/student/register', {'phone':phone,'accomodation':accomodation,'collegeId':collegeId }, config)
+                .then(function(response){
+
+                  console.log("registration completed");
+              });
+
+              initApp();
+              }
+              </script>
+
+
 </html>
