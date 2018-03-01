@@ -1,8 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Sample FirebaseUI App</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dhwani 18</title>
+    <link rel="stylesheet" type="text/css" href="./static/css/regstyle.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Caveat+Brush" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
+    <script src="static/js/jscript.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
         <script>
           // Initialize Firebase
@@ -40,6 +52,8 @@
             var token = result.credential.accessToken;
             // The signed-in user info.
             var user = result.user;
+
+
             // ...
           }).catch(function(error) {
 
@@ -70,44 +84,95 @@
         firebase.auth().onAuthStateChanged(function(user) {
           if (user) {
 
-                  document.getElementById('sign-in-status').style.visibility = 'visible';
-            document.getElementById('account-details').style.visibility = 'visible';
-           document.getElementById('sign-out').style.visibility = 'visible';
 
-             document.getElementById('Gsign-in').style.visibility = 'hidden';
-             document.getElementById('Fsign-in').style.visibility = 'hidden';
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var uid = user.uid;
-            var phoneNumber = user.phoneNumber;
-            var providerData = user.providerData;
             user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }, null, '  ');
-            });
+                var config = {
+                 headers: {'Content-Type': 'application/x-www-form-urlencoded',
+               'x-auth-token' : accessToken}
+                };
+
+                axios.post('http://admin.dhwanicet.org:3000/student/login', {}, config)
+                .then(function(response){
+                    if(response.data.registered===true){
+                      
+                          document.getElementById('account').style.display='block';
+                          document.getElementById('account').style.visibility='visible';
+                          /*
+                          document.getElementById('sign-in-status').style.visibility = 'visible';
+                          document.getElementById('account-details').style.visibility = 'visible';
+                          document.getElementById('sign-out').style.visibility = 'visible';
+                          */
+
+                          document.getElementById('regpage').style.display='none';
+                          document.getElementById('register').style.display='none';
+                       /*
+                       document.getElementById('Gsign-in').style.visibility = 'hidden';
+                       document.getElementById('Fsign-in').style.visibility = 'hidden';
+                      */
+                      
+                      // User is signed in.
+                      var displayName = user.displayName;
+                      var email = user.email;
+                      var emailVerified = user.emailVerified;
+                      var photoURL = user.photoURL;
+                      var uid = user.uid;
+                      var phoneNumber = user.phoneNumber;
+                      var providerData = user.providerData;
+                      user.getIdToken().then(function(accessToken) {
+                        document.getElementById('sign-in-status').textContent = 'Signed in';
+                        document.getElementById('account-details').textContent = JSON.stringify({
+                          displayName: displayName,
+                          email: email,
+                          emailVerified: emailVerified,
+                          phoneNumber: phoneNumber,
+                          photoURL: photoURL,
+                          uid: uid,
+                          accessToken: accessToken,
+                          providerData: providerData
+                        }, null, '  ');
+                      });
+                      document.getElementById("displayName").innerHTML=displayName;
+                      document.getElementById("email").innerHTML=email;
+                      document.getElementById('profilepic').setAttribute('src',photoURL);
+                              }
+                    else{
+
+                         document.getElementById('register').style.display='block';
+                          document.getElementById('register').style.visibility='visible';
+                          /*
+                          document.getElementById('sign-in-status').style.visibility = 'visible';
+                          document.getElementById('account-details').style.visibility = 'visible';
+                          document.getElementById('sign-out').style.visibility = 'visible';
+                          */
+
+                          document.getElementById('regpage').style.display='none';
+                          document.getElementById('account').style.display='none';
+
+
+                    }
+                  });
+
+            }); 
+
+
+              
           } else {
 
-            document.getElementById('sign-in-status').style.visibility = 'hidden';
+            /*document.getElementById('sign-in-status').style.visibility = 'hidden';
             document.getElementById('account-details').style.visibility = 'hidden';
            document.getElementById('sign-out').style.visibility = 'hidden';
+           */
+           document.getElementById("regpage").style.display="block";
+           /*
              document.getElementById('Gsign-in').style.visibility = 'visible';
             document.getElementById('Fsign-in').style.visibility = 'visible';
-
+            */
 
 
             // User is signed out.
+            document.getElementById('account').style.display='none';
+            document.getElementById('register').style.display='none';
+
             document.getElementById('sign-in-status').textContent = 'Signed out';
             document.getElementById('account-details').textContent = 'null';
           }
@@ -122,11 +187,97 @@
         </script>
         </head>
         <body>
-          <button id="Fsign-in" onclick="facebookSignIn()"> facebook</button>
-          <button id="Gsign-in" onclick="googleSignIn()"> google</button>
+            <div id="container">
+                <div id="gradient">
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-12">
+                                <img src="./static/img/logos.png" id="logo"/>
+                            </div>
+                        </div>
+                        <div class="row" id="regpage">
+                            <div class="col-6" id="colregimg">
+        
+                            </div>
+                            <div class="col-6" id="colbut">
+                              <h4 id="registerhead">REGISTER</h4>
+                              <button id="Fsign-in" class="loginBtn loginBtn--facebook" onclick="facebookSignIn()">Log in With Facebook</button>
+                              <button id="Gsign-in" class="loginBtn loginBtn--google" onclick="googleSignIn()">Log in With Google</button>
+                              <p id="logintext">After registering you get a unique ID number. You need this ID number for registering for competitions,attending talk shows,proshows etc..</p>
+                            </div>   
+                        </div>
+                        <div class="row" id="account" style="visibility:none;">
+                            <div class="col-6">
+                                <div id="sign-in-status" style="text-align: center;font-size:20px;"></div>
+                                <p id="displayName" style="font-size:40px;text-align:center;margin:20px;"></p>
+                                <p id="email" style="font-size:20px;text-align:center;"></p>
+                                <img id="profilepic" style="width:200px;height:200px; display:block;margin-left:auto;margin-right:auto;">
+                                <p style="text-align:center;margin-top:5px;">Your Unique id:<p id="unique-id" style="display: inline-block; text-align:center;"></p></p>
+                                <button style="margin-top:0px;" id="sign-out" onclick="signOut()" class="submitbtn"> SIGN OUT</button>
+                            </div>
+                            <div class="col-6">
+                              <h4 id="" style="font-size:30px;text-align:center;">YOUR REGISTERED COMPETITIONS</h4>
+                            </div>
+                        </div>
+                        <div class="row" id="register" style="visibility:none;">
+                          <div class="col-6" id="colregimg">
+                          </div>
+                            <div class="col-6">
+                            <h5 id="yregcom">PLEASE FILL OUT THESE DETAILS</h5>
+                            
+                             
+                                            <div class="modal-body">
+                                    <p></p>
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="inputcollege">College</label>
+                                            <input type="text" id="selectedcollege" list="json-collegelist" placeholder="e.g. datalist" class="formelement">
+                                <datalist id="json-collegelist">
+                                </datalist>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputphone">Phone</label>
+                                            <input type="text" class="formelement" id="inputphone">
+                                        </div>
+                                        <label>Sex</label>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="sex" id="inputsexmale" class="inputsex" value="male" checked>
+                                                Male
+                                            </label>
+                                        </div>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="sex" id="inputsexfemale" value="female" class="inputsex" checked>
+                                                Female
+                                            </label>
+                                        </div>
+                                        <label>Accomodation</label>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" id="inputacco" class="">
+                                                    Accomodation Required
+                                            </label>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="submitbtn btn btn-default" data-dismiss="modal">
+                                        Close
+                                    </button>
 
-          <div id="sign-in-status"></div>
-         <div id="account-details"></div>
+                                    <button type="button" class="submitbtn 
+                                    .btn btn-primary register-button" onclick="findCollegeId()">
+                                        Register
+                                    </button>
+                                </div>   
+                             </div>
+                        </div>
+                        
+                    </div>
+                </div>    
+            </div>
 
-         <button id="sign-out" onclick="signOut()"> signout</button>
+          
         </body>
+</html>
