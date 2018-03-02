@@ -10,8 +10,6 @@ var config = {
 firebase.initializeApp(config);
 
 
-var registered = false;
-var userPresent = false;
     var providerGoogle = new firebase.auth.GoogleAuthProvider();
     var providerFacebook = new firebase.auth.FacebookAuthProvider();
 
@@ -80,18 +78,11 @@ firebase.auth().onAuthStateChanged(function(user) {
         axios.post('https://api.dhwanicet.org/student/login', {}, config)
         .then(function(response){
             if(response.data.registered===true){
-                registered = true;
-                userPresent = true;
                 console.log(registered + " registered");
                 console.log(userPresent + "userPresent");
                 //window.location.href = "./profile.html";
                 }
             else{
-                    userPresent = true;
-                    registered = false;
-                    console.log(registered + " registered");
-                    console.log(userPresent + "userPresent");
-                    console.log("am here");
                     $('#register').animate({"right":"0%"});
                     $('#regpage').animate({"right":"100%"});
                     //document.getElementById('register').style.display='block';
@@ -105,15 +96,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 
         
     } else {
-        userPresent = false;
-        registered = false;
-        $('#register').animate({"right":"100%"});
+        $('#register').animate({"right":"-100%"});
         $('#regpage').animate({"right":"0%"});
-        console.log(registered + " registered");
-        console.log(userPresent + "userPresent");
-        document.getElementById("regpage").style.display="block";
-        //document.getElementById('register').style.display='none';
-
     }
 }, function(error) {
     console.log(error);

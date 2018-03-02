@@ -521,9 +521,9 @@ body{
     display: block;
     top: 0;
     bottom: 0;
-    right:  0%;
+    right:  100%;
     margin: auto;
-    width: 100%;
+    width: 0%;
     height: 400px;
     text-align: center;
     font-family: 'Titillium Web', sans-serif;
@@ -541,12 +541,11 @@ body{
     margin: auto;
     width: 100%;
     height: 100%;
-    right: 100%;
+    right: -100%;
 }
 #contentCenter{
     width: 100%;
     height: 400px;
-    background-color: red;
     display: block;
     position: absolute;
     margin: auto;
@@ -556,7 +555,74 @@ body{
     color: white;
 }
 
+#yregcom{
+    font-size: 30px;
+    text-align: center;
+    margin:0;
+    color: white;
+    text-decoration-line: underline;
+} 
 
+#registerhead{
+    font-size:50px;
+    text-align: center;
+    text-shadow: 3px 1px 5px white;
+}
+
+.submitbtn {
+    background-color:transparent; /* Green */
+    border: 2px solid white;
+    border-radius: 6px;
+    margin: 10px;
+    color: white;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+}
+.modal-footer{
+    display: block;
+    margin: 0px auto;
+    width: 240px;
+    height: 50px;
+}
+
+#submitbtn {
+    width:200px;
+    background: #3e9cbf; 
+    padding: 8px 14px 10px; 
+    border:1px solid #3e9cbf; 
+    cursor:pointer;
+    font-size:1.5em;
+    font-family:Oswald, sans-serif; 
+    letter-spacing:.1em;
+    text-shadow: 0 -1px 0px rgba(0, 0, 0, 0.3); 
+    color: #fff;
+    -webkit-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 5px 0px 0px #205c73, 0px 10px 5px #999;
+    -moz-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 5px 0px 0px #205c73, 0px 10px 5px #999;
+    box-shadow: inset 0px 1px 0px #3e9cbf, 0px 5px 0px 0px #205c73, 0px 10px 5px #999;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin-top:100px;
+    display: block;
+    margin-left:150px;
+    }
+    #submitbtn:hover, #submitbtn:focus {
+    color:#dfe7ea;
+    -webkit-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+    -moz-box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+    box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
+    }
+.formelement{
+    margin-top:50px;
+    width:400px;
+    height:40px;
+}
 
 
 .loginBtn {
@@ -625,6 +691,12 @@ body{
   }
 
 @media (max-width:768px){
+    #selectedcollege{
+        margin-top: 0px;
+    }
+    #inputphone{
+        margin-top: 0px;
+    }
     #regpage{
         height: 350px;
     }
