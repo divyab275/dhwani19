@@ -114,13 +114,20 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 };
 
+
+
 window.addEventListener('load', function() {
 initApp()
 });
 
 
 $( window ).on( "load", function() {
-
+    if(userPresent == true){
+        if(registered == false){
+            $('#register').animate({"right":"0%"});
+            $('#regpage').animate({"right":"100%"});
+        }
+    }
 
 
     $("#overlay").animate({"bottom":"100vh"},600);
