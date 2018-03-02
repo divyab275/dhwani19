@@ -91,13 +91,9 @@ firebase.auth().onAuthStateChanged(function(user) {
                     registered = false;
                     console.log(registered + " registered");
                     console.log(userPresent + "userPresent");
-                    if(userPresent == true){
-                        if(registered == false){
-                            console.log("am here");
-                            $('#register').animate({"right":"0%"});
-                            $('#regpage').animate({"right":"100%"});
-                        }
-                    }
+                    console.log("am here");
+                    $('#register').animate({"right":"0%"});
+                    $('#regpage').animate({"right":"100%"});
                     //document.getElementById('register').style.display='block';
                     //document.getElementById('register').style.visibility='visible';
                     //document.getElementById('regpage').style.display='none';
@@ -110,6 +106,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         
     } else {
         userPresent = false;
+        registered = false;
+        $('#register').animate({"right":"100%"});
+        $('#regpage').animate({"right":"0%"});
         console.log(registered + " registered");
         console.log(userPresent + "userPresent");
         document.getElementById("regpage").style.display="block";
