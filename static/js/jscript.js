@@ -124,6 +124,7 @@ initApp()
 $( window ).on( "load", function() {
     if(userPresent == true){
         if(registered == false){
+            console.log("am here");
             $('#register').animate({"right":"0%"});
             $('#regpage').animate({"right":"100%"});
         }
