@@ -379,7 +379,7 @@ if (request.readyState === 4) {
 input.placeholder = "Loading options...";
 
 // Set up and make the request.
-request.open('GET', 'http://admin.dhwanicet.org:3000/public/college', true);
+request.open('GET', 'https://api.dhwanicet.org/public/college', true);
 request.send();
 
 
@@ -410,7 +410,7 @@ var accessToken = localStorage.getItem("accessToken");
 'x-auth-token' : accessToken}
 };
 
-axios.post('http://admin.dhwanicet.org:3000/student/register', {'phone':phone,'accomodation':accomodation,'collegeId':collegeId }, config)
+axios.post('https://api.dhwanicet.org/student/register', {'phone':phone,'accomodation':accomodation,'collegeId':collegeId }, config)
 .then(function(response){
 
   console.log("registration completed");
