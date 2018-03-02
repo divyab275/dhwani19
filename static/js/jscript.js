@@ -77,21 +77,23 @@ firebase.auth().onAuthStateChanged(function(user) {
         };
 
         console.log(accessToken);
-        axios.post('http://api.dhwanicet.org/student/login', {}, config)
+        axios.post('https://api.dhwanicet.org/student/login', {}, config)
         .then(function(response){
             if(response.data.registered===true){
                 registered = true;
                 userPresent = true;
                 console.log(registered + " registered");
-                console.log()
+                console.log(userPresent + "userPresent");
                 //window.location.href = "./profile.html";
                 }
             else{
                     userPresent = true;
                     registered = false;
+                    console.log(registered + " registered");
+                    console.log(userPresent + "userPresent");
                     //document.getElementById('register').style.display='block';
                     //document.getElementById('register').style.visibility='visible';
-                    document.getElementById('regpage').style.display='none';
+                    //document.getElementById('regpage').style.display='none';
             }
             });
 
@@ -101,6 +103,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         
     } else {
         userPresent = false;
+        console.log(registered + " registered");
+        console.log(userPresent + "userPresent");
         document.getElementById("regpage").style.display="block";
         //document.getElementById('register').style.display='none';
 
