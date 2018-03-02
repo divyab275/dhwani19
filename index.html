@@ -39,11 +39,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dhwani 18</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+    </script>
     <script src="./static/js/jscript.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+
+    <script>
+
+    </script>
+
 </head>
 <body>
     <div class="" id="overlay">
@@ -252,6 +262,20 @@
                                     KHELOTSAV - Sports Festival : Hariprasad 9544997536<br>
                                     MISCELANEO - Miscellaneous : Nithin 8089651277<br>
                                 </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="" id="login-content">
+                    <div class="sectionReg" id="secOneReg">
+
+                    </div>
+                    <div class="sectionReg" id="secTwoReg">
+                        <div class="" id="regpage">
+                            <h4 id="registerhead">REGISTER</h4>
+                            <p id="login_failed" style="text-align:center;"></p>
+                            <button id="Fsign-in" class="loginBtn loginBtn--facebook" onclick="facebookSignIn()">Log in With Facebook</button>
+                            <button id="Gsign-in" class="loginBtn loginBtn--google" onclick="googleSignIn()">Log in With Google</button>
+                            <p id="logintext">After registering you get a unique ID number. You need this ID number for registering for competitions,attending talk shows,proshows etc..</p>  
                         </div>
                     </div>
                 </div>

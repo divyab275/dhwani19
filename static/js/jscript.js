@@ -1,6 +1,124 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAcc11rgCRK5Ygd1WpFX556Sn36HGCI-hA",
+    authDomain: "dhwani18-8b03f.firebaseapp.com",
+    databaseURL: "https://dhwani18-8b03f.firebaseio.com",
+    projectId: "dhwani18-8b03f",
+    storageBucket: "dhwani18-8b03f.appspot.com",
+    messagingSenderId: "866486690145"
+};
+firebase.initializeApp(config);
+
+
+var registered = false;
+var userPresent = false;
+    var providerGoogle = new firebase.auth.GoogleAuthProvider();
+    var providerFacebook = new firebase.auth.FacebookAuthProvider();
+
+    function googleSignIn(){
+        SignIn(providerGoogle);
+    }
+
+    function facebookSignIn(){
+        SignIn(providerFacebook);
+    }
+
+
+    function SignIn(provider){  
+
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+
+
+    // ...
+    }).catch(function(error) {
+
+    console.log(error);
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+
+    document.getElementById("login_failed").innerHTML = "Login Failed.";
+    // ...
+    });
+
+    
+}
+
+function signOut(){
+            firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+}).catch(function(error) {
+    // An error happened.
+
+});
+
+}
+
+initApp = function check() {
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+
+    user.getIdToken().then(function(accessToken) {
+
+        localStorage.setItem("accessToken", accessToken);
+
+        var config = {
+            headers: {'Content-Type': 'application/x-www-form-urlencoded',
+        'x-auth-token' : accessToken}
+        };
+
+        console.log(accessToken);
+        axios.post('http://api.dhwanicet.org/student/login', {}, config)
+        .then(function(response){
+            if(response.data.registered===true){
+                registered = true;
+                userPresent = true;
+                console.log(registered + " registered");
+                console.log()
+                //window.location.href = "./profile.html";
+                }
+            else{
+                    userPresent = true;
+                    registered = false;
+                    //document.getElementById('register').style.display='block';
+                    //document.getElementById('register').style.visibility='visible';
+                    document.getElementById('regpage').style.display='none';
+            }
+            });
+
+    }); 
+
+
+        
+    } else {
+        userPresent = false;
+        document.getElementById("regpage").style.display="block";
+        //document.getElementById('register').style.display='none';
+
+    }
+}, function(error) {
+    console.log(error);
+});
+};
+
+window.addEventListener('load', function() {
+initApp()
+});
 
 
 $( window ).on( "load", function() {
+
+
+
     $("#overlay").animate({"bottom":"100vh"},600);
 
 
@@ -13,6 +131,8 @@ $( window ).on( "load", function() {
             $("#main").animate({"right":"100%"},0);
             $("#about-content").animate({"top":"100%"},0);
             $("#about-content").animate({"right":"0%"},0);
+            $("#login-content").animate({"top":"100%"},0);
+            $("#login-content").animate({"right":"0%"},0);
             $("#proshow-content").animate({"bottom":"100%"},0);
             $("#proshow-content").animate({"right":"0%"},0);
     }
@@ -193,6 +313,44 @@ $( window ).on( "load", function() {
             lastActive = "#contact-content";
         }
     });
+    $( "#login" ).on( "click", function() {
+        function animateLogin(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"100%"},anim );
+                $("#login-content").animate({"top":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateLogin);
+            console.log('hello');
+            lastActive = "#login-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateLogin);
+            lastActive = "#login-content";
+        }
+    });
+    $( "#login-mob" ).on( "click", function() {
+        function animateLogin(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"100%"},anim );
+                $("#login-content").animate({"top":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateLogin);
+            console.log('hello');
+            lastActive = "#login-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateLogin);
+            lastActive = "#login-content";
+        }
+    });
+
+
 });
 
 $( document ).ready(function() {
