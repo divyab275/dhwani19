@@ -39,11 +39,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dhwani 18</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+    </script>
     <script src="./static/js/jscript.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
+
+    <script>
+
+    </script>
+
 </head>
 <body>
     <div class="" id="overlay">
@@ -207,8 +217,228 @@
                         <h2>COMING SOON</h2>
                     </div>
                 </div>
+                <div class="" id="contact-content">
+                    <div class="section" id="secOneContact">
+                        <div class="secContentOne">
+                            <h2>CONTACT US</h2>
+                            <div class="smallBox">
+                                <img src="./static/img/facebook-allM.png" alt="" id="contact-fb">
+                            </div>
+                            <div class="smallBox">
+                                <img src="./static/img/twitter-allM.png" alt="" id="contact-twitter">
+                            </div>
+                            <div class="smallBox">
+                                <img src="./static/img/instafram-allM.png" alt="" id="contact-insta">
+                            </div>
+                            <div class="smallBox">
+                                <img src="./static/img/youtube-allM.png" alt="" id="contact-youtube">
+                            </div>
+                            <h3>Mail us at dhwanirelations@cet.ac.in</h3>
+
+                        </div>
+                    </div>
+                    <div class="section" id="secTwoContact">
+                        <div class="secContentTwo">
+                                <h4>CONTACT INFO</h4>
+                                <p>
+                                    EVENT HEAD : Jithin Raj 8943900895<br>
+                                    EVENT CONVENOR : Akshay Nand 8289822292<br>
+                                    EVENT DIRECTOR : Shravan Kumar PS 9544000559<br>
+                                    EVENT COORDINATOR : Akshay Kumar 9995029242<br>
+                                    PROGRAMME CONVENOR : Sidharth Venu 9497899570<br>
+                                    FINANCE CONVENOR : Anand Chandran 9656784726<br>
+                                    SPONSORSHIP(1) : Rohith CK 9656338351<br>
+                                    SPONSORSHIP(2) : Skanda Krishnan 8606018049<br>
+                                    PUBLICITY : Shilpa 9400877083<br>
+                                    ACCOMODATION : Akhil KJ 8281183949<br>
+                                    MARKETING : Stejin Chakko 859406204<br>
+                                    <br>
+                                    FESTIVAL HEADS
+                                    <br><br>
+                                    ANTARA - Music Festival : Sidharth 9496456290<br>
+                                    DIONYSIA - Theatrical Festival : Afreed 9745255441<br>
+                                    NADANTA - Dance Festival : Akshay 9995324585<br>
+                                    CARPE DICTUM - Literary Festival : Soorya 9895449420<br>
+                                    KHELOTSAV - Sports Festival : Hariprasad 9544997536<br>
+                                    MISCELANEO - Miscellaneous : Nithin 8089651277<br>
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="" id="login-content">
+                    <div class="" id="logContent">
+                    <div class="sectionReg" id="secOneReg">
+
+                    </div>
+                    <div class="sectionReg" id="secTwoReg">
+                        <div class="" id="regpage">
+                            <h4 id="registerhead">REGISTER</h4>
+                            <p id="login_failed" style="text-align:center;"></p>
+                            <button id="Fsign-in" class="loginBtn loginBtn--facebook" onclick="facebookSignIn()">Log in With Facebook</button>
+                            <button id="Gsign-in" class="loginBtn loginBtn--google" onclick="googleSignIn()">Log in With Google</button>
+                            <p id="logintext">After registering you get a unique ID number. You need this ID number for registering for competitions,attending talk shows,proshows etc..</p>  
+                        </div>
+                        <div id="register">
+                            <div class="" id="contentCenter">
+                              <h5 id="yregcom">PLEASE FILL OUT THESE DETAILS</h5>
+                              
+                               
+                                              <div class="modal-body">
+                                      <p></p>
+                                      <form>
+                                          <div class="form-group">
+                                              <label for="inputcollege">College</label>
+                                              <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement">
+                                  <datalist id="json-collegelist">
+                                  </datalist>
+                                          </div>
+                                          <div class="form-group">
+                                              <label for="inputphone">Phone</label>
+                                              <input type="text" class="formelement" id="inputphone">
+                                          </div>
+                                          <label>Sex</label>
+                                          <div class="radio">
+                                              <label>
+                                                  <input type="radio" name="sex" id="inputsexmale" class="inputsex" value="male" checked>
+                                                  Male
+                                              </label>
+                                          </div>
+                                          <div class="radio">
+                                              <label>
+                                                  <input type="radio" name="sex" id="inputsexfemale" value="female" class="inputsex" checked>
+                                                  Female
+                                              </label>
+                                          </div>
+                                          <label>Accomodation</label>
+                                          <div class="checkbox">
+                                              <label>
+                                                  <input type="checkbox" id="inputacco" class="">
+                                                      Accomodation Required
+                                              </label>
+                                          </div>
+                                      </form>
+                                  </div>
+                                  <div class="modal-footer">
+                                      <button style="" type="button" class="submitbtn" onclick="register()">
+                                          Register
+                                      </button>
+                                      <button style="" type="button" class="submitbtn" data-dismiss="modal" onclick="signOut()">
+                                          Close
+                                      </button>
+                                    </div>   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="" id="profile-content">
+                        <div class="" id="account">
+                            <div class="section">
+                                <h2 style="text-align: center;">Dhwani Profile</h2>
+                                <p id="sign-in-status" style="text-align: center;font-size:20px;"></p>
+                                <p id="displayName" style="font-size:30px;text-align:center;margin:10px;"></p>
+                                <p id="email" style="font-size:20px;text-align:center;"></p>
+                                <img id="profilepic" style="width:200px;height:200px; display:block;margin-left:auto;margin-right:auto;">
+                                <p style="text-align:center;margin-top:5px;">Your DHWANI id:</p>
+                                <p id="unique-id" style=" text-align:center;"></p>
+                                <button style="margin-top:0px;" id="sign-out" onclick="signOut()" class="submitbtn"> SIGN OUT</button>
+                            </div>
+                            <div class="">
+                              <h4 id="" style="font-size:30px;text-align:center;">YOUR REGISTERED COMPETITIONS</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="" id="event-content">
+
+                </div>
             </div>    
         </div>
     </div>
 </body>
+
+<script type="text/javascript">
+    // Get the <datalist> and <input> elements.
+var collegeList = document.getElementById('json-collegelist');
+var input = document.getElementById('selectedcollege');
+var collegeId ;
+
+// Create a new XMLHttpRequest.
+
+var request = new XMLHttpRequest();
+
+var jsonOptionsTemp;
+
+// Handle state changes for the request.
+request.onreadystatechange = function(response) {
+if (request.readyState === 4) {
+  if (request.status === 200) {
+    // Parse the JSON
+    var jsonOptions = JSON.parse(request.responseText);
+
+    jsonOptionsTemp =jsonOptions;
+    // Loop over the JSON array.
+    jsonOptions.forEach(function(item) {
+      // Create a new <option> element.
+      var option = document.createElement('option');
+      // Set the value using the item in the JSON array.
+      option.value = item.name;
+      option.id = item.id;
+      // Add the <option> element to the <datalist>.
+      collegeList.appendChild(option);
+    });
+
+    
+    // Update the placeholder text.
+    input.placeholder = "enter college name";
+  } else {
+    // An error occured :(
+    input.placeholder = "Couldn't load datalist options :(";
+  }
+}
+};
+
+// Update the placeholder text.
+input.placeholder = "Loading options...";
+
+// Set up and make the request.
+request.open('GET', 'https://api.dhwanicet.org/public/college', true);
+request.send();
+
+
+
+function register(input){
+var inputTemp = document.getElementById('selectedcollege');
+ jsonOptionsTemp.forEach(function(item) {
+  if(inputTemp.value===item.name){
+    collegeId=item.id;
+  }
+ });
+ var accomodation;
+ var phone = document.getElementById('inputphone').value;
+  var accoCheck = document.getElementById('inputacco').checked;
+  if(accoCheck===true)
+     accomodation = document.querySelector('input[name = "sex"]:checked').value;
+   else
+    accomodation = 'none'
+ console.log(collegeId);
+  console.log(phone);
+  console.log(accoCheck);
+  console.log(accomodation);
+
+var accessToken = localStorage.getItem("accessToken");
+
+  var config = {
+ headers: {'Content-Type': 'application/x-www-form-urlencoded',
+'x-auth-token' : accessToken}
+};
+
+axios.post('https://api.dhwanicet.org/student/register', {'phone':phone,'accomodation':accomodation,'collegeId':collegeId }, config)
+.then(function(response){
+
+  console.log("registration completed");
+});
+
+initApp();
+}
+</script>
 </html>

@@ -1,6 +1,133 @@
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAcc11rgCRK5Ygd1WpFX556Sn36HGCI-hA",
+    authDomain: "dhwani18-8b03f.firebaseapp.com",
+    databaseURL: "https://dhwani18-8b03f.firebaseio.com",
+    projectId: "dhwani18-8b03f",
+    storageBucket: "dhwani18-8b03f.appspot.com",
+    messagingSenderId: "866486690145"
+};
+firebase.initializeApp(config);
+
+
+    var providerGoogle = new firebase.auth.GoogleAuthProvider();
+    var providerFacebook = new firebase.auth.FacebookAuthProvider();
+
+    function googleSignIn(){
+        SignIn(providerGoogle);
+    }
+
+    function facebookSignIn(){
+        SignIn(providerFacebook);
+    }
+
+
+    function SignIn(provider){  
+
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+
+
+    // ...
+    }).catch(function(error) {
+
+    console.log(error);
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+
+    document.getElementById("login_failed").innerHTML = "Login Failed.";
+    // ...
+    });
+
+    
+}
+
+function signOut(){
+            firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+}).catch(function(error) {
+    // An error happened.
+
+});
+
+}
+
+initApp = function check() {
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+    user.getIdToken().then(function(accessToken) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var phoneNumber = user.phoneNumber;
+        var providerData = user.providerData;
+        document.getElementById("displayName").innerHTML=displayName;
+        document.getElementById("email").innerHTML=email;
+        document.getElementById('profilepic').setAttribute('src',photoURL);
+
+        localStorage.setItem("accessToken", accessToken);
+
+        var config = {
+            headers: {'Content-Type': 'application/x-www-form-urlencoded',
+        'x-auth-token' : accessToken}
+        };
+
+        console.log(accessToken);
+        axios.post('https://api.dhwanicet.org/student/login', {}, config)
+        .then(function(response){
+            if(response.data.registered===true){
+                axios.get('https://api.dhwanicet.org/public/student/'+email)
+                .then(function(response){
+                  console.log(response.data)
+                  document.getElementById('unique-id').innerHTML=response.data.id;
+                });
+                $('#logContent').animate({"right":"100%"});
+                $('#profile-content').animate({"right":"0%"});
+                //window.location.href = "./profile.html";
+                }
+            else{
+                $('#logContent').animate({"right":"0%"});
+                $('#profile-content').animate({"right":"-100%"});
+                $('#register').animate({"right":"0%"});
+                $('#regpage').animate({"right":"100%"});
+            }
+            });
+
+    }); 
+
+    } else {
+        $('#logContent').animate({"right":"0%"});
+        $('#profile-content').animate({"right":"-100%"});
+        $('#register').animate({"right":"-100%"});
+        $('#regpage').animate({"right":"0%"});
+        document.getElementById('sign-in-status').textContent = 'Signed out';
+    }
+}, function(error) {
+    console.log(error);
+});
+};
+
+
+
+window.addEventListener('load', function() {
+initApp()
+});
 
 
 $( window ).on( "load", function() {
+
     $("#overlay").animate({"bottom":"100vh"},600);
 
 
@@ -13,8 +140,13 @@ $( window ).on( "load", function() {
             $("#main").animate({"right":"100%"},0);
             $("#about-content").animate({"top":"100%"},0);
             $("#about-content").animate({"right":"0%"},0);
+            $("#login-content").animate({"top":"100%"},0);
+            $("#login-content").animate({"right":"0%"},0);
             $("#proshow-content").animate({"bottom":"100%"},0);
             $("#proshow-content").animate({"right":"0%"},0);
+            $("#event-content").animate({"bottom":"100%"},0);
+            $("#event-content").animate({"right":"0%"},0);
+            $("#contact-content").animate({"right":"100%"},0);
     }
 
     if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
@@ -37,25 +169,34 @@ $( window ).on( "load", function() {
     }
 
     $( "#menu" ).on( "click", function() {
-            animateMenu();
+        function hello(){
+
+        }
+            animateMenu(hello);
     });
 
     $( "#home" ).on( "click", function() {
+        function hello(){
+
+        }
         if(lastActive == "#main"){
-            animateMenu();
+            animateMenu(hello);
         }else{
             resetPage();
             lastActive = "#main";
-            animateMenu();
+            animateMenu(hello);
         }
     });
     $( "#home-mob" ).on( "click", function() {
+        function hello(){
+
+        }
         if(lastActive == "#main"){
-            animateMenu();
+            animateMenu(hello);
         }else{
             resetPage();
             lastActive = "#main";
-            animateMenu();
+            animateMenu(hello);
         }
     });
     $( "#about" ).on( "click", function() {
@@ -136,6 +277,137 @@ $( window ).on( "load", function() {
     $( "#sponsors-mob" ).on( "click", function() {
         window.open('https://sponsors.dhwani.org.in');
     });
+    $( "#contact-fb" ).on( "click", function() {
+        window.open('https://facebook.com/dhwanifest');
+    });
+    $( "#fb" ).on( "click", function() {
+        window.open('https://facebook.com/dhwanifest');
+    });
+    $( "#contact-twitter" ).on( "click", function() {
+        window.open('https://twitter.com/dhwanifest');
+    });
+    $( "#contact-insta" ).on( "click", function() {
+        window.open('https://instagram.com/dhwanifest');
+    });
+    $( "#insta" ).on( "click", function() {
+        window.open('https://instagram.com/dhwanifest');
+    });
+    $( "#contact-youtube" ).on( "click", function() {
+        window.open('https://www.youtube.com/channel/UCUGXXOIJVE6jpuQY2EubYTA');
+    });
+    $( "#you" ).on( "click", function() {
+        window.open('https://www.youtube.com/channel/UCUGXXOIJVE6jpuQY2EubYTA');
+    });
+    $( "#contact" ).on( "click", function() {
+        function animateContact(){
+            setTimeout(function() {
+                $("#main").animate( {"right":"-100%"},anim );
+                $("#contact-content").animate({"right":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateContact);
+            console.log('hello');
+            lastActive = "#contact-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateContact);
+            lastActive = "#contact-content";
+        }
+    });
+    $( "#contact-mob" ).on( "click", function() {
+        function animateContact(){
+            setTimeout(function() {
+                $("#main").animate( {"right":"-100%"},anim );
+                $("#contact-content").animate({"right":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateContact);
+            console.log('hello');
+            lastActive = "#contact-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateContact);
+            lastActive = "#contact-content";
+        }
+    });
+    $( "#login" ).on( "click", function() {
+        function animateLogin(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"100%"},anim );
+                $("#login-content").animate({"top":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateLogin);
+            console.log('hello');
+            lastActive = "#login-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateLogin);
+            lastActive = "#login-content";
+        }
+    });
+    $( "#login-mob" ).on( "click", function() {
+        function animateLogin(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"100%"},anim );
+                $("#login-content").animate({"top":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateLogin);
+            console.log('hello');
+            lastActive = "#login-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateLogin);
+            lastActive = "#login-content";
+        }
+    });
+    $( "#event-mob" ).on( "click", function() {
+        function animateEvent(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"-100%"},anim );
+                $("#event-content").animate({"bottom":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateEvent);
+            console.log('hello');
+            lastActive = "#event-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateEvent);
+            lastActive = "#event-content";
+        }
+    });
+    $( "#event" ).on( "click", function() {
+        function animateEvent(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"-100%"},anim );
+                $("#event-content").animate({"bottom":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateEvent);
+            console.log('hello');
+            lastActive = "#event-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateEvent);
+            lastActive = "#event-content";
+        }
+    });
+
+
 });
 
 $( document ).ready(function() {
