@@ -100,7 +100,7 @@
                 .then(function(response){
                     if(response.data.registered===true){
                       
-                      // window.location.href = "./profile.html";
+                      window.location.href = "./profile.html";
 
 
                       }
@@ -169,7 +169,7 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="inputcollege">College</label>
-                                            <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement">
+                                            <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement" name="College name" required>
                                            <!--  <label>
                                                 <input type="checkbox" id="newcollege" class="">
                                                     Tick if your college is not in the list
@@ -179,7 +179,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="inputphone">Phone</label>
-                                            <input type="text" class="formelement" id="inputphone">
+                                            <input type="number" class="formelement" id="inputphone" name="phoneNo" minlength="10" required>
                                         </div>
                                         <label>Sex</label>
                                         <div class="radio">
@@ -210,7 +210,12 @@
                                     <button style="text-align:left;" type="button" class="submitbtn" data-dismiss="modal" onclick="signOut()">
                                         Close
                                     </button>
-                                </div>   
+                                </div> 
+                                <div>
+                                  <label id="errorMessage" type="text">
+                                    
+                                  </label>
+                                </div>  
                              </div>
                         </div>
                         
@@ -272,8 +277,18 @@
 
 
               function register(input){
+
                 //var collegeCheck = document.getElementById('newcollege').checked;
-                var inputTemp = document.getElementById('selectedcollege').value;
+                var inputCollege= document.getElementById('selectedcollege');
+                var inputTemp = inputCollege.value;
+                 var phoneObj = document.getElementById('inputphone');
+                 var phone= phoneObj.value;
+
+               if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
+                      document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   "+phoneObj.validationMessage;
+                  } else {
+                      
+                  
                 
                 var flag = false;
 
@@ -296,7 +311,7 @@
                   
                 
                  var accomodation;
-                 var phone = document.getElementById('inputphone').value;
+                
                   var accoCheck = document.getElementById('inputacco').checked;
                   if(accoCheck===true)
                      accomodation = document.querySelector('input[name = "sex"]:checked').value;
@@ -325,6 +340,8 @@
 
               initApp();
               }
+
+            }
               </script>
 
 
