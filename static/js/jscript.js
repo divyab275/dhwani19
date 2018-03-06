@@ -64,8 +64,16 @@ function signOut(){
 initApp = function check() {
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-
     user.getIdToken().then(function(accessToken) {
+        // User is signed in.
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var phoneNumber = user.phoneNumber;
+        var providerData = user.providerData;
+
 
         localStorage.setItem("accessToken", accessToken);
 
@@ -78,26 +86,34 @@ firebase.auth().onAuthStateChanged(function(user) {
         axios.post('https://api.dhwanicet.org/student/login', {}, config)
         .then(function(response){
             if(response.data.registered===true){
-                console.log(registered + " registered");
-                console.log(userPresent + "userPresent");
+                axios.get('https://api.dhwanicet.org/public/student/'+email)
+                .then(function(response){
+                  console.log(response.data)
+                  document.getElementById('unique-id').innerHTML=response.data.id;
+                });
+                document.getElementById("displayName").innerHTML=displayName;
+                document.getElementById("email").innerHTML=email;
+                document.getElementById('profilepic').setAttribute('src',photoURL);
+                $('#logContent').animate({"right":"100%"});
+                $('#profile-content').animate({"right":"0%"});
                 //window.location.href = "./profile.html";
                 }
             else{
-                    $('#register').animate({"right":"0%"});
-                    $('#regpage').animate({"right":"100%"});
-                    //document.getElementById('register').style.display='block';
-                    //document.getElementById('register').style.visibility='visible';
-                    //document.getElementById('regpage').style.display='none';
+                $('#logContent').animate({"right":"0%"});
+                $('#profile-content').animate({"right":"-100%"});
+                $('#register').animate({"right":"0%"});
+                $('#regpage').animate({"right":"100%"});
             }
             });
 
     }); 
 
-
-        
     } else {
+        $('#logContent').animate({"right":"0%"});
+        $('#profile-content').animate({"right":"-100%"});
         $('#register').animate({"right":"-100%"});
         $('#regpage').animate({"right":"0%"});
+        document.getElementById('sign-in-status').textContent = 'Signed out';
     }
 }, function(error) {
     console.log(error);
@@ -129,6 +145,9 @@ $( window ).on( "load", function() {
             $("#login-content").animate({"right":"0%"},0);
             $("#proshow-content").animate({"bottom":"100%"},0);
             $("#proshow-content").animate({"right":"0%"},0);
+            $("#event-content").animate({"bottom":"100%"},0);
+            $("#event-content").animate({"right":"0%"},0);
+            $("#contact-content").animate({"right":"100%"},0);
     }
 
     if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
@@ -341,6 +360,42 @@ $( window ).on( "load", function() {
             lastActive = "#main";
             animateMenu(animateLogin);
             lastActive = "#login-content";
+        }
+    });
+    $( "#event-mob" ).on( "click", function() {
+        function animateEvent(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"-100%"},anim );
+                $("#event-content").animate({"bottom":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateEvent);
+            console.log('hello');
+            lastActive = "#event-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateEvent);
+            lastActive = "#event-content";
+        }
+    });
+    $( "#event" ).on( "click", function() {
+        function animateEvent(){
+            setTimeout(function() {
+                $("#main").animate( {"bottom":"-100%"},anim );
+                $("#event-content").animate({"bottom":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateEvent);
+            console.log('hello');
+            lastActive = "#event-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateEvent);
+            lastActive = "#event-content";
         }
     });
 

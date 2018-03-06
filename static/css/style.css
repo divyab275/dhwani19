@@ -452,6 +452,7 @@ body{
     text-align: center;
     color: white;
 }
+
 #secOneContact{
     position: relative;
 }
@@ -690,6 +691,33 @@ body{
     background: #E74B37;
   }
 
+
+
+  #logContent{
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      right: 0%;
+  }
+  #profile-content{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    right: -100%;
+    background-color: tomato;
+  }
+
+
+  #event-content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 100%;
+    display: block;
+    background-color: red;
+}
 @media (max-width:768px){
     #selectedcollege{
         margin-top: 0px;
