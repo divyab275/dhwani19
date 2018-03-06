@@ -288,13 +288,13 @@
                                       <form>
                                           <div class="form-group">
                                               <label for="inputcollege">College</label>
-                                              <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement">
+                                              <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement" required>
                                   <datalist id="json-collegelist">
                                   </datalist>
                                           </div>
                                           <div class="form-group">
                                               <label for="inputphone">Phone</label>
-                                              <input type="text" class="formelement" id="inputphone">
+                                              <input type="text" class="formelement" id="inputphone" minlength="10" required>
                                           </div>
                                           <label>Sex</label>
                                           <div class="radio">
@@ -325,6 +325,11 @@
                                       <button style="" type="button" class="submitbtn" data-dismiss="modal" onclick="signOut()">
                                           Close
                                       </button>
+                                    </div> 
+                                    <div>
+                                      <label id="errorMessage" type="text">
+                                        
+                                      </label>
                                     </div>   
                                 </div>
                             </div>
@@ -412,12 +417,34 @@ request.send();
 
 
 function register(input){
-var inputTemp = document.getElementById('selectedcollege');
- jsonOptionsTemp.forEach(function(item) {
-  if(inputTemp.value===item.name){
-    collegeId=item.id;
-  }
- });
+                var inputCollege= document.getElementById('selectedcollege');
+                var inputTemp = inputCollege.value;
+                 var phoneObj = document.getElementById('inputphone');
+                 var phone= phoneObj.value;
+
+                 if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
+                      document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   "+phoneObj.validationMessage;
+                  } else {
+                      
+                  
+                var flag;
+
+                jsonOptionsTemp.forEach(function(item) {
+                  if(inputTemp===item.name){
+                    collegeId=item.id;
+                    flag=true;
+                  }
+                 });
+
+                 if(flag===false){
+                  axios.put('https://api.dhwanicet.org/public/college',{'name':inputTemp})
+                  .then(function(response){
+
+                  collegeId = response.data.id;
+                  console.log(collegeId);
+                  });
+
+                }
  var accomodation;
  var phone = document.getElementById('inputphone').value;
   var accoCheck = document.getElementById('inputacco').checked;
@@ -444,6 +471,8 @@ axios.post('https://api.dhwanicet.org/student/register', {'phone':phone,'accomod
 });
 
 initApp();
+}
+
 }
 </script>
 </html>
