@@ -309,16 +309,17 @@
 
                 var accessToken = localStorage.getItem("accessToken");
 
-                var s
+                
 
                   var config = {
-                 headers: {'Content-Type': 'application/x-www-form-urlencoded',
+                 headers: {'Content-Type': 'application/json',
                'x-auth-token' : accessToken}
                 };
 
-                axios.post('https://api.dhwanicet.org/student/register',{ phone : phone, accomodation:accomodation,collegeId: collegeId }, config)
+                axios.post('https://api.dhwanicet.org/student/register',JSON.stringify({ 'phone' : phone, 'accomodation' : accomodation, 'collegeId' : collegeId }), config)
                 .then(function(response){
-                  console.log(response);    
+                  console.log(response); 
+
                   console.log("registration completed");
               });
 
