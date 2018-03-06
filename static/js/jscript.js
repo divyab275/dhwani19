@@ -1,6 +1,4 @@
 // Initialize Firebase
-var script = document.createElement('script');
-script.src='https://www.gstatic.com/firebasejs/4.10.0/firebase.js';
 var config = {
     apiKey: "AIzaSyAcc11rgCRK5Ygd1WpFX556Sn36HGCI-hA",
     authDomain: "dhwani18-8b03f.firebaseapp.com",
