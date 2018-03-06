@@ -722,9 +722,21 @@ body{
     display: block;
     background-color: red;
   }
-
-
+.button-center{
+    width: 100px;
+    display: block;
+    margin: auto;
+}
+#profilepic{
+    border-radius: 100px;
+}
+#account{
+    overflow: auto;
+}
 @media (max-width:768px){
+    #profile-content{
+        overflow: scroll;
+    }
     #selectedcollege{
         margin-top: 0px;
     }
