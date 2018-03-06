@@ -93,6 +93,24 @@ firebase.auth().onAuthStateChanged(function(user) {
                   console.log(response.data)
                   document.getElementById('unique-id').innerHTML=response.data.id;
                 });
+
+                axios.get('https://api.dhwanicet.org/student/event',config)
+                .then(function(response){
+                  var eventsJson = response.data;
+                  eventsJson.forEach(function(item){
+                     axios.get('https://api.dhwanicet.org/student/event/'+item.id,config)
+                .then(function(response){
+                    if(response.data.paid===true)
+                      $("#reg_events").append("<div class=\"eachevent\"><h5>"+item.name+"</h5></div><div class=\"paid\"><h5>paid</h5></div>");
+                    else
+                      $("#reg_events").append("<div class=\"eachevent\"><h5>"+item.name+"</h5></div><div class=\"paid\"><h5>not paid</h5></div>");
+                }); 
+                  });
+                }).catch(function(error){
+                  console.log(error);
+                });
+
+
                 $('#logContent').animate({"right":"100%"});
                 $('#profile-content').animate({"right":"0%"});
                 //window.location.href = "./profile.html";
@@ -371,6 +389,7 @@ $( window ).on( "load", function() {
         }
     });
     $( "#event-mob" ).on( "click", function() {
+        initApp();
         function animateEvent(){
             setTimeout(function() {
                 $("#main").animate( {"bottom":"-100%"},anim );
@@ -389,6 +408,7 @@ $( window ).on( "load", function() {
         }
     });
     $( "#event" ).on( "click", function() {
+        initApp();
         function animateEvent(){
             setTimeout(function() {
                 $("#main").animate( {"bottom":"-100%"},anim );

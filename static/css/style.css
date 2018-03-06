@@ -713,8 +713,37 @@ body{
     font-family: 'Titillium Web', sans-serif;
     overflow: hidden;
   }
-
-
+#reg_events{
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    overflow: auto;
+}
+.eachevent{
+    width: 80%;
+    display: block;
+    float: left;
+    background-color: orange;
+    text-align: center;
+}
+.paid{
+    width: 20%;
+    display: block;
+    float: left;
+    background-color: yellow;
+}
+.eachevent h5{
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 100%;
+}
+.paid h5{
+    padding: 0;
+    display: block;
+    width: 100%;
+    margin: 0;
+}
   #event-content{
     width: 100%;
     height: 100%;
