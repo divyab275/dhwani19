@@ -916,4 +916,8 @@ body{
         background-color: none;
         border: none;
     }
+    .eachevent p{
+        display:inline-block;
+        width: 30px;
+    }
 }
