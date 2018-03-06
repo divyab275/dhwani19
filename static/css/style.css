@@ -502,6 +502,8 @@ body{
     position: absolute;
     top: 100%;
     background-image: url('../img/style.png');
+    overflow: hidden;
+    overflow-x: hidden;
 }
 .sectionReg{
     display: block;
@@ -706,7 +708,9 @@ body{
     display: block;
     position: absolute;
     right: -100%;
-    background-color: tomato;
+    background-color: none;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
   }
 
 
@@ -717,7 +721,9 @@ body{
     bottom: 100%;
     display: block;
     background-color: red;
-}
+  }
+
+
 @media (max-width:768px){
     #selectedcollege{
         margin-top: 0px;
