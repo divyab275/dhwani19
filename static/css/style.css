@@ -711,6 +711,7 @@ body{
     background-color: none;
     color: white;
     font-family: 'Titillium Web', sans-serif;
+    overflow: hidden;
   }
 
 
