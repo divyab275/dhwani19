@@ -561,12 +561,31 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#workshops-list').append('<h2 onclick=workshopAnimate('+i+')>'+response.data[i].name+'</h2>');
                 $('#workshops-list').css({"height":"+=39"});
                 $('#workshops-content').append('<div class="worklist-content" id=work'+i+'></div>');
-                $('#work'+i).append('<div class = "wrapper-event" id="wrapper'+i+'"></div>');
+                $('#work'+i).append('<div class = \"wrapper-event\" id=\"wrapper'+i+'\"></div>');
+                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secOne'+i+'\"></div>');
+                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secTwo'+i+'\"></div>');
+                $('#secOne'+i).append('<div class = \"event-content-img\" id=\"event-img'+i+'\"></div>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeOne'+i+'\"></p>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeTwo'+i+'\"></p>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeThree'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-regfee\" id=\"event-regfee'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-time\" id=\"event-time'+i+'\"></p>');
+                $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
+                $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
+                $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
+                $('#event-img'+i).append('<img src="'+response.data[i].image+'" class="event-img-child"></img>');
+                $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
+                $('#event-time'+i).append('TIME : '+response.data[i].time);
+                $('#event-name'+i).append(response.data[i].name);
+                $('#event-description'+i).append(response.data[i].description);
+                $('#event-format'+i).append(response.data[i].format);
+
+                var shiteWidth = window.innerWidth - ((5/100)*window.innerWidth);
 
                 if(window.innerWidth<=768){
-                    $('#work'+i).css({"top":"100%","left":"0"});
+                    $('#work'+i).css({"top":"100%","left":"0","height":window.innerHeight - 120});
                 }else{
-                    $('#work'+i).css({"top":"0","left":"100%"});
+                    $('#work'+i).css({"top":"0","left":"100%","width":shiteWidth - 220});
                 }
             }else{
 
