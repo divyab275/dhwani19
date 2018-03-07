@@ -536,85 +536,104 @@ $( window ).on( "load", function() {
         $('#informals-inner').css({"background-image":"url(./static/img/informals-hover.png)"});
     }
     $( "#workshops" ).on( "click", function() {
-        console.log('workshops');
-        if(width>=768){
+        function displayWorkshop(){
             if(workshopsToggle == false){
-                $('#workshops').animate({"left":"2px","width":"100px","height":"100px"});
                 $('#competitions').css({"display":"none"});
                 $('#informals').css({"display":"none"});
                 workshopsToggle = true;
             }else{
-                $('#workshops').animate({"left":balance,"width":"300px","height":"300px"});
                 $('#competitions').css({"display":"block"});
                 $('#informals').css({"display":"block"});
                 workshopsToggle = false;
+            }
+        }
+        if(width>=768){
+            if(workshopsToggle == false){
+                $('#workshops').animate({"left":"2px","width":"100px","height":"100px"});
+                $('#workshops-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                setTimeout(displayWorkshop,0);
+            }else{
+                $('#workshops').animate({"left":balance,"width":"300px","height":"300px"});
+                $('#workshops-inner').css({"background-image":""});
+                setTimeout(displayWorkshop,400);
             }
         }else{
             if(workshopsToggle == false){
                 $('#workshops').animate({"top":"2px","width":"50px","height":"50px"});
-                $('#competitions').css({"display":"none"});
-                $('#informals').css({"display":"none"});
-                workshopsToggle = true;
+                $('#workshops-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                setTimeout(displayWorkshop,0);
             }else{
                 $('#workshops').animate({"top":mobBalance,"width":"140px","height":"140px"});
-                $('#competitions').css({"display":"block"});
-                $('#informals').css({"display":"block"});
-                workshopsToggle = false;
+                $('#workshops-inner').css({"background-image":"url(./static/img/workshops-hover.png)"});
+                setTimeout(displayWorkshop,400);
             }
         }
     });
     $( "#competitions" ).on( "click", function() {
-        console.log('competitons');
-        if(width>=768){
+        function displayCompetition(){
             if(competitionsToggle == false){
-                $('#competitions').animate({"left":"2px","width":"100px","height":"100px"});
                 $('#workshops').css({"display":"none"});
                 $('#informals').css({"display":"none"});
                 competitionsToggle = true;
             }else{
-                $('#competitions').animate({"left":balance+310,"width":"300px","height":"300px"});
-                $('#workshops').css({"display":"block"});
-                $('#informals').css({"display":"block"});
-                competitionsToggle = false;
-            }
-        }else{
-            if(competitionsToggle == false){
-                $('#competitions').animate({"top":"2px","width":"50px","height":"50px"});
-                $('#workshops').css({"display":"none"});
-                $('#informals').css({"display":"none"});
-                competitionsToggle = true;
-            }else{
-                $('#competitions').animate({"top":mobBalance+145,"width":"140px","height":"140px"});
                 $('#workshops').css({"display":"block"});
                 $('#informals').css({"display":"block"});
                 competitionsToggle = false;
             }
         }
+        if(width>=768){
+            if(competitionsToggle == false){
+                $('#competitions').animate({"left":"2px","width":"100px","height":"100px"});
+                $('#competitions-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                setTimeout(displayCompetition,0);
+            }else{
+                $('#competitions').animate({"left":balance+310,"width":"300px","height":"300px"});
+                $('#competitions-inner').css({"background-image":""});
+                setTimeout(displayCompetition,400);
+            }
+        }else{
+            if(competitionsToggle == false){
+                $('#competitions').animate({"top":"2px","width":"50px","height":"50px"});
+                $('#competitions-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                setTimeout(displayCompetition,0);
+            }else{
+                $('#competitions').animate({"top":mobBalance+145,"width":"140px","height":"140px"});
+                $('#competitions-inner').css({"background-image":"url(./static/img/competitions-hover.png)"});
+                setTimeout(displayCompetition,400);
+            }
+        }
     });
     $( "#informals" ).on( "click", function() {
-        if(width>=768){
+        function displayInformal(){
             if(informalsToggle == false){
-                $('#informals').animate({"left":"2px","width":"100px","height":"100px"});
                 $('#competitions').css({"display":"none"});
                 $('#workshops').css({"display":"none"});
                 informalsToggle = true;
             }else{
-                $('#informals').animate({"left":balance+620,"width":"300px","height":"300px"});
                 $('#competitions').css({"display":"block"});
                 $('#workshops').css({"display":"block"});
                 informalsToggle = false;
             }
+        }
+        if(width>=768){
+            if(informalsToggle == false){
+                $('#informals').animate({"left":"2px","width":"100px","height":"100px"});
+                $('#informals-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                setTimeout(displayInformal,0);
+            }else{
+                $('#informals').animate({"left":balance+620,"width":"300px","height":"300px"});
+                $('#informals-inner').css({"background-image":""});
+                setTimeout(displayInformal,400);
+            }
         }else{
             if(informalsToggle == false){
                 $('#informals').animate({"top":"2px","width":"50px","height":"50px"});
-                $('#competitions').css({"display":"none"});
-                $('#workshops').css({"display":"none"});
-                informalsToggle = true;
+                $('#informals-inner').css({"background-image":"url(./static/img/close-big.png)"});
+                setTimeout(displayInformal,0);
             }else{
                 $('#informals').animate({"top":mobBalance + 290,"width":"140px","height":"140px"});
-                $('#competitions').css({"display":"block"});
-                $('#workshops').css({"display":"block"});
-                informalsToggle = false;
+                $('#informals-inner').css({"background-image":"url(./static/img/informals-hover.png)"});
+                setTimeout(displayInformal,400);
             }
         }
     });
