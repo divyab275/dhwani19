@@ -347,7 +347,7 @@
                'x-auth-token' : accessToken}
                 };
 
-                axios.post('https://api.dhwanicet.org/student/register',JSON.stringify({ 'phone' : phone, 'accomodation' : accomodation, 'collegeId' : collegeId }), config)
+                axios.post('https://api.dhwanicet.org/student/register',{ 'phone' : phone, 'accomodation' : accomodation, 'collegeId' : collegeId }, config)
                 .then(function(response){
                   console.log(response); 
 

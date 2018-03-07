@@ -97,6 +97,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 axios.get('https://api.dhwanicet.org/student/event',config)
                 .then(function(response){
                   var eventsJson = response.data;
+                    $("#reg_events").empty();
                   eventsJson.forEach(function(item){
                      axios.get('https://api.dhwanicet.org/student/event/'+item.id,config)
                 .then(function(response){
@@ -130,7 +131,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#profile-content').animate({"right":"-100%"});
         $('#register').animate({"right":"-100%"});
         $('#regpage').animate({"right":"0%"});
-        document.getElementById('sign-in-status').textContent = 'Signed out';
+        document.getElementById('sign-in-status').textContent = 'Signed IN';
     }
 }, function(error) {
     console.log(error);
