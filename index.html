@@ -440,21 +440,40 @@ request.open('GET', 'https://api.dhwanicet.org/public/college', true);
 request.send();
 
 
+              function register(input){
 
-function register(input){
+                //var collegeCheck = document.getElementById('newcollege').checked;
                 var inputCollege= document.getElementById('selectedcollege');
                 var inputTemp = inputCollege.value;
                  var phoneObj = document.getElementById('inputphone');
                  var phone= phoneObj.value;
 
-                 if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
+               if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
                       document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   "+phoneObj.validationMessage;
                   } else {
                       
-                  
-                var flag;
 
-                jsonOptionsTemp.forEach(function(item) {
+                      var accomodation;
+                
+                  var accoCheck = document.getElementById('inputacco').checked;
+                  if(accoCheck===true)
+                     accomodation = document.querySelector('input[name = "sex"]:checked').value;
+                   else
+                    accomodation = 'none'
+                 console.log(collegeId);
+                  console.log(phone);
+                  console.log(accoCheck);
+                  console.log(accomodation);
+
+                var accessToken = localStorage.getItem("accessToken");
+
+                
+
+                  
+                
+                var flag = false;
+
+                 jsonOptionsTemp.forEach(function(item) {
                   if(inputTemp===item.name){
                     collegeId=item.id;
                     flag=true;
@@ -467,37 +486,38 @@ function register(input){
 
                   collegeId = response.data.id;
                   console.log(collegeId);
+
+                  regsiterAxios(accessToken,phone,accomodation,collegeId);
                   });
 
                 }
- var accomodation;
- var phone = document.getElementById('inputphone').value;
-  var accoCheck = document.getElementById('inputacco').checked;
-  if(accoCheck===true)
-     accomodation = document.querySelector('input[name = "sex"]:checked').value;
-   else
-    accomodation = 'none'
- console.log(collegeId);
-  console.log(phone);
-  console.log(accoCheck);
-  console.log(accomodation);
 
-var accessToken = localStorage.getItem("accessToken");
+                else{
 
-  var config = {
- headers: {'Content-Type': 'application/json',
-'x-auth-token' : accessToken}
-};
+                  regsiterAxios(accessToken,phone,accomodation,collegeId);
+                }
+                  
+                
+                 
+               
+              initApp();
+              }
 
-axios.post('https://api.dhwanicet.org/student/register', {'phone':phone,'accomodation':accomodation,'collegeId':collegeId }, config)
-.then(function(response){
+            }
 
-  console.log("registration completed");
-});
+            function regsiterAxios(accessToken,phone,accomodation,collegeId){
+                 var config = {
+                 headers: {'Content-Type': 'application/json',
+               'x-auth-token' : accessToken}
+                };
 
-initApp();
-}
+                axios.post('https://api.dhwanicet.org/student/register',{ 'phone' : phone, 'accomodation' : accomodation, 'collegeId' : collegeId }, config)
+                .then(function(response){
+                  console.log(response); 
 
-}
+                  console.log("registration completed");
+              });
+
+            }
 </script>
 </html>
