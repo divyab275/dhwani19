@@ -97,7 +97,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 axios.get('https://api.dhwanicet.org/public/student/'+email)
                 .then(function(response){
                   console.log(response.data)
-                  document.getElementById('unique-id').innerHTML +=response.data.id;
+                  document.getElementById('unique-id').innerHTML ='D-'+response.data.id;
                 });
 
                 axios.get('https://api.dhwanicet.org/student/event',config)
@@ -790,3 +790,5 @@ $( document ).ready(function() {
     setInterval(updateGradient,10);
     
 });
+
+
