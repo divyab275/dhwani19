@@ -967,9 +967,108 @@ body{
     color: white;
 }
 
+.list{
+    display: block;
+}
+#workshops-list{
+    width: 350px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#workshops-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#workshops-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.worklist-content{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-left: 3px solid white;
+}
+.close-all{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-button{
+    background-image: url('../img/close-big.png');
+    background-size: 66.6% 66.6%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 0;right: 0;bottom: 0;left: 0;
+    margin: auto;
+}
+.close-button:hover{
+    cursor: pointer;
+    -webkit-animation: antirotation 15s infinite linear;
+}
+.wrapper-event{
+    display:block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 70%;
+    height: 90%;
+    background-color: tomato;
+}
 
 
 @media (max-width:768px){
+    .worklist-content{
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: none;
+        border-top-right-radius: 20px;
+        border-left: none;
+        border-top: 3px solid white;
+    }
+    .close-all{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    #workshops-list{
+        width: 200px;
+    }
+    #workshops-list h2{
+        font-size: 15px;
+    }
     #profile-content{
         overflow: scroll;
     }

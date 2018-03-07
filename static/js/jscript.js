@@ -186,7 +186,51 @@ function regEvent(event,groupArray){
 
 
 }
-
+var lastId;
+var toggleclose = false;
+var togglelist = false;
+function workshopAnimate(id){
+    function toggleClose(){
+        if(toggleclose == false){
+            $('.close-all').css({"display":"block"});
+            toggleclose = true;
+        }else{
+            $('.close-all').css({"display":"none"});
+            toggleclose = false;
+        }
+    }
+    function toggleList(){
+        if(togglelist == false){
+            $('.list').css({"display":"none"});
+            togglelist = true;
+        }else{
+            $('.list').css({"display":""});
+            togglelist = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#work'+lastId).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#work'+lastId).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastId = id;
+        if(window.innerWidth<=768){
+            $('#work'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#work'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }
+    }
+}
 
 $( window ).on( "load", function() {
 
@@ -434,6 +478,7 @@ $( window ).on( "load", function() {
         }
     });
     $( "#login" ).on( "click", function() {
+        initApp();
         function animateLogin(){
             setTimeout(function() {
                 $("#main").animate( {"bottom":"100%"},anim );
@@ -452,6 +497,7 @@ $( window ).on( "load", function() {
         }
     });
     $( "#login-mob" ).on( "click", function() {
+        initApp();
         function animateLogin(){
             setTimeout(function() {
                 $("#main").animate( {"bottom":"100%"},anim );
@@ -470,7 +516,6 @@ $( window ).on( "load", function() {
         }
     });
     $( "#event-mob" ).on( "click", function() {
-        initApp();
         function animateEvent(){
             setTimeout(function() {
                 $("#main").animate( {"bottom":"-100%"},anim );
@@ -489,7 +534,6 @@ $( window ).on( "load", function() {
         }
     });
     $( "#event" ).on( "click", function() {
-        initApp();
         function animateEvent(){
             setTimeout(function() {
                 $("#main").animate( {"bottom":"-100%"},anim );
@@ -509,6 +553,26 @@ $( window ).on( "load", function() {
     });
 
 
+axios.get('https://api.dhwanicet.org/public/event',config)
+    .then(function (response) {
+        var i;
+        for (i = 0; i < response.data.length; ++i) {
+            if(response.data[i].isWorkshop == true){
+                $('#workshops-list').append('<h2 onclick=workshopAnimate('+i+')>'+response.data[i].name+'</h2>');
+                $('#workshops-list').css({"height":"+=39"});
+                $('#workshops-content').append('<div class="worklist-content" id=work'+i+'></div>');
+                $('#work'+i).append('<div class = "wrapper-event" id="wrapper'+i+'"></div>');
+
+                if(window.innerWidth<=768){
+                    $('#work'+i).css({"top":"100%","left":"0"});
+                }else{
+                    $('#work'+i).css({"top":"0","left":"100%"});
+                }
+            }else{
+
+            }
+        }
+    });
 
 
 
