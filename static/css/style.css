@@ -777,11 +777,13 @@ body{
     position: absolute;
     bottom: 100%;
     display: block;
+    overflow: hidden;
 }
 #event-page{
     width: 100%;
     height: 100%;
     display: block;
+    position: relative;
 }
 .event-element{
     background-image: url('../img/pattern-square-medium.png');
@@ -920,6 +922,50 @@ body{
     border-radius: 20px;
 }
 
+#workshops-content{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+}
+#competitions-content{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+}
+#informals-content{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+}
+.wrapper-content{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#center{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 140px;
+    height: 60px;
+    font-family: 'Titillium Web', sans-serif;
+    
+}
+#center h2{
+    font-size: 20px;
+    color: white;
+}
 
 
 
