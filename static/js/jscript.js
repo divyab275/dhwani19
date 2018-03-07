@@ -143,6 +143,40 @@ window.addEventListener('load', function() {
 initApp()
 });
 
+function regEvent(event,groupArray){
+
+    firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        user.getIdToken().then(function(accessToken) {
+
+             var config = {
+                 headers: {'Content-Type': 'application/json',
+               'x-auth-token' : accessToken}
+                };
+
+
+
+                axios.put('https://api.dhwanicet.org/student/event/'+event.id,{ 'group' : groupArray},config)
+                  .then(function(response){
+                    //suucess
+                  }).catch(function(error){
+
+                    //error
+
+                  });
+
+
+        });
+      } else {
+        
+        //to login page
+      }
+    });
+
+
+}
+
 
 $( window ).on( "load", function() {
 
