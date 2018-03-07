@@ -100,7 +100,7 @@
                 .then(function(response){
                     if(response.data.registered===true){
                       
-                      window.location.href = "./profile.html";
+                     // window.location.href = "./profile.html";
 
 
                       }
@@ -288,6 +288,23 @@
                       document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   "+phoneObj.validationMessage;
                   } else {
                       
+
+                      var accomodation;
+                
+                  var accoCheck = document.getElementById('inputacco').checked;
+                  if(accoCheck===true)
+                     accomodation = document.querySelector('input[name = "sex"]:checked').value;
+                   else
+                    accomodation = 'none'
+                 console.log(collegeId);
+                  console.log(phone);
+                  console.log(accoCheck);
+                  console.log(accomodation);
+
+                var accessToken = localStorage.getItem("accessToken");
+
+                
+
                   
                 
                 var flag = false;
@@ -305,28 +322,27 @@
 
                   collegeId = response.data.id;
                   console.log(collegeId);
+
+                  regsiterAxios(accessToken,phone,accomodation,collegeId);
                   });
 
                 }
+
+                else{
+
+                  regsiterAxios(accessToken,phone,accomodation,collegeId);
+                }
                   
                 
-                 var accomodation;
-                
-                  var accoCheck = document.getElementById('inputacco').checked;
-                  if(accoCheck===true)
-                     accomodation = document.querySelector('input[name = "sex"]:checked').value;
-                   else
-                    accomodation = 'none'
-                 console.log(collegeId);
-                  console.log(phone);
-                  console.log(accoCheck);
-                  console.log(accomodation);
+                 
+               
+              initApp();
+              }
 
-                var accessToken = localStorage.getItem("accessToken");
+            }
 
-                
-
-                  var config = {
+            function regsiterAxios(accessToken,phone,accomodation,collegeId){
+                 var config = {
                  headers: {'Content-Type': 'application/json',
                'x-auth-token' : accessToken}
                 };
@@ -338,10 +354,8 @@
                   console.log("registration completed");
               });
 
-              initApp();
-              }
-
             }
+
               </script>
 
 
