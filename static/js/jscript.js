@@ -53,6 +53,9 @@ firebase.initializeApp(config);
 
 function signOut(){
             firebase.auth().signOut().then(function() {
+        document.getElementById('login-mob').innerHTML='LOGIN/REGISTER';
+        $('#login').css({'background-image':''});
+
     // Sign-out successful.
 }).catch(function(error) {
     // An error happened.
@@ -76,6 +79,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById("displayName").innerHTML=displayName;
         document.getElementById("email").innerHTML=email;
         document.getElementById('profilepic').setAttribute('src',photoURL);
+        document.getElementById('login-mob').innerHTML=displayName+'/Profile';
+        $('#login').css({'background-image': 'url('+photoURL+')'});
+
 
         localStorage.setItem("accessToken", accessToken);
 
@@ -91,7 +97,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 axios.get('https://api.dhwanicet.org/public/student/'+email)
                 .then(function(response){
                   console.log(response.data)
-                  document.getElementById('unique-id').innerHTML=response.data.id;
+                  document.getElementById('unique-id').innerHTML +=response.data.id;
                 });
 
                 axios.get('https://api.dhwanicet.org/student/event',config)
@@ -132,6 +138,9 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#register').animate({"right":"-100%"});
         $('#regpage').animate({"right":"0%"});
         document.getElementById('sign-in-status').textContent = 'Signed IN';
+        document.getElementById('login-mob').innerHTML='LOGIN/REGISTER';
+        $('#login').css({'background-image':''});
+
     }
 }, function(error) {
     console.log(error);
