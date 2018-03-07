@@ -810,8 +810,6 @@ body{
     height: 300px;
     display: block;
     position: absolute;
-    top: 0;
-    bottom: 0;
     margin: auto;
 }
 #competitions{
@@ -819,8 +817,6 @@ body{
     height: 300px;
     display: block;
     position: absolute;
-    top: 0;
-    bottom: 0;
     margin: auto;
 }
 #informals{
@@ -828,8 +824,6 @@ body{
     height: 300px;
     display: block;
     position: absolute;
-    top: 0;
-    bottom: 0;
     margin: auto;
 }
 #workshops-inner{

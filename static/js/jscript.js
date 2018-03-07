@@ -512,11 +512,18 @@ $( window ).on( "load", function() {
         width = width - (width *(5/100));
         var balance = width - 930;
         balance = balance / 2;
-        $('#workshops').css({"left":balance});
-        $('#competitions').css({"left":balance+310});
-        $('#informals').css({"left":balance+620});
+        $('#workshops').css({"left":balance,"top":"0","bottom":"0"});
+        $('#competitions').css({"left":balance+310,"top":"0","bottom":"0"});
+        $('#informals').css({"left":balance+620,"top":"0","bottom":"0"});
     }else{
-
+        var mobBalance = height - 435;
+        mobBalance = mobBalance /2;
+        $('#workshops').css({"left":"0","right":"0","top":mobBalance,"width":"140px","height":"140px"});
+        $('#competitions').css({"left":"0","right":"0","top":mobBalance + 145,"width":"140px","height":"140px"});
+        $('#informals').css({"left":"0","right":"0","top":mobBalance + 290,"width":"140px","height":"140px"});
+        $('#workshops-inner').css({"background-image":"url(./static/img/workshops-hover.png)"});
+        $('#competitions-inner').css({"background-image":"url(./static/img/competitions-hover.png)"});
+        $('#informals-inner').css({"background-image":"url(./static/img/informals-hover.png)"});
     }
     $( "#workshops" ).on( "click", function() {
         console.log('workshops');
@@ -533,7 +540,17 @@ $( window ).on( "load", function() {
                 workshopsToggle = false;
             }
         }else{
-
+            if(workshopsToggle == false){
+                $('#workshops').animate({"top":"2px","width":"50px","height":"50px"});
+                $('#competitions').css({"display":"none"});
+                $('#informals').css({"display":"none"});
+                workshopsToggle = true;
+            }else{
+                $('#workshops').animate({"top":mobBalance,"width":"140px","height":"140px"});
+                $('#competitions').css({"display":"block"});
+                $('#informals').css({"display":"block"});
+                workshopsToggle = false;
+            }
         }
     });
     $( "#competitions" ).on( "click", function() {
@@ -551,7 +568,17 @@ $( window ).on( "load", function() {
                 competitionsToggle = false;
             }
         }else{
-
+            if(competitionsToggle == false){
+                $('#competitions').animate({"top":"2px","width":"50px","height":"50px"});
+                $('#workshops').css({"display":"none"});
+                $('#informals').css({"display":"none"});
+                competitionsToggle = true;
+            }else{
+                $('#competitions').animate({"top":mobBalance+145,"width":"140px","height":"140px"});
+                $('#workshops').css({"display":"block"});
+                $('#informals').css({"display":"block"});
+                competitionsToggle = false;
+            }
         }
     });
     $( "#informals" ).on( "click", function() {
@@ -568,7 +595,17 @@ $( window ).on( "load", function() {
                 informalsToggle = false;
             }
         }else{
-
+            if(informalsToggle == false){
+                $('#informals').animate({"top":"2px","width":"50px","height":"50px"});
+                $('#competitions').css({"display":"none"});
+                $('#workshops').css({"display":"none"});
+                informalsToggle = true;
+            }else{
+                $('#informals').animate({"top":mobBalance + 290,"width":"140px","height":"140px"});
+                $('#competitions').css({"display":"block"});
+                $('#workshops').css({"display":"block"});
+                informalsToggle = false;
+            }
         }
     });
 
