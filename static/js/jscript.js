@@ -81,12 +81,13 @@ firebase.auth().onAuthStateChanged(function(user) {
         document.getElementById('profilepic').setAttribute('src',photoURL);
         document.getElementById('login-mob').innerHTML=displayName+'/Profile';
         $('#login').css({'background-image': 'url('+photoURL+')'});
+        $('#login').css({'background-size': '100%'});
 
 
         localStorage.setItem("accessToken", accessToken);
 
         var config = {
-            headers: {'Content-Type': 'application/x-www-form-urlencoded',
+            headers: {'Content-Type': 'application/json',
         'x-auth-token' : accessToken}
         };
 
