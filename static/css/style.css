@@ -442,6 +442,19 @@ body{
 
 
 
+#accomodation-content{
+    font-family: 'Titillium Web', sans-serif;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    right: 100%;
+    text-align: center;
+    color: white;
+}
+
+
+
 #contact-content{
     font-family: 'Titillium Web', sans-serif;
     width: 100%;
@@ -745,13 +758,6 @@ body{
     margin-bottom: 10px;
     border-bottom: 2px solid white;
 }
-  #event-content{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    bottom: 100%;
-    display: block;
-  }
 .button-center{
     width: 100px;
     display: block;
@@ -763,6 +769,110 @@ body{
 #account{
     overflow: auto;
 }
+
+
+#event-content{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 100%;
+    display: block;
+}
+#event-page{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.event-element{
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+
+}
+.event-element:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.anti-rotation{
+    display: block;
+    width: 66.6%;
+    height: 66.6%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.anti-rotation:hover{
+    -webkit-animation: antirotation 15s infinite linear;
+}
+#workshops{
+    width: 300px;
+    height: 300px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+#competitions{
+    width: 300px;
+    height: 300px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+#informals{
+    width: 300px;
+    height: 300px;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+#workshops-inner{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/workshops.png');
+    background-size: 100% 100%;
+}
+#workshops-inner:hover{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/workshops-hover.png');
+    background-size: 100% 100%;
+}
+#informals-inner{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/informals.png');
+    background-size: 100% 100%;
+}
+#informals-inner:hover{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/informals-hover.png');
+    background-size: 100% 100%;
+}
+#competitions-inner{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/competitions.png');
+    background-size: 100% 100%;
+}
+#competitions-inner:hover{
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/competitions-hover.png');
+    background-size: 100% 100%;
+}
+
+
+
+
+
 @media (max-width:768px){
     #profile-content{
         overflow: scroll;

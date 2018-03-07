@@ -199,6 +199,7 @@ $( window ).on( "load", function() {
             $("#event-content").animate({"bottom":"100%"},0);
             $("#event-content").animate({"right":"0%"},0);
             $("#contact-content").animate({"right":"100%"},0);
+            $("#accomodation-content").animate({"right":"100%"},0);
     }
 
     if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
@@ -386,6 +387,42 @@ $( window ).on( "load", function() {
             lastActive = "#contact-content";
         }
     });
+    $( "#accomodation-mob" ).on( "click", function() {
+        function animateAccomodation(){
+            setTimeout(function() {
+                $("#main").animate( {"right":"-100%"},anim );
+                $("#accomodation-content").animate({"right":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateAccomodation);
+            console.log('hello');
+            lastActive = "#accomodation-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateAccomodation);
+            lastActive = "#accomodation-content";
+        }
+    });
+    $( "#accomodation" ).on( "click", function() {
+        function animateAccomodation(){
+            setTimeout(function() {
+                $("#main").animate( {"right":"-100%"},anim );
+                $("#accomodation-content").animate({"right":"0%"},anim);            
+              }, anim);
+        }
+        if(lastActive == "#main"){
+            animateMenu(animateAccomodation);
+            console.log('hello');
+            lastActive = "#accomodation-content";
+        }else{
+            resetPage();
+            lastActive = "#main";
+            animateMenu(animateAccomodation);
+            lastActive = "#accomodation-content";
+        }
+    });
     $( "#login" ).on( "click", function() {
         function animateLogin(){
             setTimeout(function() {
@@ -458,6 +495,80 @@ $( window ).on( "load", function() {
             lastActive = "#main";
             animateMenu(animateEvent);
             lastActive = "#event-content";
+        }
+    });
+
+
+
+
+
+    var workshopsToggle = false;
+    var competitionsToggle = false;
+    var informalsToggle = false;
+
+    var width = window.innerWidth;
+    var height = window.innerHeight;
+    if(width>=768){
+        width = width - (width *(5/100));
+        var balance = width - 930;
+        balance = balance / 2;
+        $('#workshops').css({"left":balance});
+        $('#competitions').css({"left":balance+310});
+        $('#informals').css({"left":balance+620});
+    }else{
+
+    }
+    $( "#workshops" ).on( "click", function() {
+        console.log('workshops');
+        if(width>=768){
+            if(workshopsToggle == false){
+                $('#workshops').animate({"left":"2px","width":"100px","height":"100px"});
+                $('#competitions').css({"display":"none"});
+                $('#informals').css({"display":"none"});
+                workshopsToggle = true;
+            }else{
+                $('#workshops').animate({"left":balance,"width":"300px","height":"300px"});
+                $('#competitions').css({"display":"block"});
+                $('#informals').css({"display":"block"});
+                workshopsToggle = false;
+            }
+        }else{
+
+        }
+    });
+    $( "#competitions" ).on( "click", function() {
+        console.log('competitons');
+        if(width>=768){
+            if(competitionsToggle == false){
+                $('#competitions').animate({"left":"2px","width":"100px","height":"100px"});
+                $('#workshops').css({"display":"none"});
+                $('#informals').css({"display":"none"});
+                competitionsToggle = true;
+            }else{
+                $('#competitions').animate({"left":balance+310,"width":"300px","height":"300px"});
+                $('#workshops').css({"display":"block"});
+                $('#informals').css({"display":"block"});
+                competitionsToggle = false;
+            }
+        }else{
+
+        }
+    });
+    $( "#informals" ).on( "click", function() {
+        if(width>=768){
+            if(informalsToggle == false){
+                $('#informals').animate({"left":"2px","width":"100px","height":"100px"});
+                $('#competitions').css({"display":"none"});
+                $('#workshops').css({"display":"none"});
+                informalsToggle = true;
+            }else{
+                $('#informals').animate({"left":balance+620,"width":"300px","height":"300px"});
+                $('#competitions').css({"display":"block"});
+                $('#workshops').css({"display":"block"});
+                informalsToggle = false;
+            }
+        }else{
+
         }
     });
 
