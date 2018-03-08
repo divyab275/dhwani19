@@ -1699,14 +1699,14 @@ body{
         display: none;
     }
     #main{
-        background-image: url('../img/phone-new.png');
+        background-image: url('../img/phoneView.png');
         background-position-x: center;
         background-position-y: center;
         background-size: auto 100%;
     }
     #phone-view{
         display: block;
-        background-image: url('../img/phonePng-new.png');
+        background-image: url('../img/phoneViewSmall.png');
         background-position: center;
         -webkit-animation: rotation 30s infinite linear;
         width: 100%;
