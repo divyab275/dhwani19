@@ -205,11 +205,13 @@ function regEvent(event, groupArray){
 
                         axios.put('https://api.dhwanicet.org/student/event/' + event, { 'group': groupArray }, config)
                             .then(function (response) {
-                                $("input[name='inputs[]']").val('');
+                                $("input[name='inputs[]']").each(function () {
+                                  $(this).val('');
+                                     });
                                 alert('Registration Successful');
                             }).catch(function (error) {
                                 console.log('error : ' + error);
-                                alert('error: '+error);
+                                alert('Registartion failed : check the fields');
                             });
 
 
