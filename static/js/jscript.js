@@ -191,13 +191,21 @@ function regEvent(event,groupArray){
         setTimeout(animateToProfile,anim);
       }
     });
-
-
 }
+
+
+var imgObj = {};
+
 var lastId;
 var toggleclose = false;
 var togglelist = false;
 function workshopAnimate(id){
+    function loadImg(){
+        if(imgObj[id]!=''){
+            $('#imgLOAD'+id).attr('src',imgObj[id]);
+            imgObj[id] = '';
+        }
+    }
     function toggleClose(){
         if(toggleclose == false){
             $('.close-all').css({"display":"block"});
@@ -236,8 +244,8 @@ function workshopAnimate(id){
             $('#work'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
             setTimeout(toggleList,0);
-            
         }
+        loadImg();
     }
 }
 
@@ -284,7 +292,6 @@ function competitionAnimate(id){
             $('#comp'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
             setTimeout(toggleList,0);
-            
         }
     }
 }
@@ -295,6 +302,12 @@ var lastIdAnt;
 var togglecloseAnt = false;
 var togglelistAnt = false;
 function antAnimate(id){
+    function loadImg(){
+        if(imgObj[id]!=''){
+            $('#imgLOAD'+id).attr('src',imgObj[id]);
+            imgObj[id] = '';
+        }
+    }
     function toggleClose(){
         if(togglecloseAnt == false){
             $('.close-all-ant').css({"display":"block"});
@@ -332,9 +345,9 @@ function antAnimate(id){
         }else{
             $('#ant'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
-            setTimeout(toggleList,0);
-            
+            setTimeout(toggleList,0); 
         }
+        loadImg();
     }
 }
 
@@ -342,6 +355,12 @@ var lastIdDio;
 var togglecloseDio = false;
 var togglelistDio = false;
 function dioAnimate(id){
+    function loadImg(){
+        if(imgObj[id]!=''){
+            $('#imgLOAD'+id).attr('src',imgObj[id]);
+            imgObj[id] = '';
+        }
+    }
     function toggleClose(){
         if(togglecloseDio == false){
             $('.close-all-dio').css({"display":"block"});
@@ -380,8 +399,8 @@ function dioAnimate(id){
             $('#dio'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
             setTimeout(toggleList,0);
-            
         }
+        loadImg();
     }
 }
 
@@ -389,6 +408,12 @@ var lastIdNad;
 var togglecloseNad = false;
 var togglelistNad = false;
 function nadAnimate(id){
+    function loadImg(){
+        if(imgObj[id]!=''){
+            $('#imgLOAD'+id).attr('src',imgObj[id]);
+            imgObj[id] = '';
+        }
+    }
     function toggleClose(){
         if(togglecloseNad == false){
             $('.close-all-nad').css({"display":"block"});
@@ -427,8 +452,8 @@ function nadAnimate(id){
             $('#nad'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
             setTimeout(toggleList,0);
-            
         }
+        loadImg();
     }
 }
 
@@ -437,6 +462,12 @@ var lastIdCar;
 var togglecloseCar = false;
 var togglelistCar = false;
 function carAnimate(id){
+    function loadImg(){
+        if(imgObj[id]!=''){
+            $('#imgLOAD'+id).attr('src',imgObj[id]);
+            imgObj[id] = '';
+        }
+    }
     function toggleClose(){
         if(togglecloseCar == false){
             $('.close-all-car').css({"display":"block"});
@@ -475,8 +506,8 @@ function carAnimate(id){
             $('#car'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
             setTimeout(toggleList,0);
-            
         }
+        loadImg();
     }
 }
 
@@ -486,6 +517,12 @@ var lastIdKhe;
 var togglecloseKhe = false;
 var togglelistKhe = false;
 function kheAnimate(id){
+    function loadImg(){
+        if(imgObj[id]!=''){
+            $('#imgLOAD'+id).attr('src',imgObj[id]);
+            imgObj[id] = '';
+        }
+    }
     function toggleClose(){
         if(togglecloseKhe == false){
             $('.close-all-khe').css({"display":"block"});
@@ -524,8 +561,8 @@ function kheAnimate(id){
             $('#khe'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
             setTimeout(toggleList,0);
-            
         }
+        loadImg();
     }
 }
 
@@ -534,6 +571,12 @@ var lastIdMis;
 var togglecloseMis = false;
 var togglelistMis = false;
 function misAnimate(id){
+    function loadImg(){
+        if(imgObj[id]!=''){
+            $('#imgLOAD'+id).attr('src',imgObj[id]);
+            imgObj[id] = '';
+        }
+    }
     function toggleClose(){
         if(togglecloseMis == false){
             $('.close-all-mis').css({"display":"block"});
@@ -571,9 +614,9 @@ function misAnimate(id){
         }else{
             $('#mis'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
-            setTimeout(toggleList,0);
-            
+            setTimeout(toggleList,0); 
         }
+        loadImg();
     }
 }
 
@@ -598,7 +641,10 @@ $( window ).on( "load", function() {
         $('#comp6').css({"top":"0","left":"100%","width":shiteWidth - 220});
     }
 
-    $("#overlay").animate({"bottom":"100vh"},600);
+    function preloader(){
+        $("#overlay").animate({"bottom":"100vh"},600);
+    }
+    setInterval(preloader,400);
 
 
 
@@ -940,7 +986,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
                 $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
                 $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
-                $('#event-img'+i).append('<img src="'+response.data[i].image+'" class="event-img-child"></img>');
+                $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
                 $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
                 $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
@@ -952,7 +998,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#event-name'+i).append(response.data[i].name);
                 $('#event-description'+i).append(response.data[i].description);
                 $('#event-format'+i).append(response.data[i].format);
-
+                imgObj[i] = response.data[i].image;
                 var shiteWidth = window.innerWidth - ((5/100)*window.innerWidth);
 
                 if(window.innerWidth<=768){
@@ -1070,7 +1116,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
                 $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
                 $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
-                $('#event-img'+i).append('<img src="'+response.data[i].image+'" class="event-img-child"></img>');
+                $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
                 $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
                 $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
@@ -1082,6 +1128,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#event-name'+i).append(response.data[i].name);
                 $('#event-description'+i).append(response.data[i].description);
                 $('#event-format'+i).append(response.data[i].format);
+                imgObj[i] = response.data[i].image;
             }
         }
     });
