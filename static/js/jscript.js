@@ -194,6 +194,20 @@ function regEvent(event,groupArray){
 }
 
 
+function status(statusMsg){
+    function downToggle(callback){
+        $("#mSg").append(statusMsg);
+        $('#status').animate({"top":"-3px"},600);
+        setTimeout(callback,3000);
+    }
+    function upToggle(callback){
+        $('#status').animate({"top":"-36px"},600);
+        $("#mSg").html('');
+    }
+    setTimeout(downToggle(upToggle),600);
+}
+
+
 var imgObj = {};
 
 var lastId;
@@ -644,7 +658,8 @@ $( window ).on( "load", function() {
     function preloader(){
         $("#overlay").animate({"bottom":"100vh"},600);
     }
-    setInterval(preloader,400);
+    setTimeout(preloader,400);
+
 
 
 
