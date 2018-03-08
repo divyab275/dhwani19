@@ -161,26 +161,30 @@ function regEvent(event, groupArray){
             {
             //    console.log(res.data); 
             eventObj = res.data;
+            console.log(eventObj);
             if(eventObj.group) 
             {
                 console.log("group event");
                 values = ""
-                $("input[name='inputs0[]']").each(function () {
+                
+                $("input[name='inputs[]']").each(function () {
                     if ($(this).val()) 
                     {
                         values += ($(this).val());
                         values += ',';
+
                     }                   
 
                 });
                 values = values.slice(0, -1);
                 groupArray = values
+
             }
             else
             {
                 groupArray = ""
             }
-
+            console.log('groupArray: '+ groupArray)
             if (window.innerWidth <= 768) { var anim = 400; } else { var anim = 600; }
             function animateToProfile() {
                 $('#main').animate({ "bottom": "100%" }, anim);
@@ -204,6 +208,7 @@ function regEvent(event, groupArray){
                                 alert('Registration Successful');
                             }).catch(function (error) {
                                 console.log('error : ' + error);
+                                alert('error: '+error);
                             });
 
 
@@ -218,6 +223,7 @@ function regEvent(event, groupArray){
             })
         .catch((err) => {
             console.log(err)
+            alert(err);
         })
     // console.log(event);
     // if(event.group) 
@@ -1169,7 +1175,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
     
                     $('#secTwo'+i).append('<div id=\"inputArea'+i+'\"></div>');
                     for (var j=0; j<response.data[i].maxPerGroup-1; j++) {
-                        $('#inputArea'+i).append('<div>Dhwani Id of team member '+(j+2)+' : <div class=\"input-box\"><input name=\"inputs'+i+'[]\"/><span class=\"unit\">D-</span></div></div>');
+                        $('#inputArea'+i).append('<div>Dhwani Id of team member '+(j+2)+' : <div class=\"input-box\"><input name=\"inputs[]\"/><span class=\"unit\">D-</span></div></div>');
                     } 
                     //input fields according to dropdown
                 }
