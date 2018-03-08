@@ -1,36 +1,68 @@
 <html>
+
 <head>
     <style>
         @keyframes flickerAnimation {
-        0%   { opacity:1; }
-        50%  { opacity:0; }
-        100% { opacity:1; }
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-        @-o-keyframes flickerAnimation{
-        0%   { opacity:1; }
-        50%  { opacity:0; }
-        100% { opacity:1; }
+
+        @-o-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-        @-moz-keyframes flickerAnimation{
-        0%   { opacity:1; }
-        50%  { opacity:0; }
-        100% { opacity:1; }
+
+        @-moz-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-        @-webkit-keyframes flickerAnimation{
-        0%   { opacity:1; }
-        50%  { opacity:0; }
-        100% { opacity:1; }
+
+        @-webkit-keyframes flickerAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
+
         .animate-flicker {
-            width:150px;
+            width: 150px;
             height: 150px;
             position: absolute;
-            top: 0;right: 0;left: 0;bottom: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
             margin: auto;
             display: block;
-        -webkit-animation: flickerAnimation 3s infinite;
-        -moz-animation: flickerAnimation 3s infinite;
-        -o-animation: flickerAnimation 3s infinite;
+            -webkit-animation: flickerAnimation 3s infinite;
+            -moz-animation: flickerAnimation 3s infinite;
+            -o-animation: flickerAnimation 3s infinite;
             animation: flickerAnimation 3s infinite;
         }
     </style>
@@ -45,16 +77,30 @@
         axios.get('https://api.github.com/users/codeheaven-io');
     </script>
     <script src="./static/js/jscript.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
 
     <script>
+        //js service worker for adding to home screen prompt
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
 
     </script>
 
 </head>
+
 <body>
     <div class="" id="overlay">
         <img src="./static/img/logo-orginal.png" alt="" class="animate-flicker">
@@ -72,8 +118,12 @@
                         <span class="" id="behemian">
                         </span>
                         <span class="user-counter">
-                            <span class="" id="split1"><img src="./static/img/people.png" alt="" class="" id="people"></span>
-                            <span class="" id="split2"><h1>273</h1></span>
+                            <span class="" id="split1">
+                                <img src="./static/img/people.png" alt="" class="" id="people">
+                            </span>
+                            <span class="" id="split2">
+                                <h1>273</h1>
+                            </span>
                         </span>
                         <span class="couple">
                             <div class="" id="fb"></div>
@@ -145,21 +195,19 @@
                     <div class="section" id="secOne">
                         <h2>ABOUT US</h2>
                         <p>
-                            Dhwani, the cultural extravaganza of CET has always carved a very special niche for
-                            itself by being the most sought after cultural fest in the state. Be it the enthusiastic
-                            crowd or the scintillating performances, Dhwani never fails to make its mark. Nurturing 
-                            creativity and appreciating the hidden talents, at the same time standing for a social
-                            cause, every Dhwani is a defining experience for the spectators as well as organizers.
-                            <br>
-                            Founded in 1939 during the reign of the Travancore King, Sree Chithira Thirunal
-                            Balarama Varma, College of Engineering, Trivandrum, commonly known as CET, is the 
-                            first Engineering college in Kerala. Since inception, CET continues to maintain its
-                            excellence in technical education and research in the state. CET has been ranked 47 in
-                            Outlook Magazine's list of top 100 Engineering Colleges in india 2016. The immense
-                            pool of talents and an insiring vision to realize, the 78 year long journey of CET was
-                            not limited in the technical arena alone. Apart from renowned engineers and
-                            bureaucrats, the college also gave birth to numerous musicians, artists and filmmakers
-                            who make their alma mater proud everyday.
+                            Dhwani, the cultural extravaganza of CET has always carved a very special niche for itself by being the most sought after
+                            cultural fest in the state. Be it the enthusiastic crowd or the scintillating performances, Dhwani
+                            never fails to make its mark. Nurturing creativity and appreciating the hidden talents, at the
+                            same time standing for a social cause, every Dhwani is a defining experience for the spectators
+                            as well as organizers.
+                            <br> Founded in 1939 during the reign of the Travancore King, Sree Chithira Thirunal Balarama Varma,
+                            College of Engineering, Trivandrum, commonly known as CET, is the first Engineering college in
+                            Kerala. Since inception, CET continues to maintain its excellence in technical education and
+                            research in the state. CET has been ranked 47 in Outlook Magazine's list of top 100 Engineering
+                            Colleges in india 2016. The immense pool of talents and an insiring vision to realize, the 78
+                            year long journey of CET was not limited in the technical arena alone. Apart from renowned engineers
+                            and bureaucrats, the college also gave birth to numerous musicians, artists and filmmakers who
+                            make their alma mater proud everyday.
                         </p>
                     </div>
                     <div class="section" id="secTwo">
@@ -170,44 +218,44 @@
                                 <p>Facebook Likes</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/twitter-allM.png" alt="">
-                                    <h3>1K+</h3>
-                                    <p>Followers</p>
+                                <img src="./static/img/twitter-allM.png" alt="">
+                                <h3>1K+</h3>
+                                <p>Followers</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/instafram-allM.png" alt="">
-                                    <h3>2K+</h3>
-                                    <p>Followers</p>
+                                <img src="./static/img/instafram-allM.png" alt="">
+                                <h3>2K+</h3>
+                                <p>Followers</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/youtube-allM.png" alt="">
-                                    <h3>100K+</h3>
-                                    <p>Youtube Views</p>
+                                <img src="./static/img/youtube-allM.png" alt="">
+                                <h3>100K+</h3>
+                                <p>Youtube Views</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/web-allM.png" alt="">
-                                    <h3>50K+</h3>
-                                    <p>Website Hits</p>
+                                <img src="./static/img/web-allM.png" alt="">
+                                <h3>50K+</h3>
+                                <p>Website Hits</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/foot-allM.png" alt="">
-                                    <h3>20K+</h3>
-                                    <p>Footfall of Dhwani</p>
+                                <img src="./static/img/foot-allM.png" alt="">
+                                <h3>20K+</h3>
+                                <p>Footfall of Dhwani</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/university-allM.png" alt="">
-                                    <h3>150+</h3>
-                                    <p>Colleges Participated</p>
+                                <img src="./static/img/university-allM.png" alt="">
+                                <h3>150+</h3>
+                                <p>Colleges Participated</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/money-allM.png" alt="">
-                                    <h3>1M+</h3>
-                                    <p>Prizes Worth</p>
+                                <img src="./static/img/money-allM.png" alt="">
+                                <h3>1M+</h3>
+                                <p>Prizes Worth</p>
                             </div>
                             <div class="eachBox">
-                                    <img src="./static/img/flag-allM.png" alt="">
-                                    <h3>60+</h3>
-                                    <p>Events Organized</p>
+                                <img src="./static/img/flag-allM.png" alt="">
+                                <h3>60+</h3>
+                                <p>Events Organized</p>
                             </div>
                         </div>
                     </div>
@@ -239,98 +287,97 @@
                     </div>
                     <div class="section" id="secTwoContact">
                         <div class="secContentTwo">
-                                <h4>CONTACT INFO</h4>
-                                <p>
-                                    EVENT HEAD : Jithin Raj 8943900895<br>
-                                    EVENT CONVENOR : Akshay Nand 8289822292<br>
-                                    EVENT DIRECTOR : Shravan Kumar PS 9544000559<br>
-                                    EVENT COORDINATOR : Akshay Kumar 9995029242<br>
-                                    PROGRAMME CONVENOR : Sidharth Venu 9497899570<br>
-                                    FINANCE CONVENOR : Anand Chandran 9656784726<br>
-                                    SPONSORSHIP(1) : Rohith CK 9656338351<br>
-                                    SPONSORSHIP(2) : Skanda Krishnan 8606018049<br>
-                                    PUBLICITY : Shilpa 9400877083<br>
-                                    ACCOMODATION : Akhil KJ 8281183949<br>
-                                    MARKETING : Stejin Chakko 859406204<br>
-                                    <br>
-                                    FESTIVAL HEADS
-                                    <br><br>
-                                    ANTARA - Music Festival : Sidharth 9496456290<br>
-                                    DIONYSIA - Theatrical Festival : Afreed 9745255441<br>
-                                    NADANTA - Dance Festival : Akshay 9995324585<br>
-                                    CARPE DICTUM - Literary Festival : Soorya 9895449420<br>
-                                    KHELOTSAV - Sports Festival : Hariprasad 9544997536<br>
-                                    MISCELANEO - Miscellaneous : Nithin 8089651277<br>
-                                </p>
+                            <h4>CONTACT INFO</h4>
+                            <p>
+                                EVENT HEAD : Jithin Raj 8943900895
+                                <br> EVENT CONVENOR : Akshay Nand 8289822292
+                                <br> EVENT DIRECTOR : Shravan Kumar PS 9544000559
+                                <br> EVENT COORDINATOR : Akshay Kumar 9995029242
+                                <br> PROGRAMME CONVENOR : Sidharth Venu 9497899570
+                                <br> FINANCE CONVENOR : Anand Chandran 9656784726
+                                <br> SPONSORSHIP(1) : Rohith CK 9656338351
+                                <br> SPONSORSHIP(2) : Skanda Krishnan 8606018049
+                                <br> PUBLICITY : Shilpa 9400877083
+                                <br> ACCOMODATION : Akhil KJ 8281183949
+                                <br> MARKETING : Stejin Chakko 859406204
+                                <br>
+                                <br> FESTIVAL HEADS
+                                <br>
+                                <br> ANTARA - Music Festival : Sidharth 9496456290
+                                <br> DIONYSIA - Theatrical Festival : Afreed 9745255441
+                                <br> NADANTA - Dance Festival : Akshay 9995324585
+                                <br> CARPE DICTUM - Literary Festival : Soorya 9895449420
+                                <br> KHELOTSAV - Sports Festival : Hariprasad 9544997536
+                                <br> MISCELANEO - Miscellaneous : Nithin 8089651277
+                                <br>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="" id="login-content">
                     <div class="" id="logContent">
-                    <div class="sectionReg" id="secOneReg">
+                        <div class="sectionReg" id="secOneReg">
 
-                    </div>
-                    <div class="sectionReg" id="secTwoReg">
-                        <div class="" id="regpage">
-                            <h4 id="registerhead">REGISTER</h4>
-                            <p id="login_failed" style="text-align:center;"></p>
-                            <button id="Fsign-in" class="loginBtn loginBtn--facebook" onclick="facebookSignIn()">Log in With Facebook</button>
-                            <button id="Gsign-in" class="loginBtn loginBtn--google" onclick="googleSignIn()">Log in With Google</button>
-                            <p id="logintext">After registering you get a unique ID number. You need this ID number for registering for competitions,attending talk shows,proshows etc..</p>  
                         </div>
-                        <div id="register">
-                            <div class="" id="contentCenter">
-                              <h5 id="yregcom">PLEASE FILL OUT THESE DETAILS</h5>
-                              
-                               
-                                              <div class="modal-body">
-                                      <p></p>
-                                      <form>
-                                          <div class="form-group">
-                                              <label for="inputcollege">College</label>
-                                              <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement" required>
-                                  <datalist id="json-collegelist">
-                                  </datalist>
-                                          </div>
-                                          <div class="form-group">
-                                              <label for="inputphone">Phone</label>
-                                              <input type="text" class="formelement" id="inputphone" minlength="10" required>
-                                          </div>
-                                          <label>Sex</label>
-                                          <div class="radio">
-                                              <label>
-                                                  <input type="radio" name="sex" id="inputsexmale" class="inputsex" value="male" checked>
-                                                  Male
-                                              </label>
-                                          </div>
-                                          <div class="radio">
-                                              <label>
-                                                  <input type="radio" name="sex" id="inputsexfemale" value="female" class="inputsex" checked>
-                                                  Female
-                                              </label>
-                                          </div>
-                                          <label>Accomodation</label>
-                                          <div class="checkbox">
-                                              <label>
-                                                  <input type="checkbox" id="inputacco" class="">
-                                                      Accomodation Required
-                                              </label>
-                                          </div>
-                                      </form>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <button style="" type="button" class="submitbtn" onclick="register()">
-                                          Register
-                                      </button>
-                                      <button style="" type="button" class="submitbtn" data-dismiss="modal" onclick="signOut()">
-                                          Close
-                                      </button>
-                                    </div> 
+                        <div class="sectionReg" id="secTwoReg">
+                            <div class="" id="regpage">
+                                <h4 id="registerhead">REGISTER</h4>
+                                <p id="login_failed" style="text-align:center;"></p>
+                                <button id="Fsign-in" class="loginBtn loginBtn--facebook" onclick="facebookSignIn()">Log in With Facebook</button>
+                                <button id="Gsign-in" class="loginBtn loginBtn--google" onclick="googleSignIn()">Log in With Google</button>
+                                <p id="logintext">After registering you get a unique ID number. You need this ID number for registering for
+                                    competitions,attending talk shows,proshows etc..</p>
+                            </div>
+                            <div id="register">
+                                <div class="" id="contentCenter">
+                                    <h5 id="yregcom">PLEASE FILL OUT THESE DETAILS</h5>
+
+
+                                    <div class="modal-body">
+                                        <p></p>
+                                        <form>
+                                            <div class="form-group">
+                                                <label for="inputcollege">College</label>
+                                                <input type="text" id="selectedcollege" list="json-collegelist" placeholder="college name" class="formelement" required>
+                                                <datalist id="json-collegelist">
+                                                </datalist>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputphone">Phone</label>
+                                                <input type="text" class="formelement" id="inputphone" minlength="10" required>
+                                            </div>
+                                            <label>Sex</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="sex" id="inputsexmale" class="inputsex" value="male" checked> Male
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="sex" id="inputsexfemale" value="female" class="inputsex" checked> Female
+                                                </label>
+                                            </div>
+                                            <label>Accomodation</label>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="inputacco" class=""> Accomodation Required
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button style="" type="button" class="submitbtn" onclick="register()">
+                                            Register
+                                        </button>
+                                        <button style="" type="button" class="submitbtn" data-dismiss="modal" onclick="signOut()">
+                                            Close
+                                        </button>
+                                    </div>
                                     <div>
-                                      <label id="errorMessage" type="text">
-                                        
-                                      </label>
-                                    </div>   
+                                        <label id="errorMessage" type="text">
+
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -346,11 +393,12 @@
                                 <p style="text-align:center;margin-top:5px;">Your DHWANI id:</p>
                                 <p id="unique-id" style=" text-align:center;">D-</p>
                                 <div class="button-center">
-                                    <button style="margin-top:0px; display:block; margin-left:auto; margin-right:auto;" id="sign-out" onclick="signOut()" class="submitbtn"> SIGN OUT</button>
+                                    <button style="margin-top:0px; display:block; margin-left:auto; margin-right:auto;" id="sign-out" onclick="signOut()" class="submitbtn">
+                                    SIGN OUT</button>
                                 </div>
                             </div>
                             <div class="section">
-                              <h4 id="" style="font-size:20px;text-align:center;">YOUR REGISTERED COMPETITIONS</h4>
+                                <h4 id="" style="font-size:20px;text-align:center;">YOUR REGISTERED COMPETITIONS</h4>
                                 <div id="reg_events">
 
                                 </div>
@@ -362,23 +410,23 @@
                     <div class="" id="event-page">
                         <div class="event-element" id="workshops">
                             <div class="anti-rotation">
-                                    <div class="" id="workshops-inner">
+                                <div class="" id="workshops-inner">
 
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="event-element" id="competitions">
                             <div class="anti-rotation">
-                                    <div class="" id="competitions-inner">
-                            
-                                    </div>
+                                <div class="" id="competitions-inner">
+
+                                </div>
                             </div>
                         </div>
                         <div class="event-element" id="informals">
                             <div class="anti-rotation">
-                                    <div class="" id="informals-inner">
-                            
-                                    </div>
+                                <div class="" id="informals-inner">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -386,143 +434,147 @@
                 <div class="" id="accomodation-content">
                     <div class="acc-content">
                         <h1>Accomodation</h1>
-                        <h2>Accomodation cannot be reserved. You can opt whether you need accomodation or not while registration and pay on spot.</h2>
+                        <h2>Accomodation cannot be reserved. You can opt whether you need accomodation or not while registration
+                            and pay on spot.</h2>
                         <h3>For queries contact Akhil KJ 8281183949</h3>
-                    </div>                    
+                    </div>
 
-                </div>  
-            </div>    
+                </div>
+            </div>
         </div>
     </div>
 </body>
 
 <script type="text/javascript">
     // Get the <datalist> and <input> elements.
-var collegeList = document.getElementById('json-collegelist');
-var input = document.getElementById('selectedcollege');
-var collegeId ;
+    var collegeList = document.getElementById('json-collegelist');
+    var input = document.getElementById('selectedcollege');
+    var collegeId;
 
-// Create a new XMLHttpRequest.
+    // Create a new XMLHttpRequest.
 
-var request = new XMLHttpRequest();
+    var request = new XMLHttpRequest();
 
-var jsonOptionsTemp;
+    var jsonOptionsTemp;
 
-// Handle state changes for the request.
-request.onreadystatechange = function(response) {
-if (request.readyState === 4) {
-  if (request.status === 200) {
-    // Parse the JSON
-    var jsonOptions = JSON.parse(request.responseText);
+    // Handle state changes for the request.
+    request.onreadystatechange = function (response) {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                // Parse the JSON
+                var jsonOptions = JSON.parse(request.responseText);
 
-    jsonOptionsTemp =jsonOptions;
-    // Loop over the JSON array.
-    jsonOptions.forEach(function(item) {
-      // Create a new <option> element.
-      var option = document.createElement('option');
-      // Set the value using the item in the JSON array.
-      option.value = item.name;
-      option.id = item.id;
-      // Add the <option> element to the <datalist>.
-      collegeList.appendChild(option);
-    });
+                jsonOptionsTemp = jsonOptions;
+                // Loop over the JSON array.
+                jsonOptions.forEach(function (item) {
+                    // Create a new <option> element.
+                    var option = document.createElement('option');
+                    // Set the value using the item in the JSON array.
+                    option.value = item.name;
+                    option.id = item.id;
+                    // Add the <option> element to the <datalist>.
+                    collegeList.appendChild(option);
+                });
 
-    
+
+                // Update the placeholder text.
+                input.placeholder = "enter college name";
+            } else {
+                // An error occured :(
+                input.placeholder = "Couldn't load datalist options :(";
+            }
+        }
+    };
+
     // Update the placeholder text.
-    input.placeholder = "enter college name";
-  } else {
-    // An error occured :(
-    input.placeholder = "Couldn't load datalist options :(";
-  }
+    input.placeholder = "Loading options...";
+
+    // Set up and make the request.
+    request.open('GET', 'https://api.dhwanicet.org/public/college', true);
+    request.send();
+
+
+    function register(input) {
+
+        //var collegeCheck = document.getElementById('newcollege').checked;
+        var inputCollege = document.getElementById('selectedcollege');
+        var inputTemp = inputCollege.value;
+        var phoneObj = document.getElementById('inputphone');
+        var phone = phoneObj.value;
+
+        if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
+            document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   " + phoneObj.validationMessage;
+        } else {
+
+
+            var accomodation;
+
+            var accoCheck = document.getElementById('inputacco').checked;
+            if (accoCheck === true)
+                accomodation = document.querySelector('input[name = "sex"]:checked').value;
+            else
+                accomodation = 'none'
+            console.log(collegeId);
+            console.log(phone);
+            console.log(accoCheck);
+            console.log(accomodation);
+
+            var accessToken = localStorage.getItem("accessToken");
+
+
+
+
+
+            var flag = false;
+
+            jsonOptionsTemp.forEach(function (item) {
+                if (inputTemp === item.name) {
+                    collegeId = item.id;
+                    flag = true;
+                }
+            });
+
+            if (flag === false) {
+                axios.put('https://api.dhwanicet.org/public/college', { 'name': inputTemp })
+                    .then(function (response) {
+
+                        collegeId = response.data.id;
+                        console.log(collegeId);
+
+                        regsiterAxios(accessToken, phone, accomodation, collegeId);
+                    });
+
+            }
+
+            else {
+
+                regsiterAxios(accessToken, phone, accomodation, collegeId);
+            }
+
+
+
+
+            initApp();
+        }
+
+    }
+
+    function regsiterAxios(accessToken, phone, accomodation, collegeId) {
+        var config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': accessToken            
 }
-};
+        };
 
-// Update the placeholder text.
-input.placeholder = "Loading options...";
+        axios.post('https://api.dhwanicet.org/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
+            .then(function (response) {
+                console.log(response);
 
-// Set up and make the request.
-request.open('GET', 'https://api.dhwanicet.org/public/college', true);
-request.send();
+                console.log("registration completed");
+            });
 
-
-              function register(input){
-
-                //var collegeCheck = document.getElementById('newcollege').checked;
-                var inputCollege= document.getElementById('selectedcollege');
-                var inputTemp = inputCollege.value;
-                 var phoneObj = document.getElementById('inputphone');
-                 var phone= phoneObj.value;
-
-               if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
-                      document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   "+phoneObj.validationMessage;
-                  } else {
-                      
-
-                      var accomodation;
-                
-                  var accoCheck = document.getElementById('inputacco').checked;
-                  if(accoCheck===true)
-                     accomodation = document.querySelector('input[name = "sex"]:checked').value;
-                   else
-                    accomodation = 'none'
-                 console.log(collegeId);
-                  console.log(phone);
-                  console.log(accoCheck);
-                  console.log(accomodation);
-
-                var accessToken = localStorage.getItem("accessToken");
-
-                
-
-                  
-                
-                var flag = false;
-
-                 jsonOptionsTemp.forEach(function(item) {
-                  if(inputTemp===item.name){
-                    collegeId=item.id;
-                    flag=true;
-                  }
-                 });
-
-                 if(flag===false){
-                  axios.put('https://api.dhwanicet.org/public/college',{'name':inputTemp})
-                  .then(function(response){
-
-                  collegeId = response.data.id;
-                  console.log(collegeId);
-
-                  regsiterAxios(accessToken,phone,accomodation,collegeId);
-                  });
-
-                }
-
-                else{
-
-                  regsiterAxios(accessToken,phone,accomodation,collegeId);
-                }
-                  
-                
-                 
-               
-              initApp();
-              }
-
-            }
-
-            function regsiterAxios(accessToken,phone,accomodation,collegeId){
-                 var config = {
-                 headers: {'Content-Type': 'application/json',
-               'x-auth-token' : accessToken}
-                };
-
-                axios.post('https://api.dhwanicet.org/student/register',{ 'phone' : phone, 'accomodation' : accomodation, 'collegeId' : collegeId }, config)
-                .then(function(response){
-                  console.log(response); 
-
-                  console.log("registration completed");
-              });
-
-            }
+    }
 </script>
+
 </html>
