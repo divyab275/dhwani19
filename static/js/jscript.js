@@ -92,13 +92,11 @@ firebase.auth().onAuthStateChanged(function(user) {
         'x-auth-token' : accessToken}
         };
 
-        console.log(accessToken);
         axios.post('https://api.dhwanicet.org/student/login', {}, config)
         .then(function(response){
             if(response.data.registered===true){
                 axios.get('https://api.dhwanicet.org/public/student/'+email)
                 .then(function(response){
-                  console.log(response.data)
                   document.getElementById('unique-id').innerHTML ='D-'+response.data.id;
                 });
 
@@ -155,42 +153,83 @@ window.addEventListener('load', function() {
 initApp()
 });
 var lastActive = "#main";
-function regEvent(event,groupArray){
-    if(groupArray == undefined){
-        groupArray = "";
-    }
-    if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
-    function animateToProfile(){
-        $('#main').animate({"bottom":"100%"},anim);
-        $('#login-content').animate({"top":"0%"},anim);
-        lastActive = "#login-content";
-    }
+function regEvent(event, groupArray){
+
     console.log(event);
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-        user.getIdToken().then(function(accessToken) {
+    axios.get('https://api.dhwanicet.org/public/event/' + event, {}, { 'Content-Type': 'application/json'})
+        .then(function(res) 
+            {
+            //    console.log(res.data); 
+            eventObj = res.data;
+            if(eventObj.group) 
+            {
+                console.log("group event");
+                values = ""
+                $("input[name='inputs0[]']").each(function () {
+                    if ($(this).val()) 
+                    {
+                        values += ($(this).val());
+                        values += ',';
+                    }                   
 
-             var config = {
-                 headers: {'Content-Type': 'application/json',
-               'x-auth-token' : accessToken}
-                };
+                });
+                values = values.slice(0, -1);
+                groupArray = values
+            }
+            else
+            {
+                groupArray = ""
+            }
 
-                axios.put('https://api.dhwanicet.org/student/event/'+event,{ 'group' : groupArray},config)
-                  .then(function(response){
-                    alert('Registration Successful');
-                  }).catch(function(error){
-                    console.log('error : '+error);
-                  });
+            if (window.innerWidth <= 768) { var anim = 400; } else { var anim = 600; }
+            function animateToProfile() {
+                $('#main').animate({ "bottom": "100%" }, anim);
+                $('#login-content').animate({ "top": "0%" }, anim);
+                lastActive = "#login-content";
+            }
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+                    user.getIdToken().then(function (accessToken) {
+
+                        var config = {
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'x-auth-token': accessToken
+                            }
+                        };
+
+                        axios.put('https://api.dhwanicet.org/student/event/' + event, { 'group': groupArray }, config)
+                            .then(function (response) {
+                                alert('Registration Successful');
+                            }).catch(function (error) {
+                                console.log('error : ' + error);
+                            });
 
 
-        });
-      } else {
-        $('#event-content').animate({"bottom":"100%"},anim);
-        $('#main').animate({"bottom":"0%"},anim);
-        setTimeout(animateToProfile,anim);
-      }
-    });
+                    });
+                } else {
+                    $('#event-content').animate({ "bottom": "100%" }, anim);
+                    $('#main').animate({ "bottom": "0%" }, anim);
+                    setTimeout(animateToProfile, anim);
+                }
+            });
+
+            })
+        .catch((err) => {
+            console.log(err)
+        })
+    // console.log(event);
+    // if(event.group) 
+    // {
+    //     console.log("Group event" + event);
+    // }
+
+    // if(groupArray == undefined){
+    //     groupArray = "";
+    // }
+    
+
 }
 
 
@@ -740,7 +779,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateAbout);
-            console.log('hello');
             lastActive = "#about-content";
         }else{
             resetPage();
@@ -758,7 +796,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateAbout);
-            console.log('hello');
             lastActive = "#about-content";
         }else{
             resetPage();
@@ -776,7 +813,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateProshow);
-            console.log('hello');
             lastActive = "#proshow-content";
         }else{
             resetPage();
@@ -794,7 +830,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateProshow);
-            console.log('hello');
             lastActive = "#proshow-content";
         }else{
             resetPage();
@@ -839,7 +874,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateContact);
-            console.log('hello');
             lastActive = "#contact-content";
         }else{
             resetPage();
@@ -857,7 +891,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateContact);
-            console.log('hello');
             lastActive = "#contact-content";
         }else{
             resetPage();
@@ -875,7 +908,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateAccomodation);
-            console.log('hello');
             lastActive = "#accomodation-content";
         }else{
             resetPage();
@@ -893,7 +925,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateAccomodation);
-            console.log('hello');
             lastActive = "#accomodation-content";
         }else{
             resetPage();
@@ -912,7 +943,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateLogin);
-            console.log('hello');
             lastActive = "#login-content";
         }else{
             resetPage();
@@ -931,7 +961,6 @@ $( window ).on( "load", function() {
         }
         if(lastActive == "#main"){
             animateMenu(animateLogin);
-            console.log('hello');
             lastActive = "#login-content";
         }else{
             resetPage();
@@ -1003,7 +1032,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
                 $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
                 $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
-                $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
+                $('#event-regfee'+i).append('REG FEE : ' + response.data[i].regFee);
 
                 $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
                 $('#event-contactTwo'+i).append(response.data[i].contactName2+' : '+response.data[i].contactPhone2);
@@ -1141,9 +1170,10 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                     } 
                     //input fields according to dropdown
                 }
+                
                 $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
                 $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
-                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
+                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+ response.data[i].id + ')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
                 if(response.data[i].prize3 != null){ 
                     var prize3 = response.data[i].prize3;
