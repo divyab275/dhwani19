@@ -205,6 +205,7 @@ function regEvent(event, groupArray){
 
                         axios.put('https://api.dhwanicet.org/student/event/' + event, { 'group': groupArray }, config)
                             .then(function (response) {
+                                $("input[name='inputs[]']").val('');
                                 alert('Registration Successful');
                             }).catch(function (error) {
                                 console.log('error : ' + error);
