@@ -1406,6 +1406,25 @@ body{
     border: 2px solid white;
     border-radius: 10px;
 }
+
+#comp1{
+    overflow: hidden;
+}
+#comp2{
+    overflow: hidden;
+}
+#comp3{
+    overflow: hidden;
+}
+#comp4{
+    overflow: hidden;
+}
+#comp5{
+    overflow: hidden;
+}
+#comp6{
+    overflow: hidden;
+}
 @media (max-width:768px){
     .event-content-button{
         width: 100px;
