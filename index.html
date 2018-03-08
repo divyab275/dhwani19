@@ -81,12 +81,12 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
-
+    <link rel="manifest" href="./manifest.json">
     <script>
         //js service worker for adding to home screen prompt
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function () {
-                navigator.serviceWorker.register('/sw.js').then(function (registration) {
+                navigator.serviceWorker.register('./sw.js').then(function (registration) {
                     // Registration was successful
                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
                 }, function (err) {
