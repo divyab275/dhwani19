@@ -4,15 +4,13 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
     <style>
-        #content:hover {
-            display: none;
-        }
+
     </style>
 </head>
 
 <body>
     <div class="" id="content">
-        <div id="name"></div>
+        <div id="fuck"></div>
         <div id="description"></div>
         <div id="format"></div>
         <div id="image"></div>
@@ -29,7 +27,7 @@
 
 <script type="text/javascript">
     var content = document.getElementById('content');
-    var name = document.getElementById('name');
+    var fuck = document.getElementById('fuck');
     var description = document.getElementById('description');
     var format = document.getElementById('format');
     var image = document.getElementById('image');
@@ -55,7 +53,9 @@
                     description.innerHTML += value;
                 }
                 if(index == 'name') {
-                    name.innerHTML += value;
+                    fuck.innerHTML += value;
+                    console.log('name      yay'+value);
+                    
                 }
                 if(index == 'prize1') {
                     prize1.innerHTML += value;
@@ -66,7 +66,7 @@
                 if(index == 'prize3') {
                     prize3.innerHTML += value;
                 }
-                if(index == 'regfee') {
+                if(index == 'regFee') {
                     regfee.innerHTML += value;
                 }
                 if(index == 'time') {

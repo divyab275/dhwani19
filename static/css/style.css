@@ -582,7 +582,6 @@ body{
 #registerhead{
     font-size:50px;
     text-align: center;
-    text-shadow: 3px 1px 5px white;
 }
 
 .submitbtn {
@@ -777,11 +776,13 @@ body{
     position: absolute;
     bottom: 100%;
     display: block;
+    overflow: hidden;
 }
 #event-page{
     width: 100%;
     height: 100%;
     display: block;
+    position: relative;
 }
 .event-element{
     background-image: url('../img/pattern-square-medium.png');
@@ -920,10 +921,699 @@ body{
     border-radius: 20px;
 }
 
+#workshops-content{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+}
+#competitions-content{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+}
+#informals-content{
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: auto;
+}
+.wrapper-content{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+#center{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 140px;
+    height: 60px;
+    font-family: 'Titillium Web', sans-serif;
+    
+}
+#center h2{
+    font-size: 20px;
+    color: white;
+}
 
+.list{
+    display: block;
+}
+.list-competition{
+    display: block;
+}
+.list-ant{
+    display: block;
+}
+.list-dio{
+    display: block;
+}
+.list-nad{
+    display: block;
+}
+.list-car{
+    display: block;
+}
+.list-khe{
+    display: block;
+}
+.list-mis{
+    display: block;
+}
+#workshops-list{
+    width: 380px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#workshops-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#workshops-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+.worklist-content{
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-left: 3px solid white;
+}
+.close-all{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-all-competition{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all-competition:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-all-ant{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all-ant:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-all-dio{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all-dio:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-all-nad{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all-nad:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-all-car{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all-car:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-all-khe{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all-khe:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-all-mis{
+    position: absolute;
+    display: none;
+    left: 5px;
+    width: 100px;
+    height: 100px;
+    background-image: url('../img/pattern-square-medium.png');
+    background-size: 100% 100%;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 99;
+}
+.close-all-mis:hover{
+    -webkit-animation: rotation 15s infinite linear;
+}
+.close-button{
+    background-image: url('../img/close-big.png');
+    background-size: 66.6% 66.6%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: block;
+    top: 0;right: 0;bottom: 0;left: 0;
+    margin: auto;
+}
+.close-button:hover{
+    cursor: pointer;
+    -webkit-animation: antirotation 15s infinite linear;
+}
+.wrapper-event{
+    display:block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 80%;
+    height: 90%;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+.wrapper-event h2{
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 5px;
+}
+.wrapper-event p{
+    font-size: 15px;
+    margin: 2px;
+    float: right;   
+}
+.wrapper-event-new{
+    display:block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+.wrapper-event-new h2{
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 5px;
+}
+.wrapper-event-new p{
+    font-size: 15px;
+    margin: 2px;
+    float: right;   
+}
+.section-event{
+    width: 50%;
+    height: 100%;
+    display: block;
+    float: left;
+}
+.event-content-img{
+    width: 100%;
+    height: auto;
+}
+.event-img-child{
+    width: 60%;
+    height: auto;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+.event-content-regfee{
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+}
+.event-content-time{
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+}
+.event-content-contact{
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+}
+#competitions-list{
+    width: 380px;
+    height: 240px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#competitions-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#competitions-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#ant-list{
+    width: 380px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#ant-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#ant-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#dio-list{
+    width: 380px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#dio-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#dio-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#nad-list{
+    width: 380px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#nad-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#nad-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#car-list{
+    width: 380px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#car-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#car-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#khe-list{
+    width: 380px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#khe-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#khe-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+#mis-list{
+    width: 380px;
+    height: 39px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: white;
+    font-family: 'Titillium Web', sans-serif;
+}
+#mis-list h2{
+    margin: 3px;
+    font-size: 25px;
+    text-align: center;
+    display: block;
+}
+#mis-list h2:hover{
+    cursor: pointer;
+    border: 2px solid white;
+    border-radius: 10px;
+}
 
-
+#comp1{
+    overflow: hidden;
+}
+#comp2{
+    overflow: hidden;
+}
+#comp3{
+    overflow: hidden;
+}
+#comp4{
+    overflow: hidden;
+}
+#comp5{
+    overflow: hidden;
+}
+#comp6{
+    overflow: hidden;
+}
 @media (max-width:768px){
+    .event-content-button{
+        width: 100px;
+        height: 30px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        margin-top: 30px;
+    }
+    .event-content-description{
+        display: block;
+        width: 95%;
+        margin: 0 auto;
+    }
+    .wrapper-event h2{
+        margin-top: 10px;
+        text-align: center;
+    }
+    .wrapper-event-new h2{
+        margin-top: 10px;
+        text-align: center;
+    }
+    .event-content-contact{
+        text-align: center;
+        padding-right: 0;
+    }
+    .event-content-time{
+        text-align: center;
+        padding-right: 0;
+    }
+    .event-content-regfee{
+        text-align: center;
+        padding-right: 0;
+    }
+    .event-img-child{
+        float: none;
+        display: block;
+        margin-top: 30px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .section-event{
+        width: 100%;
+        height: auto;
+        display: block;
+        float: right;
+    }
+    .wrapper-event{
+        display:block;
+        position: absolute;
+        top: 0px;
+        bottom: auto;
+        margin: auto;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    .wrapper-event-new{
+        display:block;
+        position: absolute;
+        top: 0px;
+        bottom: auto;
+        margin: auto;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+    .worklist-content{
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: none;
+        border-top-right-radius: 20px;
+        border-left: none;
+        border-top: 3px solid white;
+        overflow: scroll;
+    }
+    .close-all{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    .close-all-competition{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    .close-all-ant{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    .close-all-dio{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    .close-all-nad{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    .close-all-car{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    .close-all-khe{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    .close-all-mis{
+        top: 5px;
+        left: 0;
+        right: 0;
+        bottom: auto;
+        width: 50px;
+        height: 50px;
+    }
+    #workshops-list{
+        width: 230px;
+    }
+    #workshops-list h2{
+        font-size: 15px;
+    }
+    #competitions-list{
+        width: 230px;
+    }
+    #competitions-list h2{
+        font-size: 15px;
+    }
+    #ant-list{
+        width: 230px;
+    }
+    #ant-list h2{
+        font-size: 15px;
+    }
+    #dio-list{
+        width: 230px;
+    }
+    #dio-list h2{
+        font-size: 15px;
+    }
+    #nad-list{
+        width: 230px;
+    }
+    #nad-list h2{
+        font-size: 15px;
+    }
+    #car-list{
+        width: 230px;
+    }
+    #car-list h2{
+        font-size: 15px;
+    }
+    #khe-list{
+        width: 230px;
+    }
+    #khe-list h2{
+        font-size: 15px;
+    }
+    #mis-list{
+        width: 230px;
+    }
+    #mis-list h2{
+        font-size: 15px;
+    }
     #profile-content{
         overflow: scroll;
     }
