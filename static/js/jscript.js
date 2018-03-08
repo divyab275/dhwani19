@@ -865,6 +865,9 @@ $( window ).on( "load", function() {
     $( "#you" ).on( "click", function() {
         window.open('https://www.youtube.com/channel/UCUGXXOIJVE6jpuQY2EubYTA');
     });
+    $( "#accomodation-link" ).on( "click", function() {
+        window.open('https://docs.google.com/forms/d/e/1FAIpQLSfc3enWsfODiQrSD7Lylr9j-Vi73By9-yk-d_le80aWj6mMZQ/viewform');
+    });
     $( "#contact" ).on( "click", function() {
         function animateContact(){
             setTimeout(function() {
