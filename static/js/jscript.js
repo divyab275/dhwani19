@@ -210,6 +210,9 @@ function regEvent(event, groupArray){
                                      });
                                 alert('Registration Successful');
                             }).catch(function (error) {
+                                $("input[name='inputs[]']").each(function () {
+                                  $(this).val('');
+                                     });
                                 console.log('error : ' + error);
                                 alert('Registartion failed : check the fields');
                             });
