@@ -1217,13 +1217,14 @@ body{
     height: 100%;
     display: block;
     float: left;
+    overflow: auto;
 }
 .event-content-img{
     width: 100%;
     height: auto;
 }
 .event-img-child{
-    width: 60%;
+    width: 50%;
     height: auto;
     float: right;
     margin-top: 10px;
@@ -1236,6 +1237,11 @@ body{
     padding-right: 20px;
 }
 .event-content-time{
+    width: 100%;
+    text-align: right;
+    padding-right: 20px;
+}
+.event-content-prize{
     width: 100%;
     text-align: right;
     padding-right: 20px;
@@ -1453,6 +1459,10 @@ body{
         padding-right: 0;
     }
     .event-content-time{
+        text-align: center;
+        padding-right: 0;
+    }
+    .event-content-prize{
         text-align: center;
         padding-right: 0;
     }

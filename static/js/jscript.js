@@ -975,11 +975,11 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#wrapper'+i).append('<div class=\"section-event\" id=\"secOne'+i+'\"></div>');
                 $('#wrapper'+i).append('<div class=\"section-event\" id=\"secTwo'+i+'\"></div>');
                 $('#secOne'+i).append('<div class = \"event-content-img\" id=\"event-img'+i+'\"></div>');
-                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeOne'+i+'\"></p>');
                 //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeTwo'+i+'\"></p>');
                 //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeThree'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-regfee\" id=\"event-regfee'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-time\" id=\"event-time'+i+'\"></p>');
+
                 $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactOne'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactTwo'+i+'\"></p>');
                 $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
@@ -989,6 +989,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
                 $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
+
                 $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
                 $('#event-contactTwo'+i).append(response.data[i].contactName2+' : '+response.data[i].contactPhone2);
                 if(response.data[i].contactName2 == null){
@@ -1110,6 +1111,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeThree'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-regfee\" id=\"event-regfee'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-time\" id=\"event-time'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prize'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactOne'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactTwo'+i+'\"></p>');
                 $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
@@ -1119,6 +1121,19 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
                 $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
+                if(response.data[i].prize3 != null){ 
+                    var prize3 = response.data[i].prize3;
+                    prize3 = prize3+'Rs';
+                }else{
+                    var prize3 = '';
+                }
+                if(response.data[i].prize2 != null){ 
+                    var prize2 = response.data[i].prize2;
+                    prize2 = prize2+'Rs';
+                }else{
+                    var prize2 = '';
+                }
+                $('#event-prize'+i).append('PRIZE : '+response.data[i].prize1+'Rs  '+prize2+' '+prize3);
                 $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
                 $('#event-contactTwo'+i).append(response.data[i].contactName2+' : '+response.data[i].contactPhone2);
                 if(response.data[i].contactName2 == null){
