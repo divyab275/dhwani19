@@ -1,4 +1,5 @@
 // Initialize Firebase
+
 var config = {
     apiKey: "AIzaSyAcc11rgCRK5Ygd1WpFX556Sn36HGCI-hA",
     authDomain: "dhwani18-8b03f.firebaseapp.com",
@@ -153,9 +154,18 @@ firebase.auth().onAuthStateChanged(function(user) {
 window.addEventListener('load', function() {
 initApp()
 });
-
+var lastActive = "#main";
 function regEvent(event,groupArray){
-
+    if(groupArray == undefined){
+        groupArray = "";
+    }
+    if(window.innerWidth<=768){var anim = 400;}else{var anim=600;}
+    function animateToProfile(){
+        $('#main').animate({"bottom":"100%"},anim);
+        $('#login-content').animate({"top":"0%"},anim);
+        lastActive = "#login-content";
+    }
+    console.log(event);
     firebase.auth().onAuthStateChanged(function(user) {
       if (user) {
         // User is signed in.
@@ -166,22 +176,19 @@ function regEvent(event,groupArray){
                'x-auth-token' : accessToken}
                 };
 
-
-
-                axios.put('https://api.dhwanicet.org/student/event/'+event.id,{ 'group' : groupArray},config)
+                axios.put('https://api.dhwanicet.org/student/event/'+event,{ 'group' : groupArray},config)
                   .then(function(response){
-                    //suucess
+                    alert('Registration Successful');
                   }).catch(function(error){
-
-                    //error
-
+                    console.log('error : '+error);
                   });
 
 
         });
       } else {
-        
-        //to login page
+        $('#event-content').animate({"bottom":"100%"},anim);
+        $('#main').animate({"bottom":"0%"},anim);
+        setTimeout(animateToProfile,anim);
       }
     });
 
@@ -240,7 +247,7 @@ $( window ).on( "load", function() {
 
 
     var toggle = false;
-    var lastActive = "#main";
+
 
     function resetPage(){
             $("#main").animate({"bottom":"0%"},0);
@@ -571,11 +578,20 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeThree'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-regfee\" id=\"event-regfee'+i+'\"></p>');
                 $('#secOne'+i).append('<p class = \"event-content-time\" id=\"event-time'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactOne'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactTwo'+i+'\"></p>');
                 $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
                 $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
                 $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
+                $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
                 $('#event-img'+i).append('<img src="'+response.data[i].image+'" class="event-img-child"></img>');
+                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
+                $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
+                $('#event-contactTwo'+i).append(response.data[i].contactName2+' : '+response.data[i].contactPhone2);
+                if(response.data[i].contactName2 == null){
+                    $('#event-contactTwo'+i).css({"display":"none"});
+                }
                 $('#event-time'+i).append('TIME : '+response.data[i].time);
                 $('#event-name'+i).append(response.data[i].name);
                 $('#event-description'+i).append(response.data[i].description);
