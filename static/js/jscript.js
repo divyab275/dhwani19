@@ -1132,6 +1132,15 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
                 $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
                 $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
+                //dropdown for group events
+                if(response.data[i].group==true){
+    
+                    $('#secTwo'+i).append('<div id=\"inputArea'+i+'\"></div>');
+                    for (var j=0; j<response.data[i].maxPerGroup-1; j++) {
+                        $('#inputArea'+i).append('<div>Dhwani Id of team member '+(j+2)+' : <div class=\"input-box\"><input name=\"inputs'+i+'[]\"/><span class=\"unit\">D-</span></div></div>');
+                    } 
+                    //input fields according to dropdown
+                }
                 $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
                 $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
                 $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
