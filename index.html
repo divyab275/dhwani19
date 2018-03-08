@@ -395,8 +395,92 @@
                         </div>
                     </div>
                     <div class="" id="competitions-content">
-                        <div class="wrapper-content">
+                        <div class="close-all-competition" id="" onclick="competitionAnimate(9999)">
+                            <div class="close-button" id="">
 
+                            </div>
+                        </div>
+                        <div class="wrapper-content">
+                            <div class="list-competition" id="competitions-list">
+                                <h2 onclick = "competitionAnimate(1)">ANTARA - Music Festival</h2>
+                                <h2 onclick = "competitionAnimate(2)">DIONYSIA - Theatrical Festival</h2>
+                                <h2 onclick = "competitionAnimate(3)">NADANTA - Dance Festival</h2>
+                                <h2 onclick = "competitionAnimate(4)">CARPE DICTUM - Literary Festival</h2>
+                                <h2 onclick = "competitionAnimate(5)">KHELOTSAV - Sports Festival</h2>
+                                <h2 onclick = "competitionAnimate(6)">MISCELANEO - Miscellaneous</h2>
+                            </div>
+                        </div>
+                        <div class="worklist-content" id="comp1">
+                            <div class="close-all-ant" id="" onclick="antAnimate(9999)">
+                                <div class="close-button" id="">
+    
+                                </div>
+                            </div>
+                            <div class="wrapper-content">
+                                <div class="list-ant" id="ant-list">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worklist-content" id="comp2">
+                            <div class="close-all-dio" id="" onclick="dioAnimate(9999)">
+                                <div class="close-button" id="">
+    
+                                </div>
+                            </div>
+                            <div class="wrapper-content">
+                                <div class="list-dio" id="dio-list">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worklist-content" id="comp3">
+                            <div class="close-all-nad" id="" onclick="nadAnimate(9999)">
+                                <div class="close-button" id="">
+    
+                                </div>
+                            </div>
+                            <div class="wrapper-content">
+                                <div class="list-nad" id="nad-list">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worklist-content" id="comp4">
+                            <div class="close-all-car" id="" onclick="carAnimate(9999)">
+                                <div class="close-button" id="">
+    
+                                </div>
+                            </div>
+                            <div class="wrapper-content">
+                                <div class="list-car" id="car-list">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worklist-content" id="comp5">
+                            <div class="close-all-khe" id="" onclick="kheAnimate(9999)">
+                                <div class="close-button" id="">
+    
+                                </div>
+                            </div>
+                            <div class="wrapper-content">
+                                <div class="list-khe" id="khe-list">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="worklist-content" id="comp6">
+                            <div class="close-all-mis" id="" onclick="misAnimate(9999)">
+                                <div class="close-button" id="">
+    
+                                </div>
+                            </div>
+                            <div class="wrapper-content">
+                                <div class="list-mis" id="mis-list">
+
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="" id="informals-content">
@@ -488,11 +572,8 @@ request.send();
                   if(accoCheck===true)
                      accomodation = document.querySelector('input[name = "sex"]:checked').value;
                    else
-                    accomodation = 'none'
-                 console.log(collegeId);
-                  console.log(phone);
-                  console.log(accoCheck);
-                  console.log(accomodation);
+                    accomodation = 'none';
+
 
                 var accessToken = localStorage.getItem("accessToken");
 

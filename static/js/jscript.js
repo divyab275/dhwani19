@@ -236,15 +236,538 @@ function workshopAnimate(id){
             $('#work'+id).animate({"left":"110px"});
             setTimeout(toggleClose,400);
             setTimeout(toggleList,0);
+            
         }
     }
 }
 
+
+var lastIdComp;
+var togglecloseComp = false;
+var togglelistComp = false;
+function competitionAnimate(id){
+    function toggleClose(){
+        if(togglecloseComp == false){
+            $('.close-all-competition').css({"display":"block"});
+            togglecloseComp = true;
+        }else{
+            $('.close-all-competition').css({"display":"none"});
+            togglecloseComp = false;
+        }
+    }
+    function toggleList(){
+        if(togglelistComp == false){
+            $('.list-competition').css({"display":"none"});
+            togglelistComp = true;
+        }else{
+            $('.list-competition').css({"display":""});
+            togglelistComp = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#comp'+lastIdComp).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#comp'+lastIdComp).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastIdComp = id;
+        if(window.innerWidth<=768){
+            $('#comp'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#comp'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+            
+        }
+    }
+}
+
+
+
+var lastIdAnt;
+var togglecloseAnt = false;
+var togglelistAnt = false;
+function antAnimate(id){
+    function toggleClose(){
+        if(togglecloseAnt == false){
+            $('.close-all-ant').css({"display":"block"});
+            togglecloseAnt = true;
+        }else{
+            $('.close-all-ant').css({"display":"none"});
+            togglecloseAnt = false;
+        }
+    }
+    function toggleList(){
+        if(togglelistAnt == false){
+            $('.list-ant').css({"display":"none"});
+            togglelistAnt = true;
+        }else{
+            $('.list-ant').css({"display":""});
+            togglelistAnt = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#ant'+lastIdAnt).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#ant'+lastIdAnt).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastIdAnt = id;
+        if(window.innerWidth<=768){
+            $('#ant'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#ant'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+            
+        }
+    }
+}
+
+var lastIdDio;
+var togglecloseDio = false;
+var togglelistDio = false;
+function dioAnimate(id){
+    function toggleClose(){
+        if(togglecloseDio == false){
+            $('.close-all-dio').css({"display":"block"});
+            togglecloseDio = true;
+        }else{
+            $('.close-all-dio').css({"display":"none"});
+            togglecloseDio = false;
+        }
+    }
+    function toggleList(){
+        if(togglelistDio == false){
+            $('.list-dio').css({"display":"none"});
+            togglelistDio = true;
+        }else{
+            $('.list-dio').css({"display":""});
+            togglelistDio = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#dio'+lastIdDio).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#dio'+lastIdDio).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastIdDio = id;
+        if(window.innerWidth<=768){
+            $('#dio'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#dio'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+            
+        }
+    }
+}
+
+var lastIdNad;
+var togglecloseNad = false;
+var togglelistNad = false;
+function nadAnimate(id){
+    function toggleClose(){
+        if(togglecloseNad == false){
+            $('.close-all-nad').css({"display":"block"});
+            togglecloseNad = true;
+        }else{
+            $('.close-all-nad').css({"display":"none"});
+            togglecloseNad = false;
+        }
+    }
+    function toggleList(){
+        if(togglelistNad == false){
+            $('.list-nad').css({"display":"none"});
+            togglelistNad = true;
+        }else{
+            $('.list-nad').css({"display":""});
+            togglelistNad = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#nad'+lastIdNad).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#nad'+lastIdNad).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastIdNad = id;
+        if(window.innerWidth<=768){
+            $('#nad'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#nad'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+            
+        }
+    }
+}
+
+
+var lastIdCar;
+var togglecloseCar = false;
+var togglelistCar = false;
+function carAnimate(id){
+    function toggleClose(){
+        if(togglecloseCar == false){
+            $('.close-all-car').css({"display":"block"});
+            togglecloseCar = true;
+        }else{
+            $('.close-all-car').css({"display":"none"});
+            togglecloseCar = false;
+        }
+    }
+    function toggleList(){
+        if(togglelistCar == false){
+            $('.list-car').css({"display":"none"});
+            togglelistCar = true;
+        }else{
+            $('.list-car').css({"display":""});
+            togglelistCar = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#car'+lastIdCar).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#car'+lastIdCar).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastIdCar = id;
+        if(window.innerWidth<=768){
+            $('#car'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#car'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+            
+        }
+    }
+}
+
+
+
+var lastIdKhe;
+var togglecloseKhe = false;
+var togglelistKhe = false;
+function kheAnimate(id){
+    function toggleClose(){
+        if(togglecloseKhe == false){
+            $('.close-all-khe').css({"display":"block"});
+            togglecloseKhe = true;
+        }else{
+            $('.close-all-khe').css({"display":"none"});
+            togglecloseKhe = false;
+        }
+    }
+    function toggleList(){
+        if(togglelistKhe == false){
+            $('.list-khe').css({"display":"none"});
+            togglelistKhe = true;
+        }else{
+            $('.list-khe').css({"display":""});
+            togglelistKhe = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#khe'+lastIdKhe).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#khe'+lastIdKhe).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastIdKhe = id;
+        if(window.innerWidth<=768){
+            $('#khe'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#khe'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+            
+        }
+    }
+}
+
+
+var lastIdMis;
+var togglecloseMis = false;
+var togglelistMis = false;
+function misAnimate(id){
+    function toggleClose(){
+        if(togglecloseMis == false){
+            $('.close-all-mis').css({"display":"block"});
+            togglecloseMis = true;
+        }else{
+            $('.close-all-mis').css({"display":"none"});
+            togglecloseMis = false;
+        }
+    }
+    function toggleList(){
+        if(togglelistMis == false){
+            $('.list-mis').css({"display":"none"});
+            togglelistMis = true;
+        }else{
+            $('.list-mis').css({"display":""});
+            togglelistMis = false;
+        }
+    }
+    if(id==9999){
+        if(window.innerWidth<=768){
+            $('#mis'+lastIdMis).animate({"top":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }else{
+            $('#mis'+lastIdMis).animate({"left":"100%"});
+            setTimeout(toggleClose,0);
+            setTimeout(toggleList,400);
+        }
+    }else{
+        lastIdMis = id;
+        if(window.innerWidth<=768){
+            $('#mis'+id).animate({"top":"60px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+        }else{
+            $('#mis'+id).animate({"left":"110px"});
+            setTimeout(toggleClose,400);
+            setTimeout(toggleList,0);
+            
+        }
+    }
+}
+
+
+
+
 $( window ).on( "load", function() {
 
-    $("#overlay").animate({"bottom":"100vh"},600);
+    axios.get('https://api.dhwanicet.org/public/event',config)
+    .then(function (response) {
+        var i;
+        for (i = 0; i < response.data.length; ++i) {
+            if(response.data[i].isWorkshop == true){
+                $('#workshops-list').append('<h2 onclick=workshopAnimate('+i+')>'+response.data[i].name+'</h2>');
+                $('#workshops-list').css({"height":"+=39"});
+                $('#workshops-content').append('<div class="worklist-content" id=work'+i+'></div>');
+                $('#work'+i).append('<div class = \"wrapper-event\" id=\"wrapper'+i+'\"></div>');
+                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secOne'+i+'\"></div>');
+                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secTwo'+i+'\"></div>');
+                $('#secOne'+i).append('<div class = \"event-content-img\" id=\"event-img'+i+'\"></div>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeOne'+i+'\"></p>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeTwo'+i+'\"></p>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeThree'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-regfee\" id=\"event-regfee'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-time\" id=\"event-time'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactOne'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactTwo'+i+'\"></p>');
+                $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
+                $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
+                $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
+                $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
+                $('#event-img'+i).append('<img src="'+response.data[i].image+'" class="event-img-child"></img>');
+                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
+                $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
+                $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
+                $('#event-contactTwo'+i).append(response.data[i].contactName2+' : '+response.data[i].contactPhone2);
+                if(response.data[i].contactName2 == null){
+                    $('#event-contactTwo'+i).css({"display":"none"});
+                }
+                $('#event-time'+i).append('TIME : '+response.data[i].time);
+                $('#event-name'+i).append(response.data[i].name);
+                $('#event-description'+i).append(response.data[i].description);
+                $('#event-format'+i).append(response.data[i].format);
+
+                var shiteWidth = window.innerWidth - ((5/100)*window.innerWidth);
+
+                if(window.innerWidth<=768){
+                    $('#work'+i).css({"top":"100%","left":"0","height":window.innerHeight - 120});
+                }else{
+                    $('#work'+i).css({"top":"0","left":"100%","width":shiteWidth - 220});
+                }
+            }else{
+                var shiteWidth = window.innerWidth - ((5/100)*window.innerWidth);
+                var play;
+                if(response.data[i].category == 'ANT'){
+                    $('#ant-list').append('<h2 onclick=antAnimate('+i+')>'+response.data[i].name+'</h2>');
+                    if(window.innerWidth<=768){
+                        $('#ant-list').css({"height":"+=15"});
+                    }else{
+                        $('#ant-list').css({"height":"+=39"});
+                    }
+                    $('#comp1').append('<div class="worklist-content" id=ant'+i+'></div>');
+                    if(window.innerWidth<=768){
+                        $('#ant'+i).css({"top":"100%","left":"0","height":window.innerHeight - 180});
+                    }else{
+                        $('#ant'+i).css({"top":"0","left":"100%","width":shiteWidth - 330});
+                    }
+                    play = '#ant';
+                }
+                if(response.data[i].category == 'DIO'){
+                    $('#dio-list').append('<h2 onclick=dioAnimate('+i+')>'+response.data[i].name+'</h2>');
+                    if(window.innerWidth<=768){
+                        $('#dio-list').css({"height":"+=15"});
+                    }else{
+                        $('#dio-list').css({"height":"+=39"});
+                    }
+                    $('#comp2').append('<div class="worklist-content" id=dio'+i+'></div>');
+                    if(window.innerWidth<=768){
+                        $('#dio'+i).css({"top":"100%","left":"0","height":window.innerHeight - 180});
+                    }else{
+                        $('#dio'+i).css({"top":"0","left":"100%","width":shiteWidth - 330});
+                    }
+                    play = '#dio';
+                }
+                if(response.data[i].category == 'NAD'){
+                    $('#nad-list').append('<h2 onclick=nadAnimate('+i+')>'+response.data[i].name+'</h2>');
+                    if(window.innerWidth<=768){
+                        $('#nad-list').css({"height":"+=15"});
+                    }else{
+                        $('#nad-list').css({"height":"+=39"});
+                    }
+                    $('#comp3').append('<div class="worklist-content" id=nad'+i+'></div>');
+                    if(window.innerWidth<=768){
+                        $('#nad'+i).css({"top":"100%","left":"0","height":window.innerHeight - 180});
+                    }else{
+                        $('#nad'+i).css({"top":"0","left":"100%","width":shiteWidth - 330});
+                    }
+                    play = '#nad';
+                }
+                if(response.data[i].category == 'CD'){
+                    $('#car-list').append('<h2 onclick=carAnimate('+i+')>'+response.data[i].name+'</h2>');
+                    if(window.innerWidth<=768){
+                        $('#car-list').css({"height":"+=15"});
+                    }else{
+                        $('#car-list').css({"height":"+=39"});
+                    }
+                    $('#comp4').append('<div class="worklist-content" id=car'+i+'></div>');
+                    if(window.innerWidth<=768){
+                        $('#car'+i).css({"top":"100%","left":"0","height":window.innerHeight - 180});
+                    }else{
+                        $('#car'+i).css({"top":"0","left":"100%","width":shiteWidth - 330});
+                    }
+                    play = '#car';
+                }
+                if(response.data[i].category == 'KHE'){
+                    $('#khe-list').append('<h2 onclick=kheAnimate('+i+')>'+response.data[i].name+'</h2>');
+                    if(window.innerWidth<=768){
+                        $('#khe-list').css({"height":"+=15"});
+                    }else{
+                        $('#khe-list').css({"height":"+=39"});
+                    }
+                    $('#comp5').append('<div class="worklist-content" id=khe'+i+'></div>');
+                    if(window.innerWidth<=768){
+                        $('#khe'+i).css({"top":"100%","left":"0","height":window.innerHeight - 180});
+                    }else{
+                        $('#khe'+i).css({"top":"0","left":"100%","width":shiteWidth - 330});
+                    }
+                    play = '#khe';
+                }
+                if(response.data[i].category == 'MIS'){
+                    $('#mis-list').append('<h2 onclick=misAnimate('+i+')>'+response.data[i].name+'</h2>');
+                    if(window.innerWidth<=768){
+                        $('#mis-list').css({"height":"+=15"});
+                    }else{
+                        $('#mis-list').css({"height":"+=39"});
+                    }
+                    $('#comp6').append('<div class="worklist-content" id=mis'+i+'></div>');
+                    if(window.innerWidth<=768){
+                        $('#mis'+i).css({"top":"100%","left":"0","height":window.innerHeight - 180});
+                    }else{
+                        $('#mis'+i).css({"top":"0","left":"100%","width":shiteWidth - 330});
+                    }
+                    play = '#mis';
+                }
 
 
+                $(play+i).append('<div class = \"wrapper-event-new\" id=\"wrapper'+i+'\"></div>');
+                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secOne'+i+'\"></div>');
+                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secTwo'+i+'\"></div>');
+                $('#secOne'+i).append('<div class = \"event-content-img\" id=\"event-img'+i+'\"></div>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeOne'+i+'\"></p>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeTwo'+i+'\"></p>');
+                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeThree'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-regfee\" id=\"event-regfee'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-time\" id=\"event-time'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactOne'+i+'\"></p>');
+                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactTwo'+i+'\"></p>');
+                $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
+                $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
+                $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
+                $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
+                $('#event-img'+i).append('<img src="'+response.data[i].image+'" class="event-img-child"></img>');
+                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
+                $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
+                $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
+                $('#event-contactTwo'+i).append(response.data[i].contactName2+' : '+response.data[i].contactPhone2);
+                if(response.data[i].contactName2 == null){
+                    $('#event-contactTwo'+i).css({"display":"none"});
+                }
+                $('#event-time'+i).append('TIME : '+response.data[i].time);
+                $('#event-name'+i).append(response.data[i].name);
+                $('#event-description'+i).append(response.data[i].description);
+                $('#event-format'+i).append(response.data[i].format);
+            }
+        }
+    });
+
+
+    var shiteWidth = window.innerWidth - ((5/100)*window.innerWidth);
+    if(window.innerWidth<=768){
+        $('#comp1').css({"top":"100%","left":"0","height":window.innerHeight - 120});
+        $('#comp2').css({"top":"100%","left":"0","height":window.innerHeight - 120});
+        $('#comp3').css({"top":"100%","left":"0","height":window.innerHeight - 120});
+        $('#comp4').css({"top":"100%","left":"0","height":window.innerHeight - 120});
+        $('#comp5').css({"top":"100%","left":"0","height":window.innerHeight - 120});
+        $('#comp6').css({"top":"100%","left":"0","height":window.innerHeight - 120});
+    }else{
+        $('#comp1').css({"top":"0","left":"100%","width":shiteWidth - 220});
+        $('#comp2').css({"top":"0","left":"100%","width":shiteWidth - 220});
+        $('#comp3').css({"top":"0","left":"100%","width":shiteWidth - 220});
+        $('#comp4').css({"top":"0","left":"100%","width":shiteWidth - 220});
+        $('#comp5').css({"top":"0","left":"100%","width":shiteWidth - 220});
+        $('#comp6').css({"top":"0","left":"100%","width":shiteWidth - 220});
+    }
 
     var toggle = false;
 
@@ -561,54 +1084,6 @@ $( window ).on( "load", function() {
     });
 
 
-axios.get('https://api.dhwanicet.org/public/event',config)
-    .then(function (response) {
-        var i;
-        for (i = 0; i < response.data.length; ++i) {
-            if(response.data[i].isWorkshop == true){
-                $('#workshops-list').append('<h2 onclick=workshopAnimate('+i+')>'+response.data[i].name+'</h2>');
-                $('#workshops-list').css({"height":"+=39"});
-                $('#workshops-content').append('<div class="worklist-content" id=work'+i+'></div>');
-                $('#work'+i).append('<div class = \"wrapper-event\" id=\"wrapper'+i+'\"></div>');
-                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secOne'+i+'\"></div>');
-                $('#wrapper'+i).append('<div class=\"section-event\" id=\"secTwo'+i+'\"></div>');
-                $('#secOne'+i).append('<div class = \"event-content-img\" id=\"event-img'+i+'\"></div>');
-                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeOne'+i+'\"></p>');
-                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeTwo'+i+'\"></p>');
-                //$('#secOne'+i).append('<p class = \"event-content-prize\" id=\"event-prizeThree'+i+'\"></p>');
-                $('#secOne'+i).append('<p class = \"event-content-regfee\" id=\"event-regfee'+i+'\"></p>');
-                $('#secOne'+i).append('<p class = \"event-content-time\" id=\"event-time'+i+'\"></p>');
-                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactOne'+i+'\"></p>');
-                $('#secOne'+i).append('<p class = \"event-content-contact\" id=\"event-contactTwo'+i+'\"></p>');
-                $('#secTwo'+i).append('<h2 class = \"event-content-name\" id=\"event-name'+i+'\"></h2>');
-                $('#secTwo'+i).append('<p class = \"event-content-description\" id=\"event-description'+i+'\"></p>');
-                $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
-                $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
-                $('#event-img'+i).append('<img src="'+response.data[i].image+'" class="event-img-child"></img>');
-                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
-                $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
-                $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
-                $('#event-contactTwo'+i).append(response.data[i].contactName2+' : '+response.data[i].contactPhone2);
-                if(response.data[i].contactName2 == null){
-                    $('#event-contactTwo'+i).css({"display":"none"});
-                }
-                $('#event-time'+i).append('TIME : '+response.data[i].time);
-                $('#event-name'+i).append(response.data[i].name);
-                $('#event-description'+i).append(response.data[i].description);
-                $('#event-format'+i).append(response.data[i].format);
-
-                var shiteWidth = window.innerWidth - ((5/100)*window.innerWidth);
-
-                if(window.innerWidth<=768){
-                    $('#work'+i).css({"top":"100%","left":"0","height":window.innerHeight - 120});
-                }else{
-                    $('#work'+i).css({"top":"0","left":"100%","width":shiteWidth - 220});
-                }
-            }else{
-
-            }
-        }
-    });
 
 
 
@@ -756,10 +1231,11 @@ axios.get('https://api.dhwanicet.org/public/event',config)
         }
     });
 
-
+    $("#overlay").animate({"bottom":"100vh"},600);
 });
 
 $( document ).ready(function() {
+    
     var width = window.innerWidth;
     var height = window.innerHeight;
     $('#container').css({"width":width,"height":height});
