@@ -51,8 +51,14 @@
         }
 
         .animate-flicker {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: 100%;
+            -webkit-animation: flickerAnimation 3s infinite;
+            -moz-animation: flickerAnimation 3s infinite;
+            -o-animation: flickerAnimation 3s infinite;
+            animation: flickerAnimation 3s infinite;
+        }
+        #centerOverlay{
             position: absolute;
             top: 0;
             right: 0;
@@ -60,10 +66,14 @@
             bottom: 0;
             margin: auto;
             display: block;
-            -webkit-animation: flickerAnimation 3s infinite;
-            -moz-animation: flickerAnimation 3s infinite;
-            -o-animation: flickerAnimation 3s infinite;
-            animation: flickerAnimation 3s infinite;
+            width: 150px;
+            height: 150px;
+        }
+        @media (max-width:768px){
+            #centerOverlay{
+                width: 100px;
+                height: 100px;
+            }
         }
     </style>
     <meta charset="utf-8">
@@ -103,7 +113,9 @@
 
 <body>
     <div class="" id="overlay">
-        <img src="./static/img/logo-orginal.png" alt="" class="animate-flicker">
+        <div class="" id="centerOverlay">
+            <img src="./static/img/logo-orginal.png" alt="" class="animate-flicker">
+        </div>
     </div>
     <div id="container">
         <div id="gradient">

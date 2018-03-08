@@ -105,7 +105,7 @@ firebase.auth().onAuthStateChanged(function(user) {
                 axios.get('https://api.dhwanicet.org/student/event',config)
                 .then(function(response){
                   var eventsJson = response.data;
-                    $("#reg_events").empty();
+                    $("#reg_events").html('');
                   eventsJson.forEach(function(item){
                      axios.get('https://api.dhwanicet.org/student/event/'+item.id,config)
                 .then(function(response){

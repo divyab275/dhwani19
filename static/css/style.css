@@ -1425,6 +1425,7 @@ body{
 #comp6{
     overflow: hidden;
 }
+
 @media (max-width:768px){
     .event-content-button{
         width: 100px;
