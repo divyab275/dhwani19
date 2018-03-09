@@ -1519,6 +1519,9 @@ body{
         display: block;
         float: right;
     }
+    .buttonReg{
+        margin-bottom:200px;
+    }
     .wrapper-event{
         display:block;
         position: absolute;

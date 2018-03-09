@@ -1098,7 +1098,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 $('#secTwo'+i).append('<p class = \"event-content-format\" id=\"event-format'+i+'\"></p>');
                 $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
                 $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
-                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+')">Register</button>');
+                $('#event-button'+i).append('<button class = "submitbtn buttonReg" onclick="regEvent('+response.data[i].id+')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : ' + response.data[i].regFee);
 
                 $('#event-contactOne'+i).append(response.data[i].contactName1+' : '+response.data[i].contactPhone1);
@@ -1245,7 +1245,7 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 //     eventName:response.data[i].name
                 // }
 
-                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+ ')">Register</button>');
+                $('#event-button'+i).append('<button class = "submitbtn buttonReg" onclick="regEvent('+response.data[i].id+ ')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
                 if(response.data[i].prize3 != null){ 
                     var prize3 = response.data[i].prize3;
