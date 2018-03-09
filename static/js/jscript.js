@@ -203,8 +203,8 @@ function regEvent(event){
                         prefilledData =  {
                             eventcode: "dhwani-18-334330",
                             name:user.displayName,
-                            emailId:user.email,
-                            phone: user.phoneNumber,
+                            emailid:user.email,
+                            cq1: user.phoneNumber,
                             ticketname1: eventName,
                             ticketvalue1: 1,
                         }
