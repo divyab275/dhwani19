@@ -155,16 +155,12 @@ initApp()
 var lastActive = "#main";
 function regEvent(event, groupArray){
 
-    console.log(event);
     axios.get('https://api.dhwanicet.org/public/event/' + event, {}, { 'Content-Type': 'application/json'})
         .then(function(res) 
             {
-            //    console.log(res.data); 
             eventObj = res.data;
-            console.log(eventObj);
             if(eventObj.group) 
             {
-                console.log("group event");
                 values = ""
                 
                 $("input[name='inputs[]']").each(function () {
@@ -184,7 +180,6 @@ function regEvent(event, groupArray){
             {
                 groupArray = ""
             }
-            console.log('groupArray: '+ groupArray)
             if (window.innerWidth <= 768) { var anim = 400; } else { var anim = 600; }
             function animateToProfile() {
                 $('#main').animate({ "bottom": "100%" }, anim);
@@ -195,7 +190,8 @@ function regEvent(event, groupArray){
                 if (user) {
                     // User is signed in.
                     user.getIdToken().then(function (accessToken) {
-
+                        console.log(accessToken);
+                        
                         var config = {
                             headers: {
                                 'Content-Type': 'application/json',
@@ -203,21 +199,45 @@ function regEvent(event, groupArray){
                             }
                         };
 
-                        axios.put('https://api.dhwanicet.org/student/event/' + event, { 'group': groupArray }, config)
-                            .then(function (response) {
-                                $("input[name='inputs[]']").each(function () {
-                                  $(this).val('');
-                                     });
-                                alert('Registration Successful');
-                            }).catch(function (error) {
-                                $("input[name='inputs[]']").each(function () {
-                                  $(this).val('');
-                                     });
-                                console.log('error : ' + error);
-                                alert('Registartion failed : check the fields');
-                            });
+                        axios.get('https://api.dhwanicet.org/student/event', config)
+                        .then( (res) => {
+                            registeredEvents = res.data;
+                            isAlreadyRegistered = false;
+                            registeredEvents.forEach(
+                                (item) => {
+                                    if(item.id == event)
+                                    {
+                                        isAlreadyRegistered = true;
+                                    }
+                            })
 
+                            if(!isAlreadyRegistered)
+                            {
+                                axios.put('https://api.dhwanicet.org/student/event/' + event, { 'group': groupArray }, config)
+                                .then(function (response) {
+                                    $("input[name='inputs[]']").each(function () {
+                                      $(this).val('');
+                                         });
+                                    alert('Registration Successful');
+                                }).catch(function (error) {
+                                    $("input[name='inputs[]']").each(function () {
+                                      $(this).val('');
+                                         });
+                                    console.log('error : ' + error);
+                                    alert('Registartion failed : check the fields');
+                                });
+                            }
 
+                            else 
+                            {
+                                alert("You are already registered!");
+                            }
+                        }
+                        )
+                        .catch((err) => {
+                            console.log(err);
+                            
+                        })
                     });
                 } else {
                     $('#event-content').animate({ "bottom": "100%" }, anim);
