@@ -58,7 +58,8 @@
             -o-animation: flickerAnimation 3s infinite;
             animation: flickerAnimation 3s infinite;
         }
-        #centerOverlay{
+
+        #centerOverlay {
             position: absolute;
             top: 0;
             right: 0;
@@ -69,8 +70,9 @@
             width: 150px;
             height: 150px;
         }
-        @media (max-width:768px){
-            #centerOverlay{
+
+        @media (max-width:768px) {
+            #centerOverlay {
                 width: 100px;
                 height: 100px;
             }
@@ -92,7 +94,7 @@
     <link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./static/css/style.css">
     <link rel="manifest" href="./manifest.json">
-    <link rel="shortcut icon" type="image/png" href="./static/img/logo-orginal.png"/>
+    <link rel="shortcut icon" type="image/png" href="./static/img/logo-orginal.png" />
     <script>
         //js service worker for adding to home screen prompt
         if ('serviceWorker' in navigator) {
@@ -109,6 +111,17 @@
 
 
     </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115438061-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115438061-1');
+    </script>
+
 
 </head>
 
@@ -414,7 +427,7 @@
                                 <p id="unique-id" style=" text-align:center;">D-</p>
                                 <div class="button-center">
                                     <button style="margin-top:0px; display:block; margin-left:auto; margin-right:auto;" id="sign-out" onclick="signOut()" class="submitbtn">
-                                    SIGN OUT</button>
+                                        SIGN OUT</button>
                                 </div>
                             </div>
                             <div class="section">
@@ -445,9 +458,9 @@
                         <div class="event-element" id="informals">
                             <div class="anti-rotation">
 
-                                    <div class="" id="informals-inner">
-                                        
-                                    </div>
+                                <div class="" id="informals-inner">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -471,18 +484,18 @@
                         </div>
                         <div class="wrapper-content">
                             <div class="list-competition" id="competitions-list">
-                                <h2 onclick = "competitionAnimate(1)">ANTARA - Music Festival</h2>
-                                <h2 onclick = "competitionAnimate(2)">DIONYSIA - Theatrical Festival</h2>
-                                <h2 onclick = "competitionAnimate(3)">NADANTA - Dance Festival</h2>
-                                <h2 onclick = "competitionAnimate(4)">CARPE DICTUM - Literary Festival</h2>
-                                <h2 onclick = "competitionAnimate(5)">KHELOTSAV - Sports Festival</h2>
-                                <h2 onclick = "competitionAnimate(6)">MISCELANEO - Miscellaneous</h2>
+                                <h2 onclick="competitionAnimate(1)">ANTARA - Music Festival</h2>
+                                <h2 onclick="competitionAnimate(2)">DIONYSIA - Theatrical Festival</h2>
+                                <h2 onclick="competitionAnimate(3)">NADANTA - Dance Festival</h2>
+                                <h2 onclick="competitionAnimate(4)">CARPE DICTUM - Literary Festival</h2>
+                                <h2 onclick="competitionAnimate(5)">KHELOTSAV - Sports Festival</h2>
+                                <h2 onclick="competitionAnimate(6)">MISCELANEO - Miscellaneous</h2>
                             </div>
                         </div>
                         <div class="worklist-content" id="comp1">
                             <div class="close-all-ant" id="" onclick="antAnimate(9999)">
                                 <div class="close-button" id="">
-    
+
                                 </div>
                             </div>
                             <div class="wrapper-content">
@@ -494,7 +507,7 @@
                         <div class="worklist-content" id="comp2">
                             <div class="close-all-dio" id="" onclick="dioAnimate(9999)">
                                 <div class="close-button" id="">
-    
+
                                 </div>
                             </div>
                             <div class="wrapper-content">
@@ -506,7 +519,7 @@
                         <div class="worklist-content" id="comp3">
                             <div class="close-all-nad" id="" onclick="nadAnimate(9999)">
                                 <div class="close-button" id="">
-    
+
                                 </div>
                             </div>
                             <div class="wrapper-content">
@@ -518,7 +531,7 @@
                         <div class="worklist-content" id="comp4">
                             <div class="close-all-car" id="" onclick="carAnimate(9999)">
                                 <div class="close-button" id="">
-    
+
                                 </div>
                             </div>
                             <div class="wrapper-content">
@@ -530,7 +543,7 @@
                         <div class="worklist-content" id="comp5">
                             <div class="close-all-khe" id="" onclick="kheAnimate(9999)">
                                 <div class="close-button" id="">
-    
+
                                 </div>
                             </div>
                             <div class="wrapper-content">
@@ -542,7 +555,7 @@
                         <div class="worklist-content" id="comp6">
                             <div class="close-all-mis" id="" onclick="misAnimate(9999)">
                                 <div class="close-button" id="">
-    
+
                                 </div>
                             </div>
                             <div class="wrapper-content">
@@ -568,8 +581,8 @@
                         <h3> Akhil KJ 8281183949</h3>
                         <h3> Sarang U R 9633661217</h3>
                         <div class="button-center">
-                                    <button style="margin-top:0px; display:block; margin-left:auto; margin-right:auto;" id="accomodation-link" class="submitbtn">
-                                    Register</button>
+                            <button style="margin-top:0px; display:block; margin-left:auto; margin-right:auto;" id="accomodation-link" class="submitbtn">
+                                Register</button>
                         </div>
                     </div>
 
@@ -642,13 +655,13 @@
 
 
 
-                      var accomodation;
-                
-                  var accoCheck = document.getElementById('inputacco').checked;
-                  if(accoCheck===true)
-                     accomodation = document.querySelector('input[name = "sex"]:checked').value;
-                   else
-                    accomodation = 'none';
+            var accomodation;
+
+            var accoCheck = document.getElementById('inputacco').checked;
+            if (accoCheck === true)
+                accomodation = document.querySelector('input[name = "sex"]:checked').value;
+            else
+                accomodation = 'none';
 
             var accoCheck = document.getElementById('inputacco').checked;
             if (accoCheck === true)
@@ -704,8 +717,8 @@
         var config = {
             headers: {
                 'Content-Type': 'application/json',
-                'x-auth-token': accessToken            
-}
+                'x-auth-token': accessToken
+            }
         };
 
         axios.post('https://api.dhwanicet.org/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
