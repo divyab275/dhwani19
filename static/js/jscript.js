@@ -95,10 +95,10 @@ firebase.auth().onAuthStateChanged(function(user) {
         axios.post('https://api.dhwanicet.org/student/login', {}, config)
         .then(function(response){
             if(response.data.registered===true){
-                axios.get('https://api.dhwanicet.org/public/student/'+email)
-                .then(function(response){
-                  document.getElementById('unique-id').innerHTML ='D-'+response.data.id;
-                });
+                
+                console.log(response.data);
+                document.getElementById('unique-id').innerHTML ='D-'+response.data.id;
+               
 
                 axios.get('https://api.dhwanicet.org/student/event',config)
                 .then(function(response){
@@ -153,11 +153,19 @@ window.addEventListener('load', function() {
 initApp()
 });
 var lastActive = "#main";
-function regEvent(event, groupArray){
-
+function regEvent(event){
+    var eventName;
+    self = this;
+    // event = reg.eventid;
+    // eventName = reg.eventName;
+    // console.log(reg);
+    
+    // console.log(eventName + "event name ");
+    
     axios.get('https://api.dhwanicet.org/public/event/' + event, {}, { 'Content-Type': 'application/json'})
         .then(function(res) 
             {
+            eventName = res.data.name;
             eventObj = res.data;
             if(eventObj.group) 
             {
@@ -191,6 +199,16 @@ function regEvent(event, groupArray){
                     // User is signed in.
                     user.getIdToken().then(function (accessToken) {
                         console.log(accessToken);
+
+                        prefilledData =  {
+                            eventcode: "dhwani-18-334330",
+                            name:user.displayName,
+                            emailId:user.email,
+                            phone: user.phoneNumber,
+                            ticketname1: eventName,
+                            ticketvalue1: 1,
+                        }
+                        console.log(prefilledData)
                         
                         var config = {
                             headers: {
@@ -203,11 +221,13 @@ function regEvent(event, groupArray){
                         .then( (res) => {
                             registeredEvents = res.data;
                             isAlreadyRegistered = false;
+                            isPaid = false;
                             registeredEvents.forEach(
                                 (item) => {
                                     if(item.id == event)
                                     {
                                         isAlreadyRegistered = true;
+                                        isPaid = item.paid;
                                     }
                             })
 
@@ -218,6 +238,7 @@ function regEvent(event, groupArray){
                                     $("input[name='inputs[]']").each(function () {
                                       $(this).val('');
                                          });
+                                    popupWithAutoFill(prefilledData)     
                                     alert('Registration Successful');
                                 }).catch(function (error) {
                                     $("input[name='inputs[]']").each(function () {
@@ -225,13 +246,23 @@ function regEvent(event, groupArray){
                                          });
                                     console.log('error : ' + error);
                                     alert('Registartion failed : check the fields');
-                                });
+                                });                                
                             }
 
                             else 
                             {
-                                alert("You are already registered!");
+                                if(isPaid)
+                                {
+                                    alert("You are already registered!");
+                                }
+                                else 
+                                {
+                                    popupWithAutoFill(prefilledData);
+                                    alert("You have not yet paid for the event.")
+                                }
                             }
+
+                            
                         }
                         )
                         .catch((err) => {
@@ -1045,6 +1076,7 @@ $( window ).on( "load", function() {
 axios.get('https://api.dhwanicet.org/public/event',config)
     .then(function (response) {
         var i;
+        var reg = [];
         for (i = 0; i < response.data.length; ++i) {
             if(response.data[i].isWorkshop == true){
                 $('#workshops-list').append('<h2 onclick=workshopAnimate('+i+')>'+response.data[i].name+'</h2>');
@@ -1208,7 +1240,12 @@ axios.get('https://api.dhwanicet.org/public/event',config)
                 
                 $('#secTwo'+i).append('<div class = \"event-content-button\" id=\"event-button'+i+'\"></div>');
                 $('#event-img'+i).append('<img src="" class="event-img-child" id="imgLOAD'+i+'"></img>');
-                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+ response.data[i].id + ')">Register</button>');
+                // reg[i] = {
+                //     eventid:response.data[i].id,
+                //     eventName:response.data[i].name
+                // }
+
+                $('#event-button'+i).append('<button class = "submitbtn" onclick="regEvent('+response.data[i].id+ ')">Register</button>');
                 $('#event-regfee'+i).append('REG FEE : '+response.data[i].regFee);
                 if(response.data[i].prize3 != null){ 
                     var prize3 = response.data[i].prize3;
