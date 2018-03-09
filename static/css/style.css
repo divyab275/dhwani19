@@ -634,7 +634,6 @@ body{
     box-shadow: inset 0px 1px 0px #3e9cbf, 0px 2px 0px 0px #205c73, 0px 2px 5px #999;
     }
 .formelement{
-    margin-top:50px;
     width:400px;
     height:40px;
 }
@@ -1459,6 +1458,15 @@ body{
     padding: 0;
     margin: 0;
     font-family: 'Titillium Web', sans-serif;
+}
+.formelement{
+
+}
+.inputsex{
+    width: 50px;
+}
+#inputacco{
+    width: 50px;
 }
 @media (max-width:768px){
     .event-content-button{
