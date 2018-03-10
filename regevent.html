@@ -133,6 +133,7 @@
             $("#inputArea").append('<div>Dhwani Id of team member ' + (i + 2) + ' : <div class="input-box"><input name="inputs[]"/><span class="unit">D-</span></div></div>');
     });
     function group() {
+        console.log("inside group()")
         var values = "";
         $("input[name='inputs[]']").each(function () {
             values += ($(this).val());
