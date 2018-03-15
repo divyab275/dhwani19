@@ -436,8 +436,12 @@ body{
     position: absolute;
     top: 0;right: 0;bottom: 0;left: 0;
     margin: auto;
-    width: 400px;
-    height: 50px;
+    width: 70%;
+    background-image: url('../img/agam.jpg');
+    background-position: center;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    border-radius: 10px;
 }
 
 
@@ -955,10 +959,13 @@ body{
     bottom: 0;
     left: 0;
     margin: auto;
-    width: 140px;
-    height: 60px;
+    width: 70%;
+    height: auto;
     font-family: 'Titillium Web', sans-serif;
-    
+    background-image:  url('../img/spotlight.jpg');
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 #center h2{
     font-size: 20px;
@@ -1468,7 +1475,14 @@ body{
 #inputacco{
     width: 50px;
 }
+#agamPic{
+    width: 100px;
+    height: 200px;
+}
 @media (max-width:768px){
+    #center{
+        width: 100%;
+    }
     .event-content-button{
         width: 100px;
         height: 30px;
