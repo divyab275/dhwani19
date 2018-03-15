@@ -70,8 +70,38 @@
             width: 150px;
             height: 150px;
         }
-
+        
+        #bottom-container{
+            width: 400px;
+            height: 111px;
+            display: block;
+            margin: auto;
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+        }
+        .auto-width{
+            width: 33.3%;
+            height: 100%;
+            background-size: 90% auto;
+            background-position: center;
+            float: left;
+            background-repeat: no-repeat;
+        }
+        #img-one{
+            background-image: url('./static/img/collegebol.png');
+        }
+        #img-two{
+            background-image: url('./static/img/festflick.png');
+        }
+        #img-three{
+            background-image: url('./static/img/edinbox.png');
+        }
         @media (max-width:768px) {
+            #bottom-container{
+                width: 90%;
+            }
             #centerOverlay {
                 width: 100px;
                 height: 100px;
@@ -119,6 +149,17 @@
     <div class="" id="overlay">
         <div class="" id="centerOverlay">
             <img src="./static/img/logo-orginal.png" alt="" class="animate-flicker">
+        </div>
+        <div class="" id="bottom-container">
+            <div class="auto-width" id="img-one">
+
+            </div>
+            <div class="auto-width" id="img-two">
+                
+            </div>
+            <div class="auto-width" id="img-three">
+                
+            </div>
         </div>
     </div>
     <div id="container">
