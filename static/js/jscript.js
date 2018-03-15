@@ -934,6 +934,13 @@ $( window ).on( "load", function() {
     $( "#spotlight-link" ).on( "click", function() {
         window.open('https://www.yepdesk.com/spotlight');
     });
+    $( "#spotlight-link" ).on( "click", function() {
+        window.open('https://www.yepdesk.com/spotlight');
+    });
+    $( "#proshow-link" ).on( "click", function() {
+        popup('agamlivecet');
+    });
+
 
     $( "#contact" ).on( "click", function() {
         function animateContact(){
