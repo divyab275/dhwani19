@@ -931,6 +931,10 @@ $( window ).on( "load", function() {
     $( "#accomodation-link" ).on( "click", function() {
         window.open('https://docs.google.com/forms/d/e/1FAIpQLSfc3enWsfODiQrSD7Lylr9j-Vi73By9-yk-d_le80aWj6mMZQ/viewform');
     });
+    $( "#spotlight-link" ).on( "click", function() {
+        window.open('https://www.yepdesk.com/spotlight');
+    });
+
     $( "#contact" ).on( "click", function() {
         function animateContact(){
             setTimeout(function() {
