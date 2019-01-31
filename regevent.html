@@ -157,7 +157,7 @@
     };
     console.log(accessToken);
 
-    axios.post('https://api.dhwanicet.org/student/login', {}, config)
+    axios.post('http://localhost:3000/student/login', {}, config)
         .then(function (response) {
 
      self.prefilledData =  {

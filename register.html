@@ -96,7 +96,7 @@
                 };
 
                 console.log(accessToken);
-                axios.post('https://api.dhwanicet.org/student/login', {}, config)
+                axios.post('http://localhost:3000/student/login', {}, config)
                 .then(function(response){
                     if(response.data.registered===true){
                       
@@ -271,7 +271,7 @@
               input.placeholder = "Loading options...";
 
               // Set up and make the request.
-              request.open('GET', 'https://api.dhwanicet.org/public/college', true);
+              request.open('GET', 'http://localhost:3000/public/college', true);
               request.send();
 
 
@@ -317,7 +317,7 @@
                  });
 
                  if(flag===false){
-                  axios.put('https://api.dhwanicet.org/public/college',{'name':inputTemp})
+                  axios.put('http://localhost:3000/public/college',{'name':inputTemp})
                   .then(function(response){
 
                   collegeId = response.data.id;
@@ -347,7 +347,7 @@
                'x-auth-token' : accessToken}
                 };
 
-                axios.post('https://api.dhwanicet.org/student/register',{ 'phone' : phone, 'accomodation' : accomodation, 'collegeId' : collegeId }, config)
+                axios.post('http://localhost:3000/student/register',{ 'phone' : phone, 'accomodation' : accomodation, 'collegeId' : collegeId }, config)
                 .then(function(response){
                   console.log(response); 
 

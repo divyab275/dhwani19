@@ -1,13 +1,15 @@
 // Initialize Firebase
 
 var config = {
-    apiKey: "AIzaSyAcc11rgCRK5Ygd1WpFX556Sn36HGCI-hA",
-    authDomain: "dhwani18-8b03f.firebaseapp.com",
-    databaseURL: "https://dhwani18-8b03f.firebaseio.com",
-    projectId: "dhwani18-8b03f",
-    storageBucket: "dhwani18-8b03f.appspot.com",
-    messagingSenderId: "866486690145"
-};
+    apiKey: "AIzaSyCr1tUZ4sGglBsQbRKn1m5klzhiV-IlCLs",
+    authDomain: "dhwanicet-7466c.firebaseapp.com",
+    databaseURL: "https://dhwanicet-7466c.firebaseio.com",
+    projectId: "dhwanicet-7466c",
+    storageBucket: "dhwanicet-7466c.appspot.com",
+    messagingSenderId: "1056048590412"
+  };
+
+
 firebase.initializeApp(config);
 
 
@@ -92,7 +94,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         'x-auth-token' : accessToken}
         };
 
-        axios.post('https://api.dhwanicet.org/student/login', {}, config)
+        axios.post('http://localhost:3000/student/login', {}, config)
         .then(function(response){
             if(response.data.registered===true){
                 
@@ -100,12 +102,12 @@ firebase.auth().onAuthStateChanged(function(user) {
                 document.getElementById('unique-id').innerHTML ='D-'+response.data.id;
                
 
-                axios.get('https://api.dhwanicet.org/student/event',config)
+                axios.get('http://localhost:3000/student/event',config)
                 .then(function(response){
                   var eventsJson = response.data;
                     $("#reg_events").html('');
                   eventsJson.forEach(function(item){
-                     axios.get('https://api.dhwanicet.org/student/event/'+item.id,config)
+                     axios.get('http://localhost:3000/student/event/'+item.id,config)
                 .then(function(response){
                     if(response.data.paid===true)
                       $("#reg_events").append("<div class=\"eachevent\"><h5>"+item.name+"</h5></div><div class=\"paid\"><h5>paid</h5></div>");
@@ -162,7 +164,7 @@ function regEvent(event){
     
     // console.log(eventName + "event name ");
     
-    axios.get('https://api.dhwanicet.org/public/event/' + event, {}, { 'Content-Type': 'application/json'})
+    axios.get('http://localhost:3000/public/event/' + event, {}, { 'Content-Type': 'application/json'})
         .then(function(res) 
             {
             eventName = res.data.name;
@@ -217,7 +219,7 @@ function regEvent(event){
                             }
                         };
 
-                        axios.get('https://api.dhwanicet.org/student/event', config)
+                        axios.get('http://localhost:3000/student/event', config)
                         .then( (res) => {
                             registeredEvents = res.data;
                             isAlreadyRegistered = false;
@@ -233,7 +235,7 @@ function regEvent(event){
 
                             if(!isAlreadyRegistered)
                             {
-                                axios.put('https://api.dhwanicet.org/student/event/' + event, { 'group': groupArray }, config)
+                                axios.put('http://localhost:3000/student/event/' + event, { 'group': groupArray }, config)
                                 .then(function (response) {
                                     $("input[name='inputs[]']").each(function () {
                                       $(this).val('');
@@ -1084,7 +1086,7 @@ $( window ).on( "load", function() {
     });
 
 
-axios.get('https://api.dhwanicet.org/public/event',config)
+axios.get('http://localhost:3000/public/event',config)
     .then(function (response) {
         var i;
         var reg = [];
