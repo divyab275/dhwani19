@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url(font-awesome.min.css);
 
 :root{
 	--text-color: rgba(255, 255, 255, 0.3);
@@ -25,6 +26,12 @@ html {box-sizing:border-box;}
 	background-repeat: no-repeat;
 }
 
+ul,
+ol {
+  margin: 0; }
+  ul li,
+  ol li {
+    list-style: none; }
 #hello{
  
 	height: 100vh;
@@ -32,6 +39,9 @@ html {box-sizing:border-box;}
 	overflow:hidden;
   margin-right: 0;
   /*margin-top: -8vh;*/
+}
+#contact{
+	background-color: #ebf2fa;
 }
 
 .labcontainer{
@@ -86,6 +96,11 @@ html {box-sizing:border-box;}
 	height:100vh;
 	padding-right: 20vh;
 }
+.contactimg{
+	height:80vh;
+	padding-right: 20vh;
+
+}
 .desc{
 	padding:10vh;
 	text-align: justify;
@@ -101,10 +116,23 @@ html {box-sizing:border-box;}
 #dhwaniflea .sectiontitle{
 	color:#88243e;
 }
+#contact .sectiontitle{
+	color:#22283f;
+}
 .imgdiv{
 	text-align: center;
 }
 .container {width:100%; max-width: 100vw; margin:0; padding:0px 0px 0px 0px;}
+.mapouter{
+	height:300px; width:600px;
+}
+.gmap_canvas{
+	height:300px;width:600px;
+}
+#gmap_canvas{
+	height:300px;width:600px;
+
+}
 
 /* SIDEBAR NAVIGATION */
 .sidebar {position:absolute; right:0;}
@@ -171,6 +199,11 @@ p {margin:0; padding:0px 0 0px 0;}
 
 
 /* Responsive things*/
+
+
+
+ 
+    
 @media (max-width: 480px){
 #circ{
 	position:absolute;
@@ -222,6 +255,19 @@ nav{
 
 .title-alt {
 	font-size: 2ch;
+}
+.mapouter{
+	height:200px; width:340px;
+}
+.gmap_canvas{
+	height:200px;width:340px;
+}
+#gmap_canvas{
+	height:200px;width:340px;
+}
+.contactimg{
+	height:35vh;
+	padding: 0px;
 }
 
 }
