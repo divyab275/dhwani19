@@ -1,4 +1,13 @@
 body {font-family: 'open sans'; background-color:#2C3E50; padding:0; margin:0;}
+/*body {
+	font-family: 'open sans';
+	background-image: url("../img/redp.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	position: relative;
+	overflow:hidden;
+  margin-right: 0;
+}*/
 html {box-sizing:border-box;}
 *, *:before, *:after {box-sizing:inherit;}
 
@@ -64,3 +73,25 @@ section {padding:0 0 0px 0;}
 section:last-child {padding:0 0 100vh 0;}
 .title {font-size:24px; color:rgba(255,255,255,.3); text-transform:uppercase; padding:0 0 0px 0;}
 p {margin:0; padding:0px 0 0px 0;}
+
+.title-alt {
+	text-align: center;
+	font-size: 24px;
+	color: rgba(255, 255, 255, 0.8);
+	text-transform: capitalize;
+	padding: 0 0 0 0;
+}
+
+#about-div {
+	background-image: url(../img/bluepaper.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	overflow: hidden;
+	margin-right: 0;
+}
+
+.heading {
+	padding-top: 6vh;
+}
+
