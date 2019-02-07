@@ -66,11 +66,11 @@
             <div class="sidebar">
             <nav>
                 <ul>
-                    <li><a href="#home" class="dot "><span>HOME</span></a></li>
-                    <li><a href="#about" class="dot"><span>ABOUT</span></a></li>
-                    <li><a href="#dhwaniflea" class="dot"><span>DHWANIFLEA</span></a></li>
-                    <li><a href="#events" class="dot"><span>EVENTS</span></a></li>
-                    <li><a href="#contact" class="dot"><span>CONTACT</span></a></li>
+                    <li><a href="#home" class="dot name-active" ><span>home</span></a></li>
+                    <li><a href="#about" class="dot"><span>about</span></a></li>
+                    <li><a href="#dhwaniflea" class="dot"><span>dhwaniflea</span></a></li>
+                    <li><a href="#events" class="dot"><span>events</span></a></li>
+                    <li><a href="#contact" class="dot"><span>contact</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -296,11 +296,14 @@
                 $("a[href='" + theID + "']").removeClass("name-active");
             }
         }
-        if(windowPos + windowHeight== docHeight) {
+         var l=aArray.length;
+        if(windowPos>$(aArray[l-1]).offset().top+$(aArray[l-1]).height()) {
             if (!$("nav li:last-child a").hasClass("name-active")) {
+                
                 var navActiveCurrent = $(".name-active").attr("href");
                 $("a[href='" + navActiveCurrent + "']").removeClass("name-active");
                 $("nav li:last-child a").addClass("name-active");
+            
             }
         }
     });
