@@ -1,0 +1,306 @@
+<html>
+
+<head>
+    <style>
+       
+
+        
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dhwani 19</title>
+    <!--<link rel="stylesheet" type="text/css" href="./static/css/style.css">-->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" type="image/png" href="./static/img/logo-orginal.png" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="./static/css/demo.css">
+    <script>
+        //js service worker for adding to home screen prompt
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115438061-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115438061-1');
+    </script>
+
+
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#hello">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#hi">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+</nav>
+
+  <!-- <div data-spy="affix" id="dot-nav">
+        <ul>
+          <li class="awesome-tooltip active" title="Home"><a href="#home"></a></li>
+          <li class="awesome-tooltip" title="About"><a href="#about"></a></li>
+          <li class="awesome-tooltip" title="Projects"><a href="#projects"></a></li>
+          <li class="awesome-tooltip" title="Contact"><a href="#contact"></a></li>
+        </ul>
+    </div>
+     <div id="main"> -->
+                      
+<section class="general" id="hello"> 
+
+<img src="./static/img/lbsharp.png" id="circ">
+
+</section>
+<section class="general" id="hi">hi</section>
+
+
+</div>
+
+
+
+
+
+
+
+
+</body>
+<script type="text/javascript">
+    // Get the <datalist> and <input> elements.
+    var collegeList = document.getElementById('json-collegelist');
+    var input = document.getElementById('selectedcollege');
+    var collegeId;
+
+    // Create a new XMLHttpRequest.
+
+    var request = new XMLHttpRequest();
+
+    var jsonOptionsTemp;
+
+    // Handle state changes for the request.
+    request.onreadystatechange = function (response) {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                // Parse the JSON
+                var jsonOptions = JSON.parse(request.responseText);
+
+                jsonOptionsTemp = jsonOptions;
+                // Loop over the JSON array.
+                jsonOptions.forEach(function (item) {
+                    // Create a new <option> element.
+                    var option = document.createElement('option');
+                    // Set the value using the item in the JSON array.
+                    option.value = item.name;
+                    option.id = item.id;
+                    // Add the <option> element to the <datalist>.
+                    collegeList.appendChild(option);
+                });
+
+
+                // Update the placeholder text.
+                input.placeholder = "enter college name";
+            } else {
+                // An error occured :(
+                input.placeholder = "Couldn't load datalist options :(";
+            }
+        }
+    };
+
+    // Update the placeholder text.
+    input.placeholder = "Loading options...";
+
+    // Set up and make the request.
+    request.open('GET', 'http://localhost:3000/public/college', true);
+    request.send();
+
+
+    function register(input) {
+
+        //var collegeCheck = document.getElementById('newcollege').checked;
+        var inputCollege = document.getElementById('selectedcollege');
+        var inputTemp = inputCollege.value;
+        var phoneObj = document.getElementById('inputphone');
+        var phone = phoneObj.value;
+
+        if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
+            document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   " + phoneObj.validationMessage;
+        } else {
+
+
+
+            var accomodation;
+
+            var accoCheck = document.getElementById('inputacco').checked;
+            if (accoCheck === true)
+                accomodation = document.querySelector('input[name = "sex"]:checked').value;
+            else
+                accomodation = 'none';
+
+            var accoCheck = document.getElementById('inputacco').checked;
+            if (accoCheck === true)
+                accomodation = document.querySelector('input[name = "sex"]:checked').value;
+            else
+                accomodation = 'none'
+            console.log(collegeId);
+            console.log(phone);
+            console.log(accoCheck);
+            console.log(accomodation);
+
+            var accessToken = localStorage.getItem("accessToken");
+
+
+
+
+
+            var flag = false;
+
+            jsonOptionsTemp.forEach(function (item) {
+                if (inputTemp === item.name) {
+                    collegeId = item.id;
+                    flag = true;
+                }
+            });
+
+            if (flag === false) {
+                axios.put('http://localhost:3000/public/college', { 'name': inputTemp })
+                    .then(function (response) {
+
+                        collegeId = response.data.id;
+                        console.log(collegeId);
+
+                        regsiterAxios(accessToken, phone, accomodation, collegeId);
+                    });
+
+            }
+
+            else {
+
+                regsiterAxios(accessToken, phone, accomodation, collegeId);
+            }
+
+
+
+
+            initApp();
+        }
+
+    }
+
+    function regsiterAxios(accessToken, phone, accomodation, collegeId) {
+        var config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': accessToken
+            }
+        };
+
+        axios.post('http://localhost:3000/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
+            .then(function (response) {
+                console.log(response);
+
+                console.log("registration completed");
+            });
+
+    }
+</script>
+<noscript id="tsNoJsMsg">Javascript on your browser is not enabled.</noscript>
+<script src="https://www.townscript.com/popup-widget/townscript-widget.nocache.js" type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+    $('.awesome-tooltip').tooltip({
+        placement: 'left'
+    });   
+
+    $(window).bind('scroll',function(e){
+      dotnavigation();
+    });
+    
+    function dotnavigation(){
+             
+        var numSections = $('section').length;
+        
+        $('#dot-nav li a').removeClass('active').parent('li').removeClass('active');     
+        $('section').each(function(i,item){
+          var ele = $(item), nextTop;
+          
+          console.log(ele.next().html());
+          
+          if (typeof ele.next().offset() != "undefined") {
+            nextTop = ele.next().offset().top;
+          }
+          else {
+            nextTop = $(document).height();
+          }
+          
+          if (ele.offset() !== null) {
+            thisTop = ele.offset().top - ((nextTop - ele.offset().top) / numSections);
+          }
+          else {
+            thisTop = 0;
+          }
+          
+          var docTop = $(document).scrollTop();
+          
+          if(docTop >= thisTop && (docTop < nextTop)){
+            $('#dot-nav li').eq(i).addClass('active');
+          }
+        });   
+    }
+
+    /* get clicks working */
+    $('#dot-nav li').click(function(){
+      
+        var id = $(this).find('a').attr("href"),
+          posi,
+          ele,
+          padding = 0;
+      
+        ele = $(id);
+        posi = ($(ele).offset()||0).top - padding;
+      
+        $('html, body').animate({scrollTop:posi}, 'slow');
+      
+        return false;
+    });
+
+/* end dot nav */
+});
+
+</script>
+</html>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+    </script>
+    <script src="./static/js/jscript.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">

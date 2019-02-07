@@ -1,0 +1,107 @@
+,
+*:after,
+*:before,
+html
+	{box-sizing:border-box}
+
+body
+	{margin:0;padding:0;overflow-x:hidden}
+
+.general{
+	height:100vh;
+	margin: 0;
+}
+.navabar{
+	height:8vh;
+}
+#hello{
+  background-image: url("../img/redp.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 92vh;
+ position:relative;
+  overflow:hidden;
+  margin-right: 0;
+  /*margin-top: -8vh;*/
+}
+
+#circ{
+	 position:absolute;
+  width:80vw;
+  
+  top:50%;
+  left:50%;
+  margin-top:-50vh;/*half of the height*/
+  margin-left:-30vh;
+	
+	
+	-webkit-animation: rotation 17s infinite linear;
+}
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+
+
+
+/* hamburger */
+#main{
+	padding: 0px;
+	margin: 0px 0px 0px 0px;
+}
+
+#dot-nav{    
+	float:right;
+	z-index: 6;
+	background: transparent;
+}
+
+#dot-nav ul {
+	list-style: none;
+	margin:0;
+	padding: 0;
+	background: transparent;
+}
+#dot-nav li {
+	position: relative;
+	background-color: #bdc3c7;
+	border:3px solid #bdc3c7;
+	border-radius: 15px 15px 15px 15px;
+	cursor: pointer;
+	padding: 5px;
+	height: 10px;
+	margin: 10px 10px 0px 0px;
+	width: 10px;
+	vertical-align:bottom;
+}
+#dot-nav li.active, #dot-nav li:hover {
+	background-color: #8e44ad;
+}
+
+#dot-nav a {
+	outline: 0;
+	vertical-align:top;
+	margin: 0px 0px 0px 25px;
+	position: relative;
+	top:-5px;
+	background: transparent;
+}
+.awesome-tooltip + .tooltip > .tooltip-inner {
+    /*background-color: #8e44ad;*/ 
+    color: #f5f5f5; 
+    border: 1px solid #8e44ad; 
+    z-index: 7;
+}
+.awesome-tooltip + .tooltip.left > .tooltip-arrow{
+    top:50%;
+    right:0;
+    margin-top:-5px;
+    border-top:5px solid transparent;
+    border-bottom:5px solid transparent;
+    border-left:5px solid #8e44ad;
+    z-index: 7;
+}
