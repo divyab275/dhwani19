@@ -5,6 +5,7 @@
 :root{
 	--text-color: rgba(255, 255, 255, 0.3);
 	--text-color-alt: rgba(255, 255, 255, 0.8);
+	--text-color-dark: #4c3234;
 	--background-blue: url(../img/bluepaper.jpg);
 	--background-red: url("../img/redp.jpg");
 }
@@ -18,6 +19,10 @@ html {box-sizing:border-box;}
 	height:100vh;
 	margin: 0;
 	overflow: hidden;
+}
+
+#events {
+	background-color: #ebf2fa;
 }
 
 #home{
@@ -72,13 +77,6 @@ ol {
   margin-top:-50vh;/*half of the height*/
   margin-left:-60vh;
 	-webkit-animation: rotation 17s infinite linear;
-}
-
-#flea-img {
-	position: absolute;
-	height: 50vh;
-	width: 50vw;
-  z-index: -12;
 }
 
 @-webkit-keyframes rotation {
@@ -156,7 +154,11 @@ p {margin:0; padding:0px 0 0px 0;}
 	font-size: 4vh;
 	color: rgba(255, 255, 255, 0.8);
 	text-transform: uppercase;
-	padding: 0 0 0 0;
+	padding: 6vh 0 3vh 0;
+}
+
+.dark {
+	color: var(--text-color-dark) !important;
 }
 
 #about-div {
@@ -173,7 +175,14 @@ p {margin:0; padding:0px 0 0px 0;}
 	position: absolute;
 	bottom: -30%;
 	right: -40%;
-	animation: rotation 109s infinite linear;
+	/*animation: rotation 110s infinite linear;*/
+}
+
+#about-img {
+	height: 100vh;
+	position: absolute;
+	bottom: -30%;
+	right: -40%;
 }
 
 #fleamarket-div {
@@ -185,12 +194,17 @@ p {margin:0; padding:0px 0 0px 0;}
 	margin-right: 0;
 }
 
+#flea-img {
+	position: absolute;
+	height: 50vh;
+	width: 50vw;
+  z-index: 12;
+}
 .heading {
-	padding: 6vh 0 3vh 0;
 }
 
 .content-div {
-	font-size: 2.3vh;
+	font-size: 1.1rem;
 	padding-left: 10%;
 	width: 80%;
 	color: var(--text-color-alt);
@@ -245,16 +259,16 @@ nav{
 	font-size: 0.8rem;
 }
 .fleaimg{
-	height:40vh;
+	height:20vh;
 	padding: 0;
 }
 
 .content-div {
-	font-size: 1.7vh;
+	font-size: 0.8rem;
 }
 
 .title-alt {
-	font-size: 2ch;
+	font-size: 2vh;
 }
 .mapouter{
 	height:200px; width:340px;
