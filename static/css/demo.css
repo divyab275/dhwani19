@@ -14,20 +14,24 @@ body {font-family: 'open sans'; background-color:#2C3E50; padding:0; margin:0;}
 	overflow:hidden;
   margin-right: 0;
 }*/
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body {font-family: 'Lato'; background-color:#2C3E50; padding:0; margin:0;}
 html {box-sizing:border-box;}
 *, *:before, *:after {box-sizing:inherit;}
 
 .general{
 	height:100vh;
 	margin: 0;
+	overflow: hidden;
 }
-.navabar{
-	height:8vh;
-}
-#hello{
-  background-image: url("../img/redp.jpg");
+#home{
+	 background-image: url("../img/redp.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+#hello{
+ 
 	height: 100vh;
  	position:relative;
 	overflow:hidden;
@@ -37,17 +41,28 @@ html {box-sizing:border-box;}
 .labcontainer{
 	overflow: hidden;
 }
-#contact{
-	height: 99vh;
+#dhwanilogo{
+	height:50vh;
+	
+	margin-top: 20vh;
+}
+#ddate{
+
+	color:rgba(255,255,255,0.8);
+	font-size: 1.2rem;
+	letter-spacing: 0.2rem;
+}
+.lbox{
+	text-align: center;
 }
 #circ{
 	 position:absolute;
-  width:80vw;
+  width:90vw;
   
   top:50%;
   left:50%;
   margin-top:-50vh;/*half of the height*/
-  margin-left:-30vh;
+  margin-left:-60vh;
 	-webkit-animation: rotation 17s infinite linear;
 }
 @-webkit-keyframes rotation {
@@ -71,7 +86,7 @@ html {box-sizing:border-box;}
 nav {width:100px; height:200px;/*background-color:rgb(240,240,240); border:solid 1px rgb(220,220,220);*/ padding:0 0px; position:fixed; top:50%; right:20px; transform: translate(0, -50%); z-index: 10000; text-align:right;}
 nav ul li a {text-decoration:none; color:white;}
 nav ul {list-style-type:none; margin:0; padding:0;}
-.name-active {color:rgba(255,255,255,.8); background-color:#FFD95F; text-align:right;}
+.name-active {color:rgba(255,255,255,.8); background-color:white; text-align:right;}
 
 /* PAGE CONTENT */
 .content {width:100%; text-align:justify;}
@@ -105,5 +120,44 @@ p {margin:0; padding:0px 0 0px 0;}
 	padding-left: 10%;
 	width: 80%;
 	color: var(--text-color-alt);
+
+
+
+
+/* Responsive things*/
+@media (max-width: 480px){
+
+#circ{
+	 position:absolute;
+  width:140vw;
+  top:50%;
+  left:80%;
+  align-content: center;
+}
+#dhwanilogo{
+	height: 30vh;
+
+}
+#ddate{
+/*	margin-left: 10%;*/
+}
+nav{
+	margin-right: 0px;
+	right: 15px;
+}
+
+.dot{
+	height:7px;
+	width:7px;
+	font-size: 0.8rem;
+	
+	margin: 0;
+
+}
+
+.dot span {
+	margin: 0 0 0 0;
+	left:-7vh;
+}
 
 }
