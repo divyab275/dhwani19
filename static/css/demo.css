@@ -22,7 +22,9 @@ overflow:hidden;
 .labcontainer{
 	overflow: hidden;
 }
-
+#contact{
+	height: 99vh;
+}
 #circ{
 	 position:absolute;
   width:80vw;
