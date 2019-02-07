@@ -46,7 +46,7 @@
 
 </head>
 <body>
- <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -59,27 +59,47 @@
       <a class="nav-item nav-link disabled" href="#">Disabled</a>
     </div>
   </div>
-</nav>
+</nav> -->
 
-  <!-- <div data-spy="affix" id="dot-nav">
-        <ul>
-          <li class="awesome-tooltip active" title="Home"><a href="#home"></a></li>
-          <li class="awesome-tooltip" title="About"><a href="#about"></a></li>
-          <li class="awesome-tooltip" title="Projects"><a href="#projects"></a></li>
-          <li class="awesome-tooltip" title="Contact"><a href="#contact"></a></li>
-        </ul>
-    </div>
-     <div id="main"> -->
+ <div class="container">        
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#home" class="dot "><span>home</span></a></li>
+                    <li><a href="#about" class="dot"><span>about</span></a></li>
+                    <li><a href="#services" class="dot"><span>services</span></a></li>
+                    <li><a href="#blog" class="dot"><span>blog</span></a></li>
+                    <li><a href="#contact" class="dot"><span>contact</span></a></li>
+                </ul>
+            </nav>
+        </div>
                       
-<section class="general" id="hello"> 
 
+
+ <div class="content">
+
+
+<section class="general" id="home"> 
+
+<div id="hello" >
 <img src="./static/img/lbsharp.png" id="circ">
 
-</section>
-<section class="general" id="hi">hi</section>
+</div>
 
+</section>
+<section class="general" id="about">hi</section>
+<section class="general" id="services">hi</section>
+
+<section class="general" id="blog">hi</section>
+
+<section class="general" id="contact">hi</section>
 
 </div>
+</div>
+
+
+
 
 
 
@@ -229,71 +249,70 @@
 </script>
 <noscript id="tsNoJsMsg">Javascript on your browser is not enabled.</noscript>
 <script src="https://www.townscript.com/popup-widget/townscript-widget.nocache.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script type="text/javascript">
-   $(document).ready(function(){
-    $('.awesome-tooltip').tooltip({
-        placement: 'left'
-    });   
-
-    $(window).bind('scroll',function(e){
-      dotnavigation();
+  $(document).ready(function(){
+    $.scrollTo = $.fn.scrollTo = function(x, y, options){
+        if (!(this instanceof $)) return $.fn.scrollTo.apply($('html, body'), arguments);
+        options = $.extend({}, {
+            gap: {
+                x: 0,
+                y: 0
+            },
+            animation: {
+                easing: 'swing',
+                duration: 600,
+                complete: $.noop,
+                step: $.noop
+            }
+        }, options);
+        return this.each(function(){
+            var elem = $(this);
+            elem.stop().animate({
+                scrollLeft: !isNaN(Number(x)) ? x : $(y).offset().left + options.gap.x,
+                scrollTop: !isNaN(Number(y)) ? y : $(y).offset().top + options.gap.y
+            }, options.animation);
+        });
+    };
+    var aChildren = $("nav li").children();
+    var aArray = [];
+    for (var i=0; i < aChildren.length; i++) {    
+        var aChild = aChildren[i];
+        var ahref = $(aChild).attr('href');
+        aArray.push(ahref);
+    }     
+    $(window).scroll(function(){
+        var windowPos = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var docHeight = $(document).height();
+        for (var i=0; i < aArray.length; i++) {
+            var theID = aArray[i];
+            var divPos = $(theID).offset().top; 
+            var divHeight = $(theID).height(); 
+            if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+                $("a[href='" + theID + "']").addClass("name-active");
+            } else {
+                $("a[href='" + theID + "']").removeClass("name-active");
+            }
+        }
+        if(windowPos + windowHeight== docHeight) {
+            if (!$("nav li:last-child a").hasClass("name-active")) {
+                var navActiveCurrent = $(".name-active").attr("href");
+                $("a[href='" + navActiveCurrent + "']").removeClass("name-active");
+                $("nav li:last-child a").addClass("name-active");
+            }
+        }
     });
-    
-    function dotnavigation(){
-             
-        var numSections = $('section').length;
-        
-        $('#dot-nav li a').removeClass('active').parent('li').removeClass('active');     
-        $('section').each(function(i,item){
-          var ele = $(item), nextTop;
-          
-          console.log(ele.next().html());
-          
-          if (typeof ele.next().offset() != "undefined") {
-            nextTop = ele.next().offset().top;
-          }
-          else {
-            nextTop = $(document).height();
-          }
-          
-          if (ele.offset() !== null) {
-            thisTop = ele.offset().top - ((nextTop - ele.offset().top) / numSections);
-          }
-          else {
-            thisTop = 0;
-          }
-          
-          var docTop = $(document).scrollTop();
-          
-          if(docTop >= thisTop && (docTop < nextTop)){
-            $('#dot-nav li').eq(i).addClass('active');
-          }
-        });   
-    }
-
-    /* get clicks working */
-    $('#dot-nav li').click(function(){
-      
-        var id = $(this).find('a').attr("href"),
-          posi,
-          ele,
-          padding = 0;
-      
-        ele = $(id);
-        posi = ($(ele).offset()||0).top - padding;
-      
-        $('html, body').animate({scrollTop:posi}, 'slow');
-      
-        return false;
+    $("nav a").click(function(evn){
+        evn.preventDefault();
+        $('html,body').scrollTo(this.hash, this.hash);
     });
-
-/* end dot nav */
 });
 
 </script>
 </html>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    
     <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
