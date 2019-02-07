@@ -73,8 +73,6 @@ html {box-sizing:border-box;}
 .dot {display:inline-block; width:10px; height:10px; background-color:rgba(255,255,255,.3); border-radius:10px; z-index:999; content:''; color:transparent; font-size:14px; line-height:10px; vertical-align:middle; margin:5px 0 5px 0; font-weight:300;}
 .dot:hover {background-color:rgba(255,255,255,.8); color:rgba(255,255,255,.8);}
 .dot span {margin:0px 0px 20px 15px; position:relative; top:0px; left:-90px;}
-.dot:hover {background-color:rgba(255,255,255,.8); color:rgba(255,255,255,.8);text-decoration: none;}
-.dot span {margin:0px 0px 20px 15px; position:relative; top:0px; left:-80px;}
 nav {width:100px; height:200px;/*background-color:rgb(240,240,240); border:solid 1px rgb(220,220,220);*/ padding:0 0px; position:fixed; top:50%; right:20px; transform: translate(0, -50%); z-index: 10000; text-align:right;}
 nav ul li a {text-decoration:none; color:white;}
 nav ul {list-style-type:none; margin:0; padding:0;}
@@ -114,11 +112,8 @@ p {margin:0; padding:0px 0 0px 0;}
 	color: var(--text-color-alt);
 
 }
-
-
 /* Responsive things*/
 @media (max-width: 480px){
-
 #circ{
 	 position:absolute;
   width:140vw;
@@ -137,19 +132,14 @@ nav{
 	margin-right: 0px;
 	right: 15px;
 }
-
 .dot{
 	height:7px;
 	width:7px;
 	font-size: 0.8rem;
-	
 	margin: 0;
-
 }
-
 .dot span {
 	margin: 0 0 0 0;
 	left:-7vh;
 }
-
 }
