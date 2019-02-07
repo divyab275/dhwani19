@@ -14,8 +14,8 @@ html {box-sizing:border-box;}
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100vh;
- position:relative;
-overflow:hidden;
+ 	position:relative;
+	overflow:hidden;
   margin-right: 0;
   /*margin-top: -8vh;*/
 }
@@ -31,8 +31,6 @@ overflow:hidden;
   left:50%;
   margin-top:-50vh;/*half of the height*/
   margin-left:-30vh;
-	
-	
 	-webkit-animation: rotation 17s infinite linear;
 }
 @-webkit-keyframes rotation {
@@ -51,7 +49,7 @@ overflow:hidden;
 /* SIDEBAR NAVIGATION */
 .sidebar {position:absolute; right:0;}
 .dot {display:inline-block; width:10px; height:10px; background-color:rgba(255,255,255,.3); border-radius:10px; z-index:999; content:''; color:transparent; font-size:14px; line-height:10px; vertical-align:middle; margin:5px 0 5px 0; font-weight:300;}
-.dot:hover {background-color:rgba(255,255,255,.8); color:rgba(255,255,255,.8);}
+.dot:hover {background-color:rgba(255,255,255,.8); color:rgba(255,255,255,.8);text-decoration: none;}
 .dot span {margin:0px 0px 20px 15px; position:relative; top:0px; left:-80px;}
 nav {width:100px; height:200px;/*background-color:rgb(240,240,240); border:solid 1px rgb(220,220,220);*/ padding:0 0px; position:fixed; top:50%; right:20px; transform: translate(0, -50%); z-index: 10000; text-align:right;}
 nav ul li a {text-decoration:none; color:white;}
