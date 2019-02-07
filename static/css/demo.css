@@ -1,20 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
 :root{
 	--text-color: rgba(255, 255, 255, 0.3);
 	--text-color-alt: rgba(255, 255, 255, 0.8);
 }
 
-
-body {font-family: 'open sans'; background-color:#2C3E50; padding:0; margin:0;}
-/*body {
-	font-family: 'open sans';
-	background-image: url("../img/redp.jpg");
-	background-size: cover;
-	background-repeat: no-repeat;
-	position: relative;
-	overflow:hidden;
-  margin-right: 0;
-}*/
-@import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {font-family: 'Lato'; background-color:#2C3E50; padding:0; margin:0;}
 html {box-sizing:border-box;}
