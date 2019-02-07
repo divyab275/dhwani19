@@ -4,6 +4,8 @@
 :root{
 	--text-color: rgba(255, 255, 255, 0.3);
 	--text-color-alt: rgba(255, 255, 255, 0.8);
+	--background-blue: url(../img/bluepaper.jpg);
+	--background-red: url("../img/redp.jpg");
 }
 
 
@@ -16,11 +18,13 @@ html {box-sizing:border-box;}
 	margin: 0;
 	overflow: hidden;
 }
+
 #home{
-	 background-image: url("../img/redp.jpg");
+	background-image: url("../img/redp.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+
 #hello{
  
 	height: 100vh;
@@ -29,23 +33,26 @@ html {box-sizing:border-box;}
   margin-right: 0;
   /*margin-top: -8vh;*/
 }
+
 .labcontainer{
 	overflow: hidden;
 }
+
 #dhwanilogo{
 	height:50vh;
-	
 	margin-top: 20vh;
 }
-#ddate{
 
+#ddate{
 	color:rgba(255,255,255,0.8);
 	font-size: 1.2rem;
 	letter-spacing: 0.2rem;
 }
+
 .lbox{
 	text-align: center;
 }
+
 #circ{
 	 position:absolute;
   width:90vw;
@@ -56,6 +63,14 @@ html {box-sizing:border-box;}
   margin-left:-60vh;
 	-webkit-animation: rotation 17s infinite linear;
 }
+
+#flea-img {
+	position: absolute;
+	height: 50vh;
+	width: 50vw;
+  z-index: -12;
+}
+
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);
@@ -94,7 +109,7 @@ html {box-sizing:border-box;}
 /* SIDEBAR NAVIGATION */
 .sidebar {position:absolute; right:0;}
 .dot {display:inline-block; width:10px; height:10px; background-color:rgba(255,255,255,.3); border-radius:10px; z-index:999; content:''; color:transparent; font-size:14px; line-height:10px; vertical-align:middle; margin:5px 0 5px 0; font-weight:300;}
-.dot:hover {background-color:rgba(255,255,255,.8); color:rgba(255,255,255,.8);}
+.dot:hover {background-color:rgba(255,255,255,.8); color:rgba(255,255,255,.8); text-decoration: none}
 .dot span {margin:0px 0px 20px 15px; position:relative; top:0px; left:-90px;}
 nav {width:100px; height:200px;/*background-color:rgb(240,240,240); border:solid 1px rgb(220,220,220);*/ padding:0 0px; position:fixed; top:50%; right:20px; transform: translate(0, -50%); z-index: 10000; text-align:right;}
 nav ul li a {text-decoration:none; color:white;}
@@ -110,14 +125,31 @@ p {margin:0; padding:0px 0 0px 0;}
 
 .title-alt {
 	text-align: center;
-	font-size: 24px;
+	font-size: 4vh;
 	color: rgba(255, 255, 255, 0.8);
 	text-transform: uppercase;
 	padding: 0 0 0 0;
 }
 
 #about-div {
-	background-image: url(../img/bluepaper.jpg);
+	background-image: var(--background-blue);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	overflow: hidden;
+	margin-right: 0;
+}
+
+#about-img {
+	height: 100vh;
+	position: absolute;
+	bottom: -30%;
+	right: -40%;
+	animation: rotation 109s infinite linear;
+}
+
+#fleamarket-div {
+	background-image: var(--background-red);
 	background-size: cover;
 	background-repeat: no-repeat;
 	height: 100%;
@@ -126,19 +158,22 @@ p {margin:0; padding:0px 0 0px 0;}
 }
 
 .heading {
-	padding-top: 6vh;
+	padding: 6vh 0 3vh 0;
 }
 
 .content-div {
+	font-size: 2.3vh;
 	padding-left: 10%;
 	width: 80%;
 	color: var(--text-color-alt);
-
+	z-index: 123;
 }
+
+
 /* Responsive things*/
 @media (max-width: 480px){
 #circ{
-	 position:absolute;
+	position:absolute;
   width:140vw;
   top:50%;
   left:80%;
@@ -148,9 +183,11 @@ p {margin:0; padding:0px 0 0px 0;}
 	height: 30vh;
 
 }
+
 #ddate{
 /*	margin-left: 10%;*/
 }
+
 nav{
 	margin-right: 0px;
 	right: 15px;
@@ -178,4 +215,13 @@ nav{
 	height:40vh;
 	padding: 0;
 }
+
+.content-div {
+	font-size: 1.7vh;
+}
+
+.title-alt {
+	font-size: 2ch;
+}
+
 }
