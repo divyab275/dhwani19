@@ -1,3 +1,9 @@
+:root{
+	--text-color: rgba(255, 255, 255, 0.3);
+	--text-color-alt: rgba(255, 255, 255, 0.8);
+}
+
+
 body {font-family: 'open sans'; background-color:#2C3E50; padding:0; margin:0;}
 /*body {
 	font-family: 'open sans';
@@ -78,7 +84,7 @@ p {margin:0; padding:0px 0 0px 0;}
 	text-align: center;
 	font-size: 24px;
 	color: rgba(255, 255, 255, 0.8);
-	text-transform: capitalize;
+	text-transform: uppercase;
 	padding: 0 0 0 0;
 }
 
@@ -95,3 +101,9 @@ p {margin:0; padding:0px 0 0px 0;}
 	padding-top: 6vh;
 }
 
+.content-div {
+	padding-left: 10%;
+	width: 80%;
+	color: var(--text-color-alt);
+
+}
