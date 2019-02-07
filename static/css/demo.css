@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 
 :root{
 	--text-color: rgba(255, 255, 255, 0.3);
@@ -63,9 +64,31 @@ html {box-sizing:border-box;}
 				-webkit-transform: rotate(359deg);
 		}
 }
-
-
-
+#dhwaniflea{
+	background-color:#dfdc99;
+}
+.fleaimg{
+	height:100vh;
+	padding-right: 20vh;
+}
+.desc{
+	padding:10vh;
+	text-align: justify;
+	font-size: 1.1rem;
+	color:#3b3536;
+}
+.sectiontitle{
+	font-family: 'Abril Fatface';
+	font-weight: 200;
+	font-size:3.6rem;
+	padding-top:10vh;
+}
+#dhwaniflea .sectiontitle{
+	color:#88243e;
+}
+.imgdiv{
+	text-align: center;
+}
 .container {width:100%; max-width: 100vw; margin:0; padding:0px 0px 0px 0px;}
 
 /* SIDEBAR NAVIGATION */
@@ -140,6 +163,19 @@ nav{
 }
 .dot span {
 	margin: 0 0 0 0;
-	left:-7vh;
+	left:-5vh;
+}
+.sectiontitle{
+	font-size: 2.7rem;
+	padding-top: 5vh;
+}
+.desc{
+	padding:5vh;
+	padding-right: 11vh;
+	font-size: 0.8rem;
+}
+.fleaimg{
+	height:40vh;
+	padding: 0;
 }
 }
