@@ -1,0 +1,453 @@
+<html>
+
+<head>
+    <style>
+       
+
+        
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dhwani 19</title>
+    <!--<link rel="stylesheet" type="text/css" href="./static/css/style.css">-->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" type="image/png" href="./static/img/logo-orginal.png" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="./static/css/demo.css">
+    <script>
+        //js service worker for adding to home screen prompt
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('./sw.js').then(function (registration) {
+                    // Registration was successful
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    // registration failed :(
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+
+
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115438061-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-115438061-1');
+    </script>
+
+
+</head>
+<body>
+<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#hello">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#hi">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#">Disabled</a>
+    </div>
+  </div>
+</nav> -->
+
+ <div class="container">        
+            <!-- SIDEBAR -->
+            <div class="sidebar">
+            <nav>
+                <ul>
+                    <li><a href="#home" class="dot name-active" ><span>home</span></a></li>
+                    <li><a href="#about" class="dot"><span>about</span></a></li>
+                    <li><a href="#dhwaniflea" class="dot"><span>flea</span></a></li>
+                    <li><a href="#events" class="dot"><span>events</span></a></li>
+                    <li><a href="#contact" class="dot"><span>contact</span></a></li>
+                </ul>
+            </nav>
+        </div>
+                      
+
+
+ <div class="content">
+
+
+<section class="general" id="home"> 
+    <div class="row">
+        <div class="col-lg-4 col-md-4  col-sm-12 lbox">
+            <img src="./static/img/dw.png" id="dhwanilogo">
+            <h3 id="ddate">MARCH 16, 17, 18</h3>
+            <div id="registerDiv"></div>
+            <div id="signOutDiv"></div>
+            <div id="loginDiv"></div>
+            
+            
+        </div>
+        <div class="col-md-8 col-sm-12" id="hello" >
+            <div id="profileViewButton"></div>
+            <img src="./static/img/lbsharp.png" id="circ">
+        </div>
+    </div>
+</section>
+<section class="general" id="about">
+    <div class="row" id="about-div">
+        <div class="col-lg-8 col-md-8 content-div">
+            <h1 class="title-alt">
+                About Dhwani
+            </h1>
+            <p>
+                Dhwani, the cultural extravaganza of CET has always carved a very special niche for itself by being the most sought after cultural fest in the state. Be it the enthusiastic crowd or the scintillating performances, Dhwani never fails to make its mark. Nurturing creativity and appreciating the hidden talents, at the same time standing for a social cause, every Dhwani is a defining experience for the spectators as well as organizers. 
+            </p>
+            <h1 class="title-alt">
+                About Our theme
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. In mollis nunc sed id. Nibh venenatis cras sed felis eget velit. Viverra nibh cras pulvinar mattis nunc sed blandit libero. Ut faucibus pulvinar elementum integer enim. Id velit ut tortor pretium. Ut sem viverra aliquet eget. Dictum at tempor commodo ullamcorper a.
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-4">
+            <img src="./static/img/labyrinth/circ.png" id="about-img">
+        </div>
+        
+    </div>
+</section>
+
+<!-- <section class="general" id="dhwaniflea">
+    <div class="row" id="fleamarket-div">
+    <div class="col-md-4" id="flea-img" >
+        <img src="./static/img/labyrinth/flea.jpg">
+    </div> -->
+        <!-- <div class="content-div col-md-8"> -->
+<!-- <section class="general" id="dhwaniflea">
+    <div id="fleamarket-div">
+        <div id="flea-img" >
+            <img src="./static/img/labyrinth/flea.jpg">
+        </div>
+        <div class="content-div">
+        <div class="heading">
+            <h1 class="title-alt">
+                Dhwani Flea MArket
+            </h1>
+        </div>
+            <p>
+                 Hodor, hodor, hodor hodor. HODOR hodor, hodor. HODOR hodor, hodor.Hodor hodor HODOR! Hodor. Hodor, hodor. Hodor. Hodor, hodor. Hodor. Hodor. Hodor... Hodor hodor. Hodor, hodor. Hodor. Hodor. Hodor hodor HODOR! Hodor. Hodor? Hodor, hodor. Hodor. Hodor hodor! HODOR HODOR! Hodor? Hodor hodor. Hodor, hodor. Hodor. Hodor. Hodor, hodor. Hodor. Hodor. HODOR? Hodor... Hodor hodor. Hodor hodor! Hodor hodor! Hodor hodor!
+            </p>
+            <br>
+            <p>
+                Hodor, hodor, hodor hodor. HODOR hodor, hodor. HODOR hodor, hodor.Hodor hodor HODOR! Hodor. Hodor, hodor. Hodor. Hodor, hodor. Hodor. Hodor. Hodor... Hodor hodor. Hodor, hodor. Hodor. Hodor. Hodor hodor HODOR! Hodor. Hodor? Hodor, hodor. Hodor. Hodor hodor! HODOR HODOR! Hodor? Hodor hodor. Hodor, hodor. Hodor. Hodor. Hodor, hodor. Hodor. Hodor. HODOR? Hodor... Hodor hodor. Hodor hodor! Hodor hodor! Hodor hodor!
+            </p>
+        </div>
+        
+    </div>
+</section>
+ -->
+
+
+ <section class="general" id="dhwaniflea">
+    <div class="row">
+
+        <div class="col-md-5 col-sm-12 imgdiv">
+            <img src="./static/img/labyrinth/ff.jpg" class="fleaimg">
+        </div>
+
+    <div class="col-md-7  col-sm-12 lbox">
+            <h3 class="sectiontitle">dhwani flea</h3>
+            <p class="desc rcontent"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. In mollis nunc sed id. Nibh venenatis cras sed felis eget velit. Viverra nibh cras pulvinar mattis nunc sed blandit libero.  </p>
+            
+        </div>
+        
+
+
+    </div>
+</section>
+<!-- <section class="general" id="events">
+    <div class="row content-div dark">
+        <div class="col-md-7 col-sm-12">
+            <h1 class="title-alt dark">Events</h1>
+            <p>
+                I'll be sure to note that in my log. Smooth as an android's bottom, eh, Data? When has justice ever been as simple as a rule book? This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.
+            </p>
+            <br>
+            <a href="#">
+            <button class="btn btn-warning">
+                Explore Events
+            </button>
+            </a>
+        </div>
+        <div class="col-md-5 col-sm-12 imgdiv">
+
+            <img src="./static/img/labyrinth/ff.jpg" class="fleaimg">
+
+            <img src="./static/img/labyrinth/drop_final.png" class="fleaimg" style="padding-left: 10vw">
+
+        </div>
+    </div>
+</section> -->
+<section class="general" id="events">
+    <div class="row">
+    <div class="col-md-7  col-sm-12 lbox">
+            <h3 class="sectiontitle">events</h3>
+          </div>
+        <div class="col-md-5 col-sm-12 imgdiv">
+            <img src="./static/img/labyrinth/ff.jpg" class="fleaimg">
+        </div>
+    </div></section>
+
+<section class="general" id="contact">
+    <div class="row">
+<div class="col-md-7  col-sm-12 lbox">
+            <h3 class="sectiontitle">contact us</h3>
+            <div class="mapouter" style="margin: auto;"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=College%20of%20Engineering%2C%20Trivandrum&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ></iframe></div><style>.mapouter{text-align: center;}.gmap_canvas {overflow:hidden;background:none!important;}</style></div>
+            <p class="desc">
+             
+
+            </p>
+</div>
+ <div class="col-md-5 col-sm-12 imgdiv">
+            <img src="./static/img/labyrinth/drop_final.png" class="contactimg">
+             
+        </div>
+</div>
+
+</section>
+
+</div>
+</div>
+
+
+<script type="text/javascript">
+    // Get the <datalist> and <input> elements.
+    var collegeList = document.getElementById('json-collegelist');
+    var input = document.getElementById('selectedcollege');
+    var collegeId;
+
+    // Create a new XMLHttpRequest.
+
+    var request = new XMLHttpRequest();
+
+    var jsonOptionsTemp;
+
+    // Handle state changes for the request.
+    request.onreadystatechange = function (response) {
+        if (request.readyState === 4) {
+            if (request.status === 200) {
+                // Parse the JSON
+                var jsonOptions = JSON.parse(request.responseText);
+
+                jsonOptionsTemp = jsonOptions;
+                // Loop over the JSON array.
+                jsonOptions.forEach(function (item) {
+                    // Create a new <option> element.
+                    var option = document.createElement('option');
+                    // Set the value using the item in the JSON array.
+                    option.value = item.name;
+                    option.id = item.id;
+                    // Add the <option> element to the <datalist>.
+                    collegeList.appendChild(option);
+                });
+
+
+                // Update the placeholder text.
+                input.placeholder = "enter college name";
+            } else {
+                // An error occured :(
+                input.placeholder = "Couldn't load datalist options :(";
+            }
+        }
+    };
+
+    // Update the placeholder text.
+    input.placeholder = "Loading options...";
+
+    // Set up and make the request.
+    request.open('GET', 'http://localhost:3000/public/college', true);
+    request.send();
+
+
+    function register(input) {
+
+        //var collegeCheck = document.getElementById('newcollege').checked;
+        var inputCollege = document.getElementById('selectedcollege');
+        var inputTemp = inputCollege.value;
+        var phoneObj = document.getElementById('inputphone');
+        var phone = phoneObj.value;
+
+        if (!inputCollege.checkValidity() || !phoneObj.checkValidity()) {
+            document.getElementById("errorMessage").innerHTML = inputCollege.validationMessage + "   " + phoneObj.validationMessage;
+        } else {
+
+
+
+            var accomodation;
+
+            var accoCheck = document.getElementById('inputacco').checked;
+            if (accoCheck === true)
+                accomodation = document.querySelector('input[name = "sex"]:checked').value;
+            else
+                accomodation = 'none';
+
+            var accoCheck = document.getElementById('inputacco').checked;
+            if (accoCheck === true)
+                accomodation = document.querySelector('input[name = "sex"]:checked').value;
+            else
+                accomodation = 'none'
+            console.log(collegeId);
+            console.log(phone);
+            console.log(accoCheck);
+            console.log(accomodation);
+
+            var accessToken = localStorage.getItem("accessToken");
+
+
+
+
+
+            var flag = false;
+
+            jsonOptionsTemp.forEach(function (item) {
+                if (inputTemp === item.name) {
+                    collegeId = item.id;
+                    flag = true;
+                }
+            });
+
+            if (flag === false) {
+                axios.put('http://localhost:3000/public/college', { 'name': inputTemp })
+                    .then(function (response) {
+
+                        collegeId = response.data.id;
+                        console.log(collegeId);
+
+                        regsiterAxios(accessToken, phone, accomodation, collegeId);
+                    });
+
+            }
+
+            else {
+
+                regsiterAxios(accessToken, phone, accomodation, collegeId);
+            }
+
+
+
+
+            initApp();
+        }
+
+    }
+
+    function regsiterAxios(accessToken, phone, accomodation, collegeId) {
+        var config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': accessToken
+            }
+        };
+
+        axios.post('http://localhost:3000/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
+            .then(function (response) {
+                console.log(response);
+
+                console.log("registration completed");
+            });
+
+    }
+</script>
+<noscript id="tsNoJsMsg">Javascript on your browser is not enabled.</noscript>
+<script src="https://www.townscript.com/popup-widget/townscript-widget.nocache.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    // nav bar script
+  $(document).ready(function(){
+    $.scrollTo = $.fn.scrollTo = function(x, y, options){
+        if (!(this instanceof $)) return $.fn.scrollTo.apply($('html, body'), arguments);
+        options = $.extend({}, {
+            gap: {
+                x: 0,
+                y: 0
+            },
+            animation: {
+                easing: 'swing',
+                duration: 600,
+                complete: $.noop,
+                step: $.noop
+            }
+        }, options);
+        return this.each(function(){
+            var elem = $(this);
+            elem.stop().animate({
+                scrollLeft: !isNaN(Number(x)) ? x : $(y).offset().left + options.gap.x,
+                scrollTop: !isNaN(Number(y)) ? y : $(y).offset().top + options.gap.y
+            }, options.animation);
+        });
+    };
+    var aChildren = $("nav li").children();
+    var aArray = [];
+    for (var i=0; i < aChildren.length; i++) {    
+        var aChild = aChildren[i];
+        var ahref = $(aChild).attr('href');
+        aArray.push(ahref);
+    }     
+    $(window).scroll(function(){
+        var windowPos = $(window).scrollTop();
+        var windowHeight = $(window).height();
+        var docHeight = $(document).height();
+        for (var i=0; i < aArray.length; i++) {
+            var theID = aArray[i];
+            var divPos = $(theID).offset().top; 
+            var divHeight = $(theID).height(); 
+            if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
+                $("a[href='" + theID + "']").addClass("name-active");
+            } else {
+                $("a[href='" + theID + "']").removeClass("name-active");
+            }
+        }
+         var l=aArray.length;
+        if(windowPos>$(aArray[l-1]).offset().top+$(aArray[l-1]).height()) {
+            if (!$("nav li:last-child a").hasClass("name-active")) {
+                
+                var navActiveCurrent = $(".name-active").attr("href");
+                $("a[href='" + navActiveCurrent + "']").removeClass("name-active");
+                $("nav li:last-child a").addClass("name-active");
+            
+            }
+        }
+    });
+    $("nav a").click(function(evn){
+        evn.preventDefault();
+        $('html,body').scrollTo(this.hash, this.hash);
+    });
+});
+
+// nav bar script
+</script>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  
+
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">
+
+    
+    <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+    </script>
+    <script src="./static2/script.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Titillium+Web:700" rel="stylesheet">

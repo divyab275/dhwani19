@@ -1,0 +1,439 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+@import url(font-awesome.min.css);
+
+:root{
+	--text-color: rgba(255, 255, 255, 0.3);
+	--text-color-alt: rgba(255, 255, 255, 0.8);
+	--text-color-dark: #4c3234;
+	--background-blue: url(../img/bluepaper.jpg);
+	--background-red: url("../img/redp.jpg");
+}
+
+
+body {font-family: 'Lato'; background-color:#2C3E50; padding:0; margin:0;}
+html {box-sizing:border-box;}
+*, *:before, *:after {box-sizing:inherit;}
+
+.general{
+	height:100vh;
+	margin: 0;
+	overflow: hidden;
+}
+
+#events {
+	background-color: #ebf2fa;
+}
+
+#home{
+	background-image: url("../img/redp.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+ul,
+ol {
+  margin: 0; }
+  ul li,
+  ol li {
+    list-style: none; }
+#hello{
+ 
+	height: 100vh;
+ 	position:relative;
+	overflow:hidden;
+  margin-right: 0;
+  /*margin-top: -8vh;*/
+}
+#contact{
+	background-color: #ebebeb;
+}
+
+.labcontainer{
+	overflow: hidden;
+}
+
+#dhwanilogo{
+	height:50vh;
+	margin-top: 20vh;
+}
+
+#ddate{
+	color:rgba(255,255,255,0.8);
+	font-size: 1.2rem;
+	letter-spacing: 0.2rem;
+}
+
+.lbox{
+	text-align: center;
+}
+
+#circ{
+	 position:absolute;
+  width:90vw;
+  
+  top:50%;
+  left:50%;
+  margin-top:-50vh;/*half of the height*/
+  margin-left:-60vh;
+	-webkit-animation: rotation 17s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
+		}
+}
+#dhwaniflea{
+	background-color:#dfdc99;
+}
+.fleaimg{
+	height:100vh;
+	padding-right: 20vh;
+}
+.contactimg{
+	height:80vh;
+	padding-right: 20vh;
+
+}
+.eventsimg{
+	height:80vh;
+	padding-right: 20vh;
+
+}
+.desc{
+	padding:10vh;
+	text-align: justify;
+	font-size: 1.1rem;
+	color:#3b3536;
+}
+.sectiontitle{
+	font-family: 'Abril Fatface';
+	font-weight: 200;
+	font-size:3.6rem;
+	padding-top:10vh;
+}
+#dhwaniflea .sectiontitle{
+	color:#88243e;
+}
+#contact .sectiontitle{
+	color:#22283f;
+}
+.imgdiv{
+	text-align: center;
+}
+.container {width:100%; max-width: 100vw; margin:0; padding:0px 0px 0px 0px;}
+.mapouter{
+	height:300px; width:600px;
+}
+.gmap_canvas{
+	height:300px;width:600px;
+}
+#gmap_canvas{
+	height:300px;width:600px;
+
+}
+
+/* SIDEBAR NAVIGATION */
+.sidebar {position:absolute; right:0;}
+.dot {display:inline-block; width:10px; height:10px; background-color:rgba(255,255,255,.3); border-radius:10px; z-index:999; content:''; color:transparent; font-size:14px; line-height:10px; vertical-align:middle; margin:5px 0 5px 0; font-weight:300;}
+.dot:hover {background-color:rgba(255,255,255,.8); color:rgba(255,255,255,.8); text-decoration: none}
+.dot span {margin:0px 0px 20px 15px; position:relative; top:0px; left:-70px;}
+nav {width:100px; height:200px;/*background-color:rgb(240,240,240); border:solid 1px rgb(220,220,220);*/ padding:0 0px; position:fixed; top:50%; right:20px; transform: translate(0, -50%); z-index: 10000; text-align:right;}
+nav ul li a {text-decoration:none; color:white;}
+nav ul {list-style-type:none; margin:0; padding:0;}
+.name-active {color:rgba(255,255,255,.8); background-color:white; text-align:right;}
+
+/* PAGE CONTENT */
+.content {width:100%; text-align:justify;}
+section {padding:0 0 0px 0;}
+section:last-child {padding:0 0 100vh 0;}
+.title {font-size:24px; color:rgba(255,255,255,.3); text-transform:uppercase; padding:0 0 0px 0;}
+p {margin:0; padding:0px 0 0px 0;}
+
+.title-alt {
+	text-align: center;
+	font-size: 4vh;
+	color: rgba(255, 255, 255, 0.8);
+	text-transform: uppercase;
+	padding: 6vh 0 3vh 0;
+}
+
+.dark {
+	color: var(--text-color-dark) !important;
+}
+
+#about-div {
+	background-image: var(--background-blue);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	overflow: hidden;
+	margin-right: 0;
+}
+
+#about-img {
+	height: 100vh;
+	position: absolute;
+	bottom: -30%;
+	right: -40%;
+	/*animation: rotation 110s infinite linear;*/
+}
+
+#about-img {
+	height: 100vh;
+	position: absolute;
+	bottom: -30%;
+	right: -40%;
+}
+
+#fleamarket-div {
+	background-image: var(--background-red);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	overflow: hidden;
+	margin-right: 0;
+}
+
+#flea-img {
+	position: absolute;
+	height: 50vh;
+	width: 50vw;
+  z-index: 12;
+}
+.heading {
+}
+
+.content-div {
+	font-size: 1.1rem;
+    color: var(--text-color-alt);
+	
+}
+.rcontent{
+	padding-right: 16vh;
+}
+
+
+ul {
+    padding:0;
+    list-style: none;
+}
+.footer-social-icons {
+    width: 350px;
+    display:block;
+    margin: 0 auto;
+}
+.social-icon {
+    color: #fff;
+}
+ul.social-icons {
+    margin-top: 10px;
+}
+.social-icons li {
+    vertical-align: top;
+    display: inline;
+    height: 100px;
+    margin:1vh;
+}
+.social-icons a {
+    color: #fff;
+    text-decoration: none;
+}
+.fa-facebook {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+    border-radius: 50%;
+}
+.fa-facebook:hover {
+    background-color: #3d5b99;
+}
+.fa-twitter {
+    padding:10px 12px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+    border-radius: 50%;
+}
+.fa-twitter:hover {
+    background-color: #00aced;
+}
+.fa-rss {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+    border-radius: 50%;
+}
+.fa-rss:hover {
+    background-color: #eb8231;
+}
+.fa-youtube {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+    border-radius: 50%;
+}
+.fa-youtube:hover {
+    background-color: #e64a41;
+}
+.fa-linkedin {
+    padding:10px 14px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+    border-radius: 50%;
+}
+.fa-linkedin:hover {
+    background-color: #0073a4;
+}
+.fa-envelope {
+    padding:10px 12px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+    border-radius: 50%;
+    }
+.fa-envelope:hover {
+    background-color: #e25714;
+}
+.fa-instagram {
+    padding:10px 12px;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+    background-color: #322f30;
+    border-radius: 50%;
+    }
+.fa-instagram:hover {
+    background-color: #a40964;
+}
+
+
+/* Responsive things*/
+
+
+
+ 
+    
+@media (max-width: 480px){
+#circ{
+	position:absolute;
+  width:140vw;
+  top:50%;
+  left:80%;
+  align-content: center;
+}
+#dhwanilogo{
+	height: 30vh;
+
+}
+
+#ddate{
+/*	margin-left: 10%;*/
+}
+
+nav{
+	margin-right: 0px;
+	right: 15px;
+}
+.dot{
+	height:7px;
+	width:7px;
+	font-size: 0.8rem;
+	margin: 0;
+}
+.dot span {
+	margin: 0 0 0 0;
+	left:-7vh;
+}
+.sectiontitle{
+	font-size: 2.7rem;
+	padding-top: 5vh;
+}
+.desc{
+	padding:5vh;
+	padding-right:11vh;
+	font-size: 0.8rem;
+}
+.fleaimg{
+	height:40vh;
+	padding: 0;
+}
+.eventsimg{
+	padding: 0;
+	height:40vh;
+}
+
+.content-div {
+	font-size: 0.8rem;
+}
+
+/*.title-alt {
+	font-size: 2vh;
+}*/
+.mapouter{
+	height:200px; width:340px;
+}
+.gmap_canvas{
+	height:200px;width:340px;
+}
+#gmap_canvas{
+	height:200px;width:340px;
+}
+.contactimg{
+	height:35vh;
+	padding: 0px;
+}
+.rcontent{
+	padding: 0;
+}
+
+
+}
+
+@media (max-width: 360px){
+.contactimg{
+height:30vh;
+
+}
+}
+@media (max-width: 320px){
+.contactimg{
+height:25vh;
+
+}
+.social-icons li {
+
+	margin: 0.3vh;
+}
+}	
+
+
+
