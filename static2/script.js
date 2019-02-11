@@ -180,6 +180,36 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 };
 
+createReunion = function(){
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+            user.getIdToken()
+            .then(function(){
+                console.log("devide");
+                console.log(user);
+                var query = user.email      
+                axios.get('http://localhost:3000/public/student/:query')
+                .then(res=>{
+                    uid = res.uid
+                    phoneno = res.phoneNumber  //####Fill in details to post to create group page
+                    collegeid =res.collegeId
+                    axios.post("http://localhost:3000")
+                })
+                .then()
+                .catch()
+                
+            })
+            .catch(function(){
+                console.log("some error")
+            })
+        }
+        else{
+            console.log("user login cheythatilla")
+            googleSignIn();
+        }
+    })
+}
+
 $(window).load(function() {
     // Animate loader off screen
     $(".se-pre-con").fadeOut("slow");;
