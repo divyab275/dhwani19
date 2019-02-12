@@ -31,6 +31,7 @@ firebase.initializeApp(config);
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
+    localStorage.setItem("user",user.uid);
     console.log(user);
     $('#profileViewButton').html("<button class='stylebutton' id='viewProfile'>View Profile</button>");
     $('#reg-button').remove();
@@ -110,6 +111,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 
         localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem("user",user.uid);
 
         var config = {
             headers: {'Content-Type': 'application/json',
@@ -188,7 +190,7 @@ createReunion = function(){
                 console.log("devide");
                 console.log(user);
                 var query = user.email      
-                axios.get('http://localhost:3000/public/student/:query')
+                /*axios.get('http://localhost:3000/public/student/:query')
                 .then(res=>{
                     uid = res.uid
                     phoneno = res.phoneNumber  //####Fill in details to post to create group page
@@ -196,8 +198,8 @@ createReunion = function(){
                     axios.post("http://localhost:3000")
                 })
                 .then()
-                .catch()
-                
+                .catch()*/
+                window.location.replace("http://localhost:3001/groupdetails.html");
             })
             .catch(function(){
                 console.log("some error")
