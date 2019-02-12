@@ -107,7 +107,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById('login-mob').html=displayName+'/Profile';
         // $('#login').css({'background-image': 'url('+photoURL+')'});
         // $('#login').css({'background-size': '100%'});
-
+        console.log(accessToken);
 
         localStorage.setItem("accessToken", accessToken);
 
@@ -191,9 +191,11 @@ createReunion = function(){
                 axios.get('http://localhost:3000/public/student/:query')
                 .then(res=>{
                     uid = res.uid
-                    phoneno = res.phoneNumber  //####Fill in details to post to create group page
+                                             //####Fill in details to post to create group page
                     collegeid =res.collegeId
-                    axios.post("http://localhost:3000")
+                    axios.post("http://localhost:3000/group/reunion/create",)
+                    .then()
+                    .catch()
                 })
                 .then()
                 .catch()
