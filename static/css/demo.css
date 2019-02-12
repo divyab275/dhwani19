@@ -209,11 +209,8 @@ p {margin:0; padding:0px 0 0px 0;}
 }
 
 .content-div {
-	font-size: 1.1rem;
 	padding: 0 10%;
-	width: 80%;
-	color: var(--text-color-alt);
-	z-index: 123;
+    color: var(--text-color-alt);
 }
 .rcontent{
 	padding-right: 16vh;
