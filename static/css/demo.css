@@ -101,11 +101,11 @@ ol {
 }
 .eventsimg{
 	height:80vh;
-	padding-right: 20vh;
-
+	padding-left: 50%;
+	/*text-align: center;*/
 }
 .desc{
-	padding:10vh;
+	padding:10vh 0;
 	text-align: justify;
 	font-size: 1.1rem;
 	color:#3b3536;
@@ -210,14 +210,10 @@ p {margin:0; padding:0px 0 0px 0;}
 
 .content-div {
 	font-size: 1.1rem;
-<<<<<<< HEAD
 	padding: 0 10%;
 	width: 80%;
 	color: var(--text-color-alt);
 	z-index: 123;
-=======
-    color: var(--text-color-alt);
-	
 }
 .rcontent{
 	padding-right: 16vh;
@@ -339,7 +335,6 @@ ul.social-icons {
     }
 .fa-instagram:hover {
     background-color: #a40964;
->>>>>>> df975c284b6f6761dcc26a9462d027632bba823c
 }
 
 
@@ -386,7 +381,7 @@ nav{
 }
 .desc{
 	padding:5vh;
-	padding-right:11vh;
+	/*padding-right:11vh;*/
 	font-size: 0.8rem;
 }
 .fleaimg{
