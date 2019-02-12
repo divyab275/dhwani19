@@ -5,15 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Create Reunion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <link rel="manifest" href="./manifest.json">
+    <link rel="shortcut icon" type="image/png" href="./static/img/logo-orginal.png" />
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
+    <link rel="stylesheet" type="text/css" href="./static/css/demo.css">
 </head>
-<body>
-    <form action="" method="POST">
-        Group Name: <input name="groupName" > <br>
-        Description: <input name="desc" type="text"> <br>
-        <input type="submit" value="Create Group">
- 
-    </form>
+<body class="reunion-body">
+<div class="container">
+  <form action="" method="POST" class="reunion-form">
+    <div class="form-group">
+      <label for="groupName">Email</label>
+      <input type="text" class="form-control" id="groupName" placeholder="Enter Group Name" name="groupName">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="textarea" class="form-control" id="description" placeholder="Enter a Description" name="desc">
+    </div>
+    <button type="submit" class="btn btn-warning">Submit</button>
+  </form>
+</div>
+
 </body>
 </html>
