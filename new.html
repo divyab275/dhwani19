@@ -85,9 +85,18 @@
         <div class="col-lg-4 col-md-4  col-sm-12 lbox">
             <img src="./static/img/dw.png" id="dhwanilogo">
             <h3 id="ddate">MARCH 16, 17, 18</h3>
+
             
         </div>
         <div class="col-md-8 col-sm-12" id="hello" >
+
+            <div id="registerDiv"></div>
+            <div id="signOutDiv"></div>
+            <div id="loginDiv"></div>  
+        </div>
+        <div class="col-md-8 col-sm-12" id="hello" >
+                <div id="profileViewButton"></div>
+
             <img src="./static/img/lbsharp.png" id="circ">
         </div>
     </div>
@@ -182,15 +191,28 @@
         </div>
     </div>
 </section>
-<!-- <section class="general" id="events">
-    <div class="row">
+
+<section class="general" id="contact">
+        <div class="row">
     <div class="col-md-7  col-sm-12 lbox">
-            <h3 class="sectiontitle">events</h3>
-          </div>
-        <div class="col-md-5 col-sm-12 imgdiv">
-            <img src="./static/img/labyrinth/ff.jpg" class="fleaimg">
-        </div>
-    </div></section> -->
+        <h1>reunion</h1>
+        <p>
+            lorem ipsum
+        </p>    
+        <button class="btn btn-warning" id="reunion-button" onclick="createReunion()">Create Group</button>            
+    </div>
+     <div class="col-md-5 col-sm-12 imgdiv">
+                <img src="./static/img/labyrinth/mm.jpg" class="contactimg">
+       
+    </div>
+    
+                 
+            </div>
+    </div>
+    
+    </section>
+ 
+
 
 <section class="general" id="contact">
     <div class="row">
@@ -442,7 +464,10 @@
     <script>
         axios.get('https://api.github.com/users/codeheaven-io');
     </script>
+
     <script src="./static/js/jscript.js"></script>
+    <script src="./static2/script.js"></script>
+
 
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300" rel="stylesheet">
