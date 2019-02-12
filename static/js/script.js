@@ -32,10 +32,10 @@ firebase.initializeApp(config);
     // The signed-in user info.
     var user = result.user;
     console.log(user);
-    $('#profileViewButton').html("<button id=viewProfile>View Profile</button>");
+    $('#profileViewButton').html("<button class='stylebutton' id='viewProfile'>View Profile</button>");
     $('#reg-button').remove();
     $('#log-button').remove();
-    $('#signOutDiv').html('<button id="signout-button" onclick="signOut()">SignOut</button>');
+    $('#signOutDiv').html('<button class="stylebutton" id="signout-button" onclick="signOut()">SignOut</button>');
     // window.location.replace("./registerForm.html")
     // $('#reg-button').show();
     // $('#register').show();
@@ -53,8 +53,8 @@ firebase.initializeApp(config);
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
         console.log("Login failed");
-        $('#registerDiv').html("<button id='reg-button' onclick='googleSignIn()'>Register</button>");
-        $('#loginDiv').html("<button id='log-button' onclick='googleSignIn()'>Login</button>");
+        $('#registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
+        $('#loginDiv').html("<button class='stylebutton' id='log-button' onclick='googleSignIn()'>Login</button>");
         $('#viewProfile').remove();
         $('#signout-button').remove();
 
@@ -70,10 +70,10 @@ function signOut(){
         // document.getElementById('login-mob').html='LOGIN/REGISTER';
         // $('#login').css({'background-image':''});
         $('#signout-button').remove();
-        $('#loginDiv').html("<button id='log-button' onclick='googleSignIn()'>Login</button>");
+        $('#loginDiv').html("<button class='stylebutton' id='log-button' onclick='googleSignIn()'>Login</button>");
 
                 console.log("Logged out")
-                $('registerDiv').html("<button id='reg-button' onclick='googleSignIn()'>Register</button>");
+                $('registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
                 $('#viewProfile').remove();
     // Sign-out successful.
 }).catch(function(error) {
@@ -90,8 +90,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         // User is signed in.
         // document.getElementById("register").html = "Welcome "+user.displayName;
         $('#reg-button').remove();
-        $('#profileViewButton').html("<button id=viewProfile>View Profile</button>");
-        $('#signOutDiv').html('<button id="signout-button" onclick="signOut()">SignOut</button>');
+        $('#profileViewButton').html("<button class='stylebutton' id='viewProfile'>View Profile</button>");
+        $('#signOutDiv').html('<button class="stylebutton" id="signout-button" onclick="signOut()">SignOut</button>');
         $('#log-button').remove();
         console.log("USer signed in");
         // var displayName = user.displayName;
@@ -171,8 +171,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         // $('#login').css({'background-image':''});
         console.log("Person not registered");
         $('#profileView').hide();
-        $('#registerDiv').html("<button id='reg-button' onclick='googleSignIn()'>Register</button>");
-        $('#loginDiv').html("<button id='log-button' onclick='googleSignIn()'>Login</button>");
+        $('#registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
+        $('#loginDiv').html("<button class='stylebutton' id='log-button' onclick='googleSignIn()'>Login</button>");
 
     }
 }, function(error) {
