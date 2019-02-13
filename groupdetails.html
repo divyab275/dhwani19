@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+        <script>
+
+               var config = {
+                headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': localStorage.getItem("accessToken"),
+                    }
+                };
+                addGroup = function() {
+                    var info ={}
+                  info.group = document.getElementById("getName").value;
+                  info.description = document.getElementById("getDesc").value;
+                  info.collage = document.getElementById("collage").value;
+                  info.phone =  document.getElementById("phone").value;
+                  info.name = localStorage.getItem("user");
+                  
+                  axios.post("http://localhost:3000/group/reunion/",info,config)
+                  .then((result)=>{
+                      
+                      window.location.url("");
+                  })
+                  .catch((err)=>{});
+                }
+            </script>
+    <form action="">
+        Groupname : <input id="getName" type="text" name="name" value="">
+        Group description : <input id="getDesc" type="text" name="description" value="">
+        College <input id="college" type="text" value="">
+        Phone <input id="phone" type="number" value="">
+        
+        <button type="button" onclick="addGroup();">Create</button>
+    </form>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body>
+</html>
