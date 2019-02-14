@@ -199,10 +199,10 @@ createReunion = function(){
                 })
                 .then()
                 .catch()*/
-                window.location.replace("http://localhost:3001/groupdetails.html");
+                window.location.href="./groupdetails.html";
             })
-            .catch(function(){
-                console.log("some error")
+            .catch(function(err){
+                console.log("some error"+err);
             })
         }
         else{
