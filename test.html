@@ -42,7 +42,7 @@
         }
     };
 
-    axios.get('http://localhost:3000/public/event',config)
+    axios.get(server_url+'/public/event',config)
         .then(function (response) {
             // content.innerHTML = response.data[0];
             // var events = $.parseJSON(response.data);

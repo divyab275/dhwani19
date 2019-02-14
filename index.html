@@ -548,7 +548,7 @@
     input.placeholder = "Loading options...";
 
     // Set up and make the request.
-    request.open('GET', 'http://localhost:3000/public/college', true);
+    request.open('GET', server_url+'/public/college', true);
     request.send();
 
 
@@ -600,7 +600,7 @@
             });
 
             if (flag === false) {
-                axios.put('http://localhost:3000/public/college', { 'name': inputTemp })
+                axios.put(server_url+'/public/college', { 'name': inputTemp })
                     .then(function (response) {
 
                         collegeId = response.data.id;
@@ -632,7 +632,7 @@
             }
         };
 
-        axios.post('http://localhost:3000/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
+        axios.post(server_url+'/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
             .then(function (response) {
                 console.log(response);
 

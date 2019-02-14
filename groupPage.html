@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+<script>
+        axios.get('https://api.github.com/users/codeheaven-io');
+</script>
+<script>
+var config = {
+    apiKey: "AIzaSyCr1tUZ4sGglBsQbRKn1m5klzhiV-IlCLs",
+    authDomain: "dhwanicet-7466c.firebaseapp.com",
+    databaseURL: "https://dhwanicet-7466c.firebaseio.com",
+    projectId: "dhwanicet-7466c",
+    storageBucket: "dhwanicet-7466c.appspot.com",
+    messagingSenderId: "1056048590412"
+  };
+
+
+firebase.initializeApp(config);
+
+var server_url = "http://localhost:3000"
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = window.location.search.substring(1),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+        }
+    }
+    
+};
+var gid = getUrlParameter('gid');
+console.log(gid)
+axios.get(server_url+'/group/reunion/'+gid)
+.then(res=>{
+    // console.log(res)
+    document.getElementById('gname').innerHTML = res.data[0].name;
+    document.getElementById('gdescription').innerHTML = res.data[0].description;
+    document.getElementById('Link').innerHTML = "http://localhost/dhwani19/groupPage.html?gid"+res.data[0].gid
+
+})
+.catch(err=>{
+    document.getElementById('gname').innerHTML = "err"
+})
+
+function createInput(){
+        var $input = $('<input type="button" value="Join" />');
+        $input.appendTo($("#join"));
+    }
+  
+</script>
+<body>
+    <div id="gname"></div>
+    <div id="gdescription"></div>
+    <div id="join"></div>
+    <div id="Link"></div>
+</body>
+<script>
+initApp = function check() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            user.getIdToken().then(function(accessToken) {
+            // User is signed in.
+            
+            })
+            .catch(err=>{
+
+            })
+        }
+        else{
+            //User not signed in
+            $('#Link').hide();
+            createInput();
+        }
+    });
+}
+window.addEventListener('load', function() {
+    // firebase.initializeApp(config);
+   
+initApp()
+});
+</script>
+</html>

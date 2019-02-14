@@ -157,7 +157,7 @@
     };
     console.log(accessToken);
 
-    axios.post('http://localhost:3000/student/login', {}, config)
+    axios.post(server_url+'/student/login', {}, config)
         .then(function (response) {
 
      self.prefilledData =  {

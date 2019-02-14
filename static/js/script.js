@@ -1,3 +1,4 @@
+var server_url  = "http://localhost:3000"
 var config = {
     apiKey: "AIzaSyCr1tUZ4sGglBsQbRKn1m5klzhiV-IlCLs",
     authDomain: "dhwanicet-7466c.firebaseapp.com",
@@ -108,7 +109,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById('login-mob').html=displayName+'/Profile';
         // $('#login').css({'background-image': 'url('+photoURL+')'});
         // $('#login').css({'background-size': '100%'});
-
+        console.log(accessToken);
 
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("user",user.uid);
@@ -118,7 +119,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         'x-auth-token' : accessToken}
         };
 
-        // axios.post('http://localhost:3000/student/login', {}, config)
+        // axios.post('server_url+/student/login', {}, config)
         // .then(function(response){
         //     if(response.data.registered===true){
                 
@@ -128,12 +129,12 @@ firebase.auth().onAuthStateChanged(function(user) {
         //         // document.getElementById('unique-id').html ='D-'+response.data.id;
                
 
-        //         // axios.get('http://localhost:3000/student/event',config)
+        //         // axios.get('server_url+/student/event',config)
         //         // .then(function(response){
         //         //   var eventsJson = response.data;
         //         //     $("#reg_events").html('');
         //         //   eventsJson.forEach(function(item){
-        //         //      axios.get('http://localhost:3000/student/event/'+item.id,config)
+        //         //      axios.get('server_url+/student/event/'+item.id,config)
         //         // .then(function(response){
         //         //     if(response.data.paid===true)
         //         //       $("#reg_events").html("<div class=\"eachevent\"><h5>"+item.name+"</h5></div><div class=\"paid\"><h5>paid</h5></div>");
@@ -190,12 +191,14 @@ createReunion = function(){
                 console.log("devide");
                 console.log(user);
                 var query = user.email      
-                /*axios.get('http://localhost:3000/public/student/:query')
+                /*axios.get('server_url+/public/student/:query')
                 .then(res=>{
                     uid = res.uid
-                    phoneno = res.phoneNumber  //####Fill in details to post to create group page
+                                             //####Fill in details to post to create group page
                     collegeid =res.collegeId
-                    axios.post("http://localhost:3000")
+                    axios.post("server_url+"/group/reunion/create",)
+                    .then()
+                    .catch()
                 })
                 .then()
                 .catch()*/
@@ -212,10 +215,6 @@ createReunion = function(){
     })
 }
 
-$(window).load(function() {
-    // Animate loader off screen
-    $(".se-pre-con").fadeOut("slow");;
-});
 
 window.addEventListener('load', function() {
     // firebase.initializeApp(config);

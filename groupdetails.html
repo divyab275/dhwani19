@@ -9,6 +9,7 @@
 <body>
         <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
         <script>
+            var server_url  = "http://localhost:3000"
 
                var config = {
                 headers: {
@@ -17,13 +18,20 @@
                     }
                 };
                 addGroup = function() {
-                    var info ={}
-                  info.name = document.getElementById("getName").value;
+                  var info ={}
+                  info.group = document.getElementById("getName").value;
                   info.description = document.getElementById("getDesc").value;
-                  info.id = localStorage.getItem("user");
-                  axios.post("http://localhost:3000/group/reunion/",info,config)
+                  info.uid = localStorage.getItem("user");
+                  
+                  axios.post(server_url+"/group/reunion",info,config)
                   .then((result)=>{
-            
+                      
+                    //   console.log(result)
+                    var gid = result.data.gid;
+                    var url = './groupPage.html?gid='+gid
+                    console.log(url);
+                    window.location.href = url ;
+                    console.log("here");
                   })
                   .catch((err)=>{});
                 }
@@ -31,6 +39,7 @@
     <form action="">
         Groupname : <input id="getName" type="text" name="name" value="">
         Group description : <input id="getDesc" type="text" name="description" value="">
+        
         <button type="button" onclick="addGroup();">Create</button>
     </form>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
