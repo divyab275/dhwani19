@@ -94,7 +94,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#profileViewButton').html("<button class='stylebutton' id='viewProfile'>View Profile</button>");
         $('#signOutDiv').html('<button class="stylebutton" id="signout-button" onclick="signOut()">SignOut</button>');
         $('#log-button').remove();
-        console.log("USer signed in");
+        console.log("User signed in");
         // var displayName = user.displayName;
         // var email = user.email;
         // var emailVerified = user.emailVerified;

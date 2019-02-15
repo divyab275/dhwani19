@@ -18,25 +18,29 @@
                 };
                 addGroup = function() {
                     var info ={}
-                  info.group = document.getElementById("getName").value;
+                  info.name = document.getElementById("getName").value;
                   info.description = document.getElementById("getDesc").value;
-                  info.collage = document.getElementById("collage").value;
-                  info.phone =  document.getElementById("phone").value;
-                  info.name = localStorage.getItem("user");
-                  
+                  //info.collage = document.getElementById("collage").value;
+                  //info.phone =  document.getElementById("phone").value;
+                  info.id = localStorage.getItem("user");
+
                   axios.post("http://localhost:3000/group/reunion/",info,config)
                   .then((result)=>{
-                      
-                      window.location.url("");
+                      alert(result.data.gid)
+                      console.log("This is result\n");
+                      console.log(result)
+                      window.location.replace("https://localhost:3001/group.html?groupid="+result.data.gid);
                   })
-                  .catch((err)=>{});
+                  .catch((err)=>{
+                      alert(err)
+                  });
                 }
             </script>
     <form action="">
         Groupname : <input id="getName" type="text" name="name" value="">
         Group description : <input id="getDesc" type="text" name="description" value="">
-        College <input id="college" type="text" value="">
-        Phone <input id="phone" type="number" value="">
+        <!--College <input id="college" type="text" value="">-->
+       <!-- Phone <input id="phone" type="number" value="">-->
         
         <button type="button" onclick="addGroup();">Create</button>
     </form>
