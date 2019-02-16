@@ -204,7 +204,10 @@
     var collegeList = document.getElementById('json-collegelist');
     var input = document.getElementById('selectedcollege');
     var collegeId;
-
+    if(localStorage.user)
+    $('#login').hide();
+    else
+    $('#login').show();
     // Create a new XMLHttpRequest.
 
     var request = new XMLHttpRequest();
