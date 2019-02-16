@@ -1,3 +1,4 @@
+var server_url  = "http://localhost:3000"
 var config = {
     apiKey: "AIzaSyCr1tUZ4sGglBsQbRKn1m5klzhiV-IlCLs",
     authDomain: "dhwanicet-7466c.firebaseapp.com",
@@ -37,6 +38,8 @@ firebase.initializeApp(config);
     $('#reg-button').remove();
     $('#log-button').remove();
     $('#signOutDiv').html('<button class="stylebutton" id="signout-button" onclick="signOut()">SignOut</button>');
+    $('#login').remove();
+
     // window.location.replace("./registerForm.html")
     // $('#reg-button').show();
     // $('#register').show();
@@ -58,12 +61,17 @@ firebase.initializeApp(config);
         $('#loginDiv').html("<button class='stylebutton' id='log-button' onclick='googleSignIn()'>Login</button>");
         $('#viewProfile').remove();
         $('#signout-button').remove();
+        
 
     // document.getElementById("login_failed").html = "Login Failed.";
     // ...
     });
 
     
+}
+function login(provider)
+{    googleSignIn();
+    register();
 }
 
 function signOut(){
@@ -76,6 +84,7 @@ function signOut(){
                 console.log("Logged out")
                 $('registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
                 $('#viewProfile').remove();
+                $('#login').html('<button class="btn btn-warning" id="login" onclick="login()">Sign in</button> ');
     // Sign-out successful.
 }).catch(function(error) {
     // An error happened.
@@ -94,6 +103,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#profileViewButton').html("<button class='stylebutton' id='viewProfile'>View Profile</button>");
         $('#signOutDiv').html('<button class="stylebutton" id="signout-button" onclick="signOut()">SignOut</button>');
         $('#log-button').remove();
+        $('#login').remove();
         console.log("User signed in");
         // var displayName = user.displayName;
         // var email = user.email;
@@ -108,7 +118,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // document.getElementById('login-mob').html=displayName+'/Profile';
         // $('#login').css({'background-image': 'url('+photoURL+')'});
         // $('#login').css({'background-size': '100%'});
-
+        console.log(accessToken);
 
         localStorage.setItem("accessToken", accessToken);
         localStorage.setItem("user",user.uid);
@@ -118,7 +128,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         'x-auth-token' : accessToken}
         };
 
-        // axios.post('http://localhost:3000/student/login', {}, config)
+        // axios.post('server_url+/student/login', {}, config)
         // .then(function(response){
         //     if(response.data.registered===true){
                 
@@ -128,12 +138,12 @@ firebase.auth().onAuthStateChanged(function(user) {
         //         // document.getElementById('unique-id').html ='D-'+response.data.id;
                
 
-        //         // axios.get('http://localhost:3000/student/event',config)
+        //         // axios.get('server_url+/student/event',config)
         //         // .then(function(response){
         //         //   var eventsJson = response.data;
         //         //     $("#reg_events").html('');
         //         //   eventsJson.forEach(function(item){
-        //         //      axios.get('http://localhost:3000/student/event/'+item.id,config)
+        //         //      axios.get('server_url+/student/event/'+item.id,config)
         //         // .then(function(response){
         //         //     if(response.data.paid===true)
         //         //       $("#reg_events").html("<div class=\"eachevent\"><h5>"+item.name+"</h5></div><div class=\"paid\"><h5>paid</h5></div>");
@@ -175,7 +185,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         $('#profileView').hide();
         $('#registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
         $('#loginDiv').html("<button class='stylebutton' id='log-button' onclick='googleSignIn()'>Login</button>");
-
+        $('#login').html('<button class="btn btn-warning" id="login" onclick="login()">Sign in</button> ')
     }
 }, function(error) {
     console.log(error);
@@ -190,32 +200,31 @@ createReunion = function(){
                 console.log("devide");
                 console.log(user);
                 var query = user.email      
-                /*axios.get('http://localhost:3000/public/student/:query')
+                /*axios.get('server_url+/public/student/:query')
                 .then(res=>{
                     uid = res.uid
-                    phoneno = res.phoneNumber  //####Fill in details to post to create group page
+                                             //####Fill in details to post to create group page
                     collegeid =res.collegeId
-                    axios.post("http://localhost:3000")
+                    axios.post("server_url+"/group/reunion/create",)
+                    .then()
+                    .catch()
                 })
                 .then()
                 .catch()*/
-                window.location.replace("http://localhost:3001/groupdetails.html");
+                window.location.href="./groupdetails.html";
             })
-            .catch(function(){
-                console.log("some error")
+            .catch(function(err){
+                console.log("some error"+err);
             })
         }
         else{
             console.log("user login cheythatilla")
-            googleSignIn();
+            alert('please sign in')
+            $('#login')
         }
     })
 }
 
-$(window).load(function() {
-    // Animate loader off screen
-    $(".se-pre-con").fadeOut("slow");;
-});
 
 window.addEventListener('load', function() {
     // firebase.initializeApp(config);

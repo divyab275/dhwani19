@@ -94,7 +94,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         'x-auth-token' : accessToken}
         };
 
-        axios.post('http://localhost:3000/student/login', {}, config)
+        axios.post(server_url+'/student/login', {}, config)
         .then(function(response){
             if(response.data.registered===true){
                 
@@ -102,12 +102,12 @@ firebase.auth().onAuthStateChanged(function(user) {
                 document.getElementById('unique-id').innerHTML ='D-'+response.data.id;
                
 
-                axios.get('http://localhost:3000/student/event',config)
+                axios.get(server_url+'/student/event',config)
                 .then(function(response){
                   var eventsJson = response.data;
                     $("#reg_events").html('');
                   eventsJson.forEach(function(item){
-                     axios.get('http://localhost:3000/student/event/'+item.id,config)
+                     axios.get(server_url+'/student/event/'+item.id,config)
                 .then(function(response){
                     if(response.data.paid===true)
                       $("#reg_events").append("<div class=\"eachevent\"><h5>"+item.name+"</h5></div><div class=\"paid\"><h5>paid</h5></div>");
@@ -164,7 +164,7 @@ function regEvent(event){
     
     // console.log(eventName + "event name ");
     
-    axios.get('http://localhost:3000/public/event/' + event, {}, { 'Content-Type': 'application/json'})
+    axios.get(server_url+'/public/event/' + event, {}, { 'Content-Type': 'application/json'})
         .then(function(res) 
             {
             eventName = res.data.name;
@@ -219,7 +219,7 @@ function regEvent(event){
                             }
                         };
 
-                        axios.get('http://localhost:3000/student/event', config)
+                        axios.get(server_url+'/student/event', config)
                         .then( (res) => {
                             registeredEvents = res.data;
                             isAlreadyRegistered = false;
@@ -235,7 +235,7 @@ function regEvent(event){
 
                             if(!isAlreadyRegistered)
                             {
-                                axios.put('http://localhost:3000/student/event/' + event, { 'group': groupArray }, config)
+                                axios.put(server_url+'/student/event/' + event, { 'group': groupArray }, config)
                                 .then(function (response) {
                                     $("input[name='inputs[]']").each(function () {
                                       $(this).val('');
@@ -1086,7 +1086,7 @@ $( window ).on( "load", function() {
     });
 
 
-axios.get('http://localhost:3000/public/event',config)
+axios.get(server_url+'/public/event',config)
     .then(function (response) {
         var i;
         var reg = [];

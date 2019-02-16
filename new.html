@@ -71,7 +71,7 @@
     <div class="row">
         <div class="col-lg-4 col-md-4  col-sm-12 lbox">
             <img src="./static/img/dw.png" id="dhwanilogo">
-            <h3 id="ddate">MARCH 16, 17, 18</h3>
+            <h3 id="ddate">MARCH 15,16, 17</h3>
             <div id="registerDiv"></div>
             <div id="signOutDiv"></div>
             <div id="loginDiv"></div>
@@ -145,7 +145,12 @@
     <p>
         lorem ipsum
     </p>    
-    <button class="btn btn-warning" id="reunion-button" onclick="createReunion()">Create Group</button>            
+    <button class="btn btn-warning" id="reunion-button" onclick="createReunion()">Create Group</button>
+    <br>
+    <br>
+    <button class="btn btn-warning" id="login" onclick="login()">Sign in</button> 
+    <div id="login"></div>        
+            
 </div>
  <div class="col-md-5 col-sm-12 imgdiv">
             <img src="./static/img/labyrinth/mm.jpg" class="contactimg">
@@ -165,7 +170,7 @@
             <h3 class="sectiontitle">contact us</h3>
             <div class="mapouter" style="margin: auto;"><div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=College%20of%20Engineering%2C%20Trivandrum&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ></iframe></div><style>.mapouter{text-align: center;}.gmap_canvas {overflow:hidden;background:none!important;}</style></div>
 
-            <p class="desc" align="center" >
+            <p class="desc" align="center" style="margin-left: 20px;">
              
              Convenor <strong>Manu OA 91 8086449627</strong>
             </p>
@@ -328,7 +333,7 @@
                 console.log(response);
 
                 console.log("registration completed");
-            });
+            }).catch((err) => {alert(err)});
 
     }
 </script>

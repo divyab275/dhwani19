@@ -51,7 +51,7 @@
                     
              
 
-            axios.get('http://localhost:3000/public/student/'+email)
+            axios.get(server_url+'/public/student/'+email)
                       .then(function(response){
                         //console.log(response.data)
                         document.getElementById('unique-id').innerHTML=response.data.id;
@@ -68,7 +68,7 @@
                 };
          
 
-            axios.get('http://localhost:3000/student/event',config)
+            axios.get(server_url+'/student/event',config)
             .then(function(response){
               var eventsJson = response.data;
               
@@ -76,7 +76,7 @@
 
 
 
-                 axios.get('http://localhost:3000/student/event/'+item.id,config)
+                 axios.get(server_url+'/student/event/'+item.id,config)
             .then(function(response){
                 if(response.data.paid===true)
                   $("#reg_events").append("<div class=\"eachevent\"><p>"+item.name+"paid</p></div>");
