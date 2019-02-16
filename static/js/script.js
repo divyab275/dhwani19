@@ -128,8 +128,12 @@ firebase.auth().onAuthStateChanged(function(user) {
         'x-auth-token' : accessToken}
         };
 
-        // axios.post('server_url+/student/login', {}, config)
-        // .then(function(response){
+        axios.post(server_url+'/student/login', {}, config)
+        .then(function(response){
+        })
+        .catch(err=>{
+            console.log(err);
+        })
         //     if(response.data.registered===true){
                 
         //         console.log(response.data);
