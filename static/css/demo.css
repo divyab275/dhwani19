@@ -110,9 +110,17 @@ ol {
 #dhwaniflea{
 	background-color:#dfdc99;
 }
+#gettogether{
+	background-color: #f0e0c4;
+}
 .fleaimg{
 	height:100vh;
 	padding-left: 20vh;
+}
+.getimg{
+	height:60vh;
+	padding-left: 0vh;
+	
 }
 .aboutimg{
 	height:100vh;
@@ -394,11 +402,14 @@ nav{
 	padding: 0;
 }
 .aboutimg{
-	height:40vh;
+	height:50vh;
 	padding:0;
 }
 .eventsimg{
 	padding: 0;
+	height:40vh;
+}
+.getimg{
 	height:40vh;
 }
 
@@ -422,7 +433,9 @@ nav{
 	height:35vh;
 	padding: 0px;
 }
-
+#viewProfile{
+	width:15vh;
+}
 
 
 }

@@ -605,6 +605,7 @@
 
                         collegeId = response.data.id;
                         console.log(collegeId);
+                        alert('posting')
 
                         regsiterAxios(accessToken, phone, accomodation, collegeId);
                     });
@@ -612,7 +613,7 @@
             }
 
             else {
-
+                alert('posting')
                 regsiterAxios(accessToken, phone, accomodation, collegeId);
             }
 

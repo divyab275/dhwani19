@@ -90,7 +90,7 @@
         <div class="col-md-7 col-sm-12 lbox">
             <h3 class="sectiontitle dark">about</h3>
             <p class="desc lcontent">
-                I'll be sure to note that in my log. Smooth as an android's bottom, eh, Data? When has justice ever been as simple as a rule book? This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.
+                    Dhwani is the annual cultural festival of College of Engineering, Trivandrum, popularly known as CET. Established in 1939 during the reign of Sree Chithira Thirunal Balarama Varma, the King of Travancore, College of Engineering, Trivandrum, has established supremacy not only in the field of technical education but also socio-cultural events and programs throughout the state. Being a three day event, Dhwani attracts annually an average crowd of over 40,000 people making it one of the grandest of all college festivals in Kerala. Dhwani aims at celebrating art and creativity.
             </p>
            
         </div>
@@ -140,13 +140,37 @@
     </div>
 </section>
 <section class="general" id="gettogether">
-    <div class="row">
+        <div class="row">
+
+                <div class="col-md-5 col-sm-12 imgdiv">
+                    <img src="./static/img/gett.png" class="getimg">
+                </div>
+        
+            <div class="col-md-7 col-sm-12 lbox">
+                    <h3 class="sectiontitle">dhwani gettogether</h3>
+                    <p class="desc rcontent"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. In mollis nunc sed id. Nibh venenatis cras sed felis eget velit. Viverra nibh cras pulvinar mattis nunc sed blandit libero.  </p>
+                    <button class="btn btn-warning" id="reunion-button" onclick="createReunion()">Create Group</button>
+                    <br>
+                    <br>
+                    <button class="btn btn-warning" id="login" onclick="login()">Sign in</button> 
+                    <div id="login"></div>    
+            </div>
+                
+        
+        
+            </div>
+<!-- <div class="row">
 <div class="col-md-7  col-sm-12 lbox">
     <h1>gettogether</h1>
     <p>
         lorem ipsum
     </p>    
-    <button class="btn btn-warning" id="reunion-button" onclick="createReunion()">Create Group</button>            
+    <button class="btn btn-warning" id="reunion-button" onclick="createReunion()">Create Group</button>
+    <br>
+    <br>
+    <button class="btn btn-warning" id="login" onclick="login()">Sign in</button> 
+    <div id="login"></div>        
+            
 </div>
  <div class="col-md-5 col-sm-12 imgdiv">
             <img src="./static/img/labyrinth/mm.jpg" class="contactimg">
@@ -155,7 +179,7 @@
 
              
         </div>
-</div>
+</div> -->
 
 </section>
 
@@ -200,7 +224,10 @@
     var collegeList = document.getElementById('json-collegelist');
     var input = document.getElementById('selectedcollege');
     var collegeId;
-
+    if(localStorage.user)
+    $('#login').hide();
+    else
+    $('#login').show();
     // Create a new XMLHttpRequest.
 
     var request = new XMLHttpRequest();
@@ -329,7 +356,7 @@
                 console.log(response);
 
                 console.log("registration completed");
-            });
+            }).catch((err) => {alert(err)});
 
     }
 </script>
