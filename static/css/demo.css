@@ -756,7 +756,7 @@ input[type=text], select, textarea{
   .eventblock ::-webkit-scrollbar-thumb:hover {
     background: #b30000; 
   }
-  .eventslist{
+  .ANT{
     text-align: right;
     background-color: white;
     margin-top: 210px;
@@ -764,7 +764,7 @@ input[type=text], select, textarea{
     box-shadow: 0 40px 77px 0 rgba(0, 0, 0, 0.11);
     padding:15px;
   }
-  .eventslist a{
+  .ANT a{
     text-decoration: none;
     padding-right: 40px;
     color:grey;

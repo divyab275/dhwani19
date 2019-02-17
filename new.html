@@ -37,7 +37,7 @@
             });
         }
 
-
+        
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -152,11 +152,8 @@
 
                   
                     <p class="festdesc">Music Festival</p>
-                    <div class="eventslist">
-                        <a href="">Event 1</a><br>
-                        <a href="">Event 2</a><br>
-                            
-                          </div>
+                    <div class="ANT">
+                    </div>
                
                     
                     
@@ -490,6 +487,23 @@ $('.card').on('click', function() {
     $(this).addClass('shadow-2');
   }
 });
+</script>
+<script>
+window.addEventListener('load',function(){
+    axios.get(server_url+'/public/event')
+    .then(res=>{
+        var events = res.data;
+        console.log(events)
+        events.forEach(event => {
+            var id = event['category'];
+            $('.'+id).append("<a href=''>"+event.name+'</a><br/>')
+        });
+    })
+    .catch(err=>{
+        console.log("Error in /public/student")
+    })
+})
+
 </script>
 </html>
 
