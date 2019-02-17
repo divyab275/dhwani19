@@ -84,7 +84,12 @@ function signOut(){
                 console.log("Logged out")
                 $('registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
                 $('#viewProfile').remove();
+<<<<<<< HEAD
+            localStorage.removeItem("accessToken")
+            localStorage.removeItem("user")
+=======
                 $('#login').html('<button class="btn btn-warning" id="login" onclick="login()">Sign in</button> ');
+>>>>>>> 6798b6d0ef77f85566e45b58a4206fc158f7effa
     // Sign-out successful.
 }).catch(function(error) {
     // An error happened.

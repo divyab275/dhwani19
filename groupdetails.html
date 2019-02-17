@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
     <link rel="stylesheet" type="text/css" href="./static/css/demo.css">
+    <script src="./static/js/commonscript.js"></script>
     <style>
         
         body{
@@ -45,43 +46,42 @@
                     var gid = result.data.gid;
                     var url = './groupPage.html?gid='+gid
                     console.log(url);
-                    window.location.href = url ;
+                    window.location.replace(url) ;
                     console.log("here");
                   })
                   .catch((err)=>{
+<<<<<<< HEAD
+                      console.log("couldn't add to the database")
+=======
                       alert(err)
+>>>>>>> 6798b6d0ef77f85566e45b58a4206fc158f7effa
                   });
                 }
             </script>
-    <!-- <form action="">
-        Group Name <input id="getName" type="text" name="name" value="">
-        Group description <input id="getDesc" type="text" name="description" value="">
-        
-        <button type="button" onclick="addGroup();">Create</button>
-    </form> -->
+   
 
 
 
     <div class="container">
             <h3 class="sectiontitle" style="color:white;">create gettogether</h3>
-        <form action="">
+        <div>
           <div class="form-group">
               <label for="getName">Group Name</label>
             
-              <input type="text" id="getName" name="name" placeholder="Group Name">
+              <input type="text" id="getName"  placeholder="Group Name" value="">
             
           </div>
          
           <div class="form-group">
               <label for="getDesc">Subject</label>
            
-              <textarea id="getDesc" name="description" placeholder="Describe your group" style="height:200px"></textarea>
+              <textarea id="getDesc"  placeholder="Describe your group" style="height:200px"></textarea>
             
           </div>
          
-            <button type="submit" class="btn btn-warning" onclick="addGroup();">Create</button>
+            <button  class="btn btn-warning" onclick="addGroup();">Create</button>
         
-        </form>
+        </div>
       </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 

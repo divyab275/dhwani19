@@ -13,20 +13,10 @@
 <script>
         axios.get('https://api.github.com/users/codeheaven-io');
 </script>
+<script src= "./static/js/commonscript.js"></script>
 <script>
-var config = {
-    apiKey: "AIzaSyCr1tUZ4sGglBsQbRKn1m5klzhiV-IlCLs",
-    authDomain: "dhwanicet-7466c.firebaseapp.com",
-    databaseURL: "https://dhwanicet-7466c.firebaseio.com",
-    projectId: "dhwanicet-7466c",
-    storageBucket: "dhwanicet-7466c.appspot.com",
-    messagingSenderId: "1056048590412"
-  };
-
 
 firebase.initializeApp(config);
-
-var server_url = "http://localhost:3000"
 var getUrlParameter = function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1),
         sURLVariables = sPageURL.split('&'),
@@ -43,37 +33,179 @@ var getUrlParameter = function getUrlParameter(sParam) {
     
 };
 var gid = getUrlParameter('gid');
-console.log(gid)
 axios.get(server_url+'/group/reunion/'+gid)
 .then(res=>{
     // console.log(res)
-    document.getElementById('gname').innerHTML = res.data[0].name;
-    document.getElementById('gdescription').innerHTML = res.data[0].description;
-    document.getElementById('Link').innerHTML = "http://localhost/dhwani19/groupPage.html?gid"+res.data[0].gid
+    document.getElementById('gname').innerHTML = "Group Name  : "+res.data[0].name;
+    document.getElementById('gdescription').innerHTML ="Group Description : "+ res.data[0].description;
+    
 
 })
 .catch(err=>{
     document.getElementById('gname').innerHTML = "err"
 })
-var providerGoogle = new firebase.auth.GoogleAuthProvider();
-function googleSignIn(){
-        SignIn(providerGoogle);
-}
+
 
 function SignIn(provider){  
     firebase.auth().signInWithPopup(provider)
     .then(function(result) {
+        var token = result.credential.accessToken;
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        // Send token to your backend via HTTPS
+        // ...
+        localStorage.setItem("accessToken",idToken);
+        }).catch(function(error) {
+        // Handle error
+        });
 
+        var user = result.user;
+        
+        localStorage.setItem("user",user.uid);
+        user_data={}
+        user_data.uid = localStorage.user
+        user_data.groupid = gid
+        axios.post(server_url+'/group/reunion/name',user_data)
+            .then(res=>{
+                console.log(res)
+                if(res.data.length!=0){
+                    //User member of the group
+                    console.log(window.location.search.substring(1))
+                    $('#join').hide()
+                    document.getElementById('Link').innerHTML =  server_url+"/group/reunion/?"+window.location.search.substring(1);
+                }
+                else{
+                    //User not member of the group
+                   axios.post(server_url+"student/login/"+localStorage.user,{idToken:localStorage.accessToken})
+                   .then(resp=>{
+                       console.log("User added");
+                      // console.log(user)
+                       
+                   })
+                   .catch()
+                }
+                   
+            })
     })
     .catch(err=>{
 
     })
 }
+function clgdetailsfilled(){
+    axios.get(server_url+'/public/student/'+localStorage.user)
+    .then(res=>{
+        if(!res.collegeId)
+            return false;
+        else
+            return true
+    })
+    .catch(err=>{
+        console.log("error in /public/student")
+    })
+}
+
+function isMemberOfGroup(){
+    axios.post(server_url+'/group/reunion/name',user_data)
+            .then(res=>{
+                console.log(res)
+                if(res.data.length!=0){
+                    //User member of the group
+                    console.log("Chattan")
+                    return true;
+                }
+                else{
+                    //User not member of the group
+                   // createInput();
+                   console.log("Chathan")
+                   return false;
+                }
+                   
+            })
+            .catch(err=>{
+                console.log("Error")
+            })
+}
+
 function join(){
-    
+    if(localStorage.user){
+        //User signed in
+        axios.get(server_url+'/public/student/'+localStorage.user)
+        .then(res=>{
+            if(res.collegeId){
+                //College details filled
+                axios.post(server_url+'/group/reunion/name',user_data)
+                .then(res=>{
+                    console.log(res)
+                    if(res.data.length!=0){
+                        //User member of the group
+                        $('#join').hide()
+                        document.getElementById('Link').innerHTML =  server_url+"/group/reunion/?"+window.location.search.substring(1);
+                    }
+                    else{
+                        //User not member of the group
+                        data.gid = gid;
+                        data.uid = localStorage.user
+                        axios.post('/group/reunion/addStudentReunion',data)
+                        .then(res=>{
+                            console.log("Student successfully added to reunion grp");
+                            window.location.replece(server_url+"/group/reunion/?"+window.location.search.substring(1))
+                        }) 
+                        .catch(err=>{
+                            console.log("Student not added to reunion grp")
+                        })
+                    }
+                    
+                })
+                .catch(err=>{
+                    console.log("Error")
+                })    
+            }
+            else{
+                //College details not filled
+                modal.style.display = "block";
+
+            }
+        })
+        .catch(err=>{
+            console.log("error in /public/student")
+        })
+        
+    }
+    else{
+        // User not signed in
+        alert('Please sign in first')
+    }
+}
+
+function registerStudent(){
+    var clg = document.getElementById('college').value
+    var phone = document.getElementById('phoneNumber').value
+    axios.put(server_url+'/public/college',{name:clg})
+        .then(res=>{
+            console.log(res)
+            var data = {}
+            data.phone = phone
+            data.collegeId = res.id
+            data.uid = localStorage.user
+            axios.post(server_url+"/student/register",data,config)
+        })
+   
+        .then(result=>{
+            console.log("Success")
+            axios.post(server_url+'/addStudentReunion',{groupid:gid,uid:localStorage.user})
+            
+        })
+        .then(resp=>{
+            window.location.replace(server_url+"/group/reunion/?"+window.location.search.substring(1));
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+    // console.log(phone);
+    // console.log(clg)
 }
 
 function createInput(){
+        console.log("Inside create input")
         var $input = $('<input type="button" value="Join" onclick="join()"/>');
         $input.appendTo($("#join"));
         var $comment = $('<p>If not signed up , do it here</p>');
@@ -87,7 +219,22 @@ function createInput(){
     <div id="gname"></div>
     <div id="gdescription"></div>
     <div id="join"></div>
+    <div id="signin"></div>
     <div id="Link"></div>
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div>college name<input type="text" id="college"></div>
+            <div>Phone Number<input type="text" id="phoneNumber"></div>
+            <div id = "regButton"><button onclick="registerStudent()">OK</button></div>
+        </div>
+
+        </div>
 </body>
 <script>
 initApp = function check() {
@@ -95,10 +242,13 @@ initApp = function check() {
         if (user) {
             user.getIdToken().then(function(accessToken) {
             // User is signed in.
-            
+            var req_body={}
+            req_body.uid = localStorage.user
+            req_body.groupid = gid
+          
             })
             .catch(err=>{
-
+                console.log("Error")
             })
         }
         else{
@@ -108,10 +258,102 @@ initApp = function check() {
         }
     });
 }
+
+function  onload(){
+    if(localStorage.accessToken){
+        console.log("User signed in");
+        user_data={}
+        user_data.uid = localStorage.user
+        user_data.groupid = gid
+        axios.post(server_url+'/group/reunion/name',user_data)
+            .then(res=>{
+                console.log(res)
+                if(res.data.length!=0){
+                    //User member of the group
+                    console.log(window.location.search.substring(1))
+                    document.getElementById('Link').innerHTML =  server_url+"/group/reunion/?"+window.location.search.substring(1);
+                }
+                else{
+                    //User not member of the group
+                    createInput();
+                }
+                   
+            })
+    }
+    else{
+        console.log("User not signed in");
+        createInput();
+    }
+}
+
+
 window.addEventListener('load', function() {
     // firebase.initializeApp(config);
-   
-initApp()
+   onload()
 });
+</script>
+<style>
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 30%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+<script>
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+// var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+// btn.onclick = function() {
+//   modal.style.display = "block";
+// }
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+} 
 </script>
 </html>
