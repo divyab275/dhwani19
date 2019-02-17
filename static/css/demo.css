@@ -113,6 +113,13 @@ ol {
 #gettogether{
 	background-color: #f0e0c4;
 }
+#events{
+
+	background-size: contain;
+	background-position: right;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
 .fleaimg{
 	height:100vh;
 	padding-left: 20vh;
@@ -147,6 +154,20 @@ ol {
 	font-weight: 200;
 	font-size:3.6rem;
 	padding-top:10vh;
+}
+.festtitle{
+	font-family: 'Abril Fatface';
+	font-weight: 140;
+	font-size:2.6rem;
+	color:white;
+  padding-top: 30px;
+  text-align: right;
+  padding-right:20px;
+}
+.festdesc{
+  color:white;
+  text-align: right;
+  padding-right:20px;
 }
 #dhwaniflea .sectiontitle{
 	color:#88243e;
@@ -436,8 +457,14 @@ nav{
 #viewProfile{
 	width:15vh;
 }
+.festtitle{
+  font-size: 2.3rem;
+  padding-right: 40px;
+}
+.festdesc{
+  padding-right: 40px;
 
-
+}
 }
 
 @media (max-width: 360px){
@@ -674,7 +701,7 @@ input[type=text], select, textarea{
 .card {
   position: relative;
   height: 200px;
-  background: #fcfcfc;
+  background:rgba(255,255,255,0.8);
   margin: 20px 40px;
   transition: 0.4s all;
 }
@@ -686,7 +713,7 @@ input[type=text], select, textarea{
 
 @media only screen and (min-width: 600px) {
   .card {
-		
+
   width:500px;
     margin-top:20px;
     margin-bottom:20px;
@@ -704,3 +731,28 @@ input[type=text], select, textarea{
 	height:80vh;
 	overflow-y: scroll;
 }
+
+.card i{
+	padding:15px;
+	color:#4e58a2;
+}
+.eventblock ::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  .eventblock  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  .eventblock ::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  .eventblock ::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+  }
