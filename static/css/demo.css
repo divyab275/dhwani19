@@ -431,7 +431,7 @@ nav{
 	height:40vh;
 }
 .getimg{
-	height:40vh;
+	height:30vh;
 }
 
 .content-div {
@@ -471,6 +471,9 @@ nav{
 .contactimg{
 height:30vh;
 
+}
+.getimg{
+  height:25vh;
 }
 }
 @media (max-width: 320px){
@@ -627,7 +630,9 @@ input[type=text], select, textarea{
   box-sizing: border-box;
   box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.12);
 }
-
+.reun{
+  padding: 8px;
+}
 .shadow-3:after {
   content: "";
   position: absolute;
@@ -769,6 +774,11 @@ input[type=text], select, textarea{
     padding-right: 40px;
     color:grey;
     
+  }
+  #profcard{
+    border-radius: 8px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2), 0px 2px 6px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
   }
   .dropbtn {
     background-color: #4CAF50;
