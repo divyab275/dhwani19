@@ -15,8 +15,118 @@
   src="https://code.jquery.com/jquery-1.12.4.js"
   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
   crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
+  <script src = "./static/js/commonscript.js"></script>
 </head>
 <body>
+  <script>
+    firebase.initializeApp(config);
+    window.addEventListener('load',function(){
+      firebase.auth().onAuthStateChanged(function(user) {
+      if (user) {
+        // User is signed in.
+        document.getElementById('regName').innerHTML= user.displayName;
+        email = user.email;
+        photoUrl = user.photoURL;
+        document.getElementById('profilepic').setAttribute('src',photoUrl);
+        uid = user.uid;
+        user.getIdToken().then(function(accessToken) {
+          // console.log(accessTo
+          localStorage.setItem('accessToken',accessToken);
+          axios.get(server_url+'/public/student/'+email)
+          .then(function(response){
+              // console.log(response)
+              document.getElementById('dhwaniid').innerHTML = response.data.id
+              axios.get(server_url+'/public/student/'+localStorage.user)
+              .then(res=>{
+                  console.log("Inside then of /public/student")
+                  console.log(res)
+                  if(res.data.collegeId){
+                      //College details filled
+                      console.log("College details filled")
+                      var config = {
+                      headers: {
+                                  'Content-Type': 'application/x-www-form-urlencoded',
+                                 'x-auth-token' : localStorage.accessToken
+                               }
+                      }
+         
+                      axios.get(server_url+'/student/event',config)
+                      .then(res=>{
+                        var registered = res.data
+                        registered.forEach(event => {
+                            $('#registeredEvents').append('<p>'+event.name+'</p>')
+                        });
+                      })
+                      .catch(err=>{
+                        console.log(err)
+                      })
+                  }
+                  else{
+                    //College details not filled
+                    // console.log("college details not filled")
+                    document.getElementById('studentdetails').innerHTML=
+                     'College<input type="text"id="clg"><br/>Phone Number<input type="text"id="phone"><br/><button onclick="fill()">OK</button>'
+                  }
+                })
+          })
+          .catch(error=>{
+            console.log(error)
+          })
+        })
+        .catch(err=>{
+
+        })
+      } else {
+        // No user is signed in.
+        console.log("User not signed in")
+      }
+});
+
+    })
+    function fill(){
+      var phone = document.getElementById('phone').value
+      var clg = document.getElementById('clg').value
+      // console.log(phone)
+      // console.log(clg)
+      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(accessToken){
+        var config = {
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': localStorage.accessToken
+            }
+        };
+        axios.put(server_url+'/public/college',{name:clg})
+        .then(res=>{
+            console.log('/public/college done successfully')
+            console.log(res)
+            var info = {}
+            info.phone = phone
+            info.collegeId = res.data.id
+            // info.uid = localStorage.user
+            console.log(info)
+            console.log(config)
+            axios.post(server_url+"/student/register",info,config)
+            .then(result=>{
+                console.log(result)
+                window.location.reload()
+            })
+            .catch(er=>{
+              console.log(er)
+            })
+          })
+        .catch(error=>{
+          console.log(error)
+        })
+      })
+      .catch(err=>{
+        console.log("error in getting token")
+      })
+      
+  }
+ 
+  </script>
     <style>
         .wrapper {
   position: relative;
@@ -263,17 +373,24 @@ h5 {
                 <div class="box-wrapper">
                     <div class="box">
                         <div class="avatar">
-                            <img src="http://remtsoy.com/experiments/user_card/img/avatar.jpg">
+                            <img id="profilepic" src="">
                         </div>
                         <div class="box-inner">
-                            <h3 class="name">Divya Moncy</h3>
-                            <span>Dhwani ID</span>&nbsp;<span>12333</span>
+                            <h3 class="name" id="regName"></h3>
+                            <span>Dhwani ID</span>&nbsp;<span id="dhwaniid"></span>
                             <h3 class="followers-title">2.5k+ followers</h3>
+                            <!-- <h2 id="college"></h2> --  Can be completed if needed -->
                         </div>
-                       
+                        <div id="registeredEvents">
+
+                        </div>
+                        <div id="studentdetails">
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        
 </body>
 </html>

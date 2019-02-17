@@ -104,7 +104,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // User is signed in.
         // document.getElementById("register").html = "Welcome "+user.displayName;
         $('#reg-button').remove();
-        $('#profileViewButton').html("<button class='stylebutton' id='viewProfile'>View Profile</button>");
+        $('#profileViewButton').html("<button class='stylebutton' id='viewProfile' onclick='goToProfile()'>View Profile</button>");
         $('#signOutDiv').html('<button class="stylebutton" id="signout-button" onclick="signOut()">SignOut</button>');
         $('#log-button').remove();
         $('#login').remove();
@@ -199,6 +199,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(error);
 });
 };
+
+goToProfile = function(){
+    window.location.href = window.location.origin+'/dhwani19/profilenew.html'
+}
 
 createReunion = function(){
     firebase.auth().onAuthStateChanged(function(user){

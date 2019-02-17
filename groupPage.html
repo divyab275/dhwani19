@@ -33,17 +33,6 @@ var getUrlParameter = function getUrlParameter(sParam) {
     
 };
 var gid = getUrlParameter('gid');
-axios.get(server_url+'/group/reunion/'+gid)
-.then(res=>{
-    // console.log(res)
-    document.getElementById('gname').innerHTML = "Group Name  : "+res.data[0].name;
-    document.getElementById('gdescription').innerHTML ="Group Description : "+ res.data[0].description;
-    
-
-})
-.catch(err=>{
-    document.getElementById('gname').innerHTML = "err"
-})
 
 
 function SignIn(provider){  
@@ -263,6 +252,7 @@ function createInput(){
 <body>
     <div id="gname"></div>
     <div id="gdescription"></div>
+    <div id="groupMembers"></div>
     <div id="join"></div>
     <div id="signin"></div>
     <div id="Link"></div>
@@ -305,30 +295,54 @@ initApp = function check() {
 }
 
 function  onload(){
-    if(localStorage.accessToken){
-        console.log("User signed in");
-        user_data={}
-        user_data.uid = localStorage.user
-        user_data.groupid = gid
-        axios.post(server_url+'/group/reunion/name',user_data)
-            .then(res=>{
-                console.log(res)
-                if(res.data.length!=0){
-                    //User member of the group
-                    console.log(window.location.search.substring(1))
-                    document.getElementById('Link').innerHTML =  window.location.href;
-                }
-                else{
-                    //User not member of the group
-                    createInput();
-                }
-                   
-            })
-    }
-    else{
-        console.log("User not signed in");
-        createInput();
-    }
+    axios.get(server_url+'/group/reunion/'+gid)
+    .then(res=>{
+        // console.log(res)
+        document.getElementById('gname').innerHTML = "Group Name  : "+res.data[0].name;
+        document.getElementById('gdescription').innerHTML ="Group Description : "+ res.data[0].description;
+        axios.post(server_url+'/group/reunion/findAll',{gid:gid})
+        var users=[]
+        .then(resul=>{
+            result.forEach(element => {
+                users.push(element.uid)
+            });
+            
+            if(localStorage.accessToken){
+                console.log("User signed in");
+                user_data={}
+                user_data.uid = localStorage.user
+                user_data.groupid = gid
+                axios.post(server_url+'/group/reunion/name',user_data)
+                .then(res=>{
+                    console.log(res)
+                    if(res.data.length!=0){
+                        //User member of the group
+                        console.log(window.location.search.substring(1))
+                        document.getElementById('Link').innerHTML =  window.location.href;
+                    }
+                    else{
+                        //User not member of the group
+                        createInput();
+                    }
+                 })
+                .catch(er=>{
+
+                })
+            }
+            else{
+                console.log("User not signed in");
+                createInput();
+            }
+        })
+        .catch()
+      
+
+    })
+    .catch(err=>{
+        document.getElementById('gname').innerHTML = "err"
+    })
+
+    
 }
 
 
