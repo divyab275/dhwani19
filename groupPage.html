@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Group</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-</head>
+    <link rel="shortcut icon" type="image/png" href="./static/img/logo-orginal.png" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.10.0/firebase.js"></script>
 <script>
@@ -215,28 +216,79 @@ function createInput(){
     }
   
 </script>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+body{
+    background-image: url('./static/img/labyrinth/carpe.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+    color:#323a82;
+}
+#detailbox{
+    background-color: #f9eed8;
+    border-radius:8px;
+    font-size: 0.8rem;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding:15px;
+    font-family: 'Lato';
+    margin-top:5vh;
+}
+.impname{
+    font-family: 'Abril Fatface';
+    font-size: 1.2rem;
+
+}
+h4{
+    font-family: 'Abril Fatface';
+    font-size: 1.2rem;
+}
+
+</style>
+</head>
 <body>
+
+    <div style="min-height:100vh; max-width:100vw ; margin:15px;">
+       
+        <div  id="detailbox">
     <div id="gname"></div>
     <div id="gdescription"></div>
-    <div id="groupMembers"></div>
+    <h4>Group Members</h4>
+    <div id="groupMembers" style="max-height:70vh; overflow-y:scroll; font-family:'Lato';"></div>
     <div id="join"></div>
     <div id="signin"></div>
     <div id="Link"></div>
-    <!-- <button id="myBtn">Open Modal</button> -->
-
-        <!-- The Modal -->
+    <button class="btn btn-primary" onclick="copyFunction()" style="margin-top:15px; text-align:center;background-color:#323a82;color:white;">Copy link</button>   <button class="btn btn-primary" onclick="redir()" style="margin-top:15px; text-align:center;background-color:#eb5f3b;color:white;">Go Home</button>
+</div>
+</div>
         <div id="myModal" class="modal">
-
-        <!-- Modal content -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <div>college name<input type="text" id="college"></div>
+            <div>College Name<input type="text" id="college"></div>
             <div>Phone Number<input type="text" id="phoneNumber"></div>
             <div id = "regButton"><button onclick="registerStudent()">OK</button></div>
         </div>
 
         </div>
 </body>
+<script type="text/javascript">
+function copyFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("Link");
+  const el = document.createElement('textarea');
+  el.value = copyText.innerText;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+}
+function redir() {
+  /* Get the text field */
+  window.location.href='./new.html';
+}
+
+</script>
 <script>
 initApp = function check() {
     firebase.auth().onAuthStateChanged(function(user) {
@@ -265,8 +317,8 @@ function  onload(){
     axios.get(server_url+'/group/reunion/'+gid)
     .then(res=>{
         console.log(res)
-        document.getElementById('gname').innerHTML = "Group Name  : "+res.data[0].name;
-        document.getElementById('gdescription').innerHTML ="Group Description : "+ res.data[0].description;
+        document.getElementById('gname').innerHTML = "<span class='impname'>Group Name</span><br>"+res.data[0].name;
+        document.getElementById('gdescription').innerHTML ="<span class='impname'>Group Description</span><br>"+ res.data[0].description;
         axios.post(server_url+'/group/reunion/studentDetails',{gid:gid})
         .then(resul=>{
             console.log(resul)
