@@ -488,7 +488,7 @@ input[type=text], select, textarea{
   /* Style the container */
   .container {
 	border-radius: 5px;
-	background-color:transparent;
+	background-color: transparent;
 	padding: 20px;
 	min-height: 100vh;
   }
@@ -703,4 +703,17 @@ input[type=text], select, textarea{
 .eventblock{
 	height:80vh;
 	overflow-y: scroll;
+}
+
+
+.reunion-body {
+  background-image: var(--background-blue);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+}
+
+.reunion-form {
+  width: 60%;
+  margin: 10vh 20%;
 }
