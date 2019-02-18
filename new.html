@@ -1,13 +1,6 @@
 <html>
-
 <head>
-    
-    <style>
-       
-
-        
-    </style>
-    <meta charset="utf-8">
+   <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dhwani 19</title>
@@ -18,7 +11,6 @@
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/javascript" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
     <link rel="stylesheet" type="text/css" href="./static/css/demo.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <script
   src="https://code.jquery.com/jquery-1.12.4.js"
   integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="
@@ -37,7 +29,7 @@
             });
         }
 
-
+        
     </script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -132,7 +124,8 @@
         <div class="col-md-12 col-sm-12 lbox">
             <h3 class="sectiontitle dark">events</h3>
         </div>
-            <div class="col-md-12 col-sm-12 lbox eventblock">
+        <div class="col-md-1 col-sm-2"></div>
+            <div class="col-md-10 col-sm-10 lbox eventblock">
             <!-- <p class="desc lcontent">
                 I'll be sure to note that in my log. Smooth as an android's bottom, eh, Data? When has justice ever been as simple as a rule book? This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.
             </p>
@@ -146,14 +139,38 @@
      
             <div class="all">
                     <div class="cards">
-                      <div class="card shadow-1"><i class="fas fa-music"></i></div>
-                      <div class="card shadow-1"></div>
-                      <div class="card shadow-1"></div>
-                      <div class="card shadow-1"></div>
-                      <div class="card shadow-1"></div>
-                      <div class="card shadow-1"></div>
-                      <div class="card shadow-1"></div>
-                      <div class="card shadow-1"></div>
+                      <div class="card shadow-1" style="background-image:url('./static/img/labyrinth/antara.jpg'); background-size:cover; background-repeat: no-repeat; background-position: center;">
+                    <h4 class="festtitle">antara</h4>
+
+                  
+                    <p class="festdesc">Music Festival</p>
+                    <div class="ANT">
+                    </div>
+               
+                    
+                    
+                    </div>
+                      <div class="card shadow-1" style="background-image:url('./static/img/labyrinth/nadanta.jpg'); background-size:cover; background-repeat: no-repeat; background-position: center; ">
+                            <h4 class="festtitle">nadanta</h4>
+                            <p class="festdesc">Dance Festival</p>
+                      </div>
+                      <div class="card shadow-1" style="background-image:url('./static/img/labyrinth/books.jpg'); background-size:cover; background-repeat: no-repeat; background-position: center; ">
+                        <h4 class="festtitle">carpe dictum</h4>
+                        <p class="festdesc">Literary Festival</p>
+                  </div>
+                  <div class="card shadow-1" style="background-image:url('./static/img/labyrinth/theatre.jpg'); background-size:cover; background-repeat: no-repeat; background-position: center; ">
+                    <h4 class="festtitle">dionysia</h4>
+                    <p class="festdesc">Theatrical Festival</p>
+                </div>
+
+                <div class="card shadow-1" style="background-image:url('./static/img/labyrinth/sports.jpg'); background-size:cover; background-repeat: no-repeat; background-position: center; ">
+                    <h4 class="festtitle">khelotsav</h4>
+                    <p class="festdesc">Sports Festival</p>
+                </div>
+                <div class="card shadow-1" style="background-image:url('./static/img/labyrinth/cheff.png'); background-size:cover; background-repeat: no-repeat; background-position: center; ">
+                    <h4 class="festtitle">miscelaneo</h4>
+                    <p class="festdesc">Miscellaneous Events</p>
+                </div>
                     </div>
                   </div>
                 
@@ -176,11 +193,11 @@
         
             <div class="col-md-7 col-sm-12 lbox">
                     <h3 class="sectiontitle">dhwani gettogether</h3>
-                    <p class="desc rcontent"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames. In mollis nunc sed id. Nibh venenatis cras sed felis eget velit. Viverra nibh cras pulvinar mattis nunc sed blandit libero.  </p>
+                    <p class="desc rcontent"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.   </p>
                     <button class="btn btn-warning" id="reunion-button" onclick="createReunion()">Create Group</button>
                     <br>
                     <br>
-                    <button class="btn btn-warning" id="login" onclick="login()">Sign in</button> 
+                    <button class="btn btn-warning reun" id="login" onclick="login()">Sign in</button> 
                     <div id="login"></div>    
             </div>
                 
@@ -245,6 +262,8 @@
 
 </div>
 </div>
+
+
 
 <script type="text/javascript">
     // Get the <datalist> and <input> elements.
@@ -471,6 +490,24 @@ $('.card').on('click', function() {
     $(this).addClass('shadow-2');
   }
 });
+</script>
+<script>
+window.addEventListener('load',function(){
+    axios.get(server_url+'/public/event')
+    .then(res=>{
+        var events = res.data;
+        console.log(events)
+        events.forEach(event => {
+            var id = event['category'];
+            $('.'+id).append('<a href="#'+event.name+'Modal" role="button" class="btn btn-primary" data-toggle="modal">'+event.name+'</a><br/>');
+            $('body').append('<div class="modal" id="'+event.name+'Modal" tabindex="-1" role="dialog" aria-hidden="true"> <div class="modal-dialog modal-full" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">'+event.name+'</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div><div class="modal-body p-4" id="result"><p>The grid inside the modal is responsive too..</p> </div></div></div></div>');
+        });
+    })
+    .catch(err=>{
+        console.log("Error in /public/student")
+    })
+})
+
 </script>
 </html>
 

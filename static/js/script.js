@@ -84,12 +84,12 @@ function signOut(){
                 console.log("Logged out")
                 $('registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
                 $('#viewProfile').remove();
-<<<<<<< HEAD
-            localStorage.removeItem("accessToken")
-            localStorage.removeItem("user")
-=======
+                localStorage.removeItem("accessToken")
+                localStorage.removeItem("user")
                 $('#login').html('<button class="btn btn-warning" id="login" onclick="login()">Sign in</button> ');
->>>>>>> 6798b6d0ef77f85566e45b58a4206fc158f7effa
+
+             
+
     // Sign-out successful.
 }).catch(function(error) {
     // An error happened.
@@ -105,7 +105,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         // User is signed in.
         // document.getElementById("register").html = "Welcome "+user.displayName;
         $('#reg-button').remove();
-        $('#profileViewButton').html("<button class='stylebutton' id='viewProfile'>View Profile</button>");
+        $('#profileViewButton').html("<button class='stylebutton' id='viewProfile' onclick='goToProfile()'>View Profile</button>");
         $('#signOutDiv').html('<button class="stylebutton" id="signout-button" onclick="signOut()">SignOut</button>');
         $('#log-button').remove();
         $('#login').remove();
@@ -200,6 +200,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     console.log(error);
 });
 };
+
+goToProfile = function(){
+    window.location.href = window.location.origin+'/dhwani19/profilenew.html'
+}
 
 createReunion = function(){
     firebase.auth().onAuthStateChanged(function(user){
