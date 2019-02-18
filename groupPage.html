@@ -207,11 +207,11 @@ function registerStudent(){
 
 function createInput(){
         console.log("Inside create input")
-        var $input = $('<input type="button" value="Join" onclick="join()"/>');
+        var $input = $('<input type="button" class="btn btn-primary" value="Join" onclick="join()" style="margin-top:15px; text-align:center;background-color:#eb5f3b;color:white;"/>');
         $input.appendTo($("#join"));
         var $comment = $('<p>If not signed up , do it here</p>');
         $comment.appendTo($("#join"))
-        var $signin = $('<input type="button" value="Sign Up" onclick="googleSignIn()"/>');
+        var $signin = $('<input type="button" class="btn btn-primary" value="Sign Up" onclick="googleSignIn()" style="margin-top:15px; text-align:center;background-color:#eb5f3b;color:white;"/>');
         $signin.appendTo($("#join"));
     }
   
