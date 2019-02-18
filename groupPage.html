@@ -88,40 +88,6 @@ function SignIn(provider){
         console.log("Sign In problems")
     })
 }
-function clgdetailsfilled(){
-    axios.get(server_url+'/public/student/'+localStorage.user)
-    .then(res=>{
-        if(!res.collegeId)
-            return false;
-        else
-            return true
-    })
-    .catch(err=>{
-        console.log("error in /public/student")
-    })
-}
-
-function isMemberOfGroup(){
-    axios.post(server_url+'/group/reunion/name',user_data)
-            .then(res=>{
-                console.log(res)
-                if(res.data.length!=0){
-                    //User member of the group
-                    console.log("Chattan")
-                    return true;
-                }
-                else{
-                    //User not member of the group
-                   // createInput();
-                   console.log("Chathan")
-                   return false;
-                }
-                   
-            })
-            .catch(err=>{
-                console.log("Error")
-            })
-}
 
 function join(){
     if(localStorage.user){
@@ -152,7 +118,7 @@ function join(){
                         axios.post(server_url+'/group/reunion/addStudentReunion',info)
                         .then(res=>{
                             console.log("Student successfully added to reunion grp");
-                            // window.location.reload()
+                            window.location.reload()
                         }) 
                         .catch(err=>{
                             console.log("Student not added to reunion grp")
