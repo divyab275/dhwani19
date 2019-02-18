@@ -268,9 +268,16 @@
     <!-- Modal content -->
     <div class="modal-content">
         <span class="close">&times;</span>
-        <div>college name<input type="text" id="college"></div>
-        <div>Phone Number<input type="text" id="phoneNumber"></div>
-        <div id = "regButton"><button onclick="registerStudent()">OK</button></div>
+        <div><img src="" id="eventImage"></div>
+        <div id ="eventName"></div>
+        <div id = "eventDescription"></div>
+        <div id = "eventRules"></div>
+        <div id="regFee"></div>
+        <div id="prize1"></div>
+        <div id="prize2"></div>
+        <div id="prize3"></div>
+        <div id="contactPhone"></div>
+        <div id = "regEvent"><button onclick="registerEvent()">Register</button></div>
     </div>
 
     </div>
@@ -537,7 +544,7 @@ window.addEventListener('load',function(){
         events.forEach(event => {
             var id = event['category'];
             console.log(id)
-            $('.'+id).append('<a onclick="fun()">'+event.name+'</a><br/>')
+            $('.'+id).append('<a onclick="fun('+event.id+')">'+event.name+'</a><br/>')
            // $('.'+id).append('<a onclick="fun()"'+event.name+'Modal" role="button" class="btn btn-primary" data-toggle="modal">'+event.name+'</a><br/>');
             //$('body').append('<div class="modal" id="'+event.name+'Modal" tabindex="-1" role="dialog" aria-hidden="true"> <div class="modal-dialog modal-full" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">'+event.name+'</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div><div class="modal-body p-4" id="result"><p>The grid inside the modal is responsive too..</p> </div></div></div></div>');
         });
@@ -546,9 +553,29 @@ window.addEventListener('load',function(){
         console.log("Error in /public/student")
     })
 })
-var fun = function(){
-    var modal = document.getElementById('myModal')
-    modal.style.display = "block"
+var fun = function(eventId){
+    console.log(eventId)
+    axios.get(server_url+'/public/event/'+eventId)
+    .then(res=>{
+        console.log(res)
+        var modal = document.getElementById('myModal')
+        document.getElementById('eventName').innerHTML = res.data.name
+        document.getElementById('eventDescription').innerHTML = res.data.description
+        document.getElementById('eventRules').innerHTML = res.data.format
+        document.getElementById('regFee').innerHTML = res.data.regFee
+        document.getElementById('prize1').innerHTML = res.data.prize1
+        document.getElementById('prize2').innerHTML = res.data.prize2
+        document.getElementById('prize3').innerHTML = res.data.prize3
+        document.getElementById('eventImage').setAttribute('src',res.data.image);
+        document.getElementById('contactPhone').innerHTML = res.data.contactPhone1
+
+        modal.style.display = "block"
+
+    })
+    .catch(err=>{
+        console.log(err)
+    })
+    
 }
 </script>
 <style>
