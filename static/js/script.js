@@ -208,28 +208,28 @@ goToProfile = function(){
 createReunion = function(){
     firebase.auth().onAuthStateChanged(function(user){
         if(user){
+            //User signed in
+            console.log("User signed in")
             user.getIdToken()
             .then(function(){
-                console.log("devide");
-                console.log(user);
-                var query = user.email      
-                /*axios.get('server_url+/public/student/:query')
-                .then(res=>{
-                    uid = res.uid
-                                             //####Fill in details to post to create group page
-                    collegeid =res.collegeId
-                    axios.post("server_url+"/group/reunion/create",)
-                    .then()
-                    .catch()
+             console.log(user);
+            var query = user.uid      
+            axios.get(server_url+'/public/student/'+query)
+            .then(res=>{
+                if(res.college)
+                    window.location.href="./groupdetails.html";
+                else{
+                    //User not completed his profile
+                    window.location.href = "./profilenew.html"
+                }
                 })
-                .then()
-                .catch()*/
-                window.location.href="./groupdetails.html";
+               
             })
-            .catch(function(err){
-                console.log("some error"+err);
+            .catch(err=>{
+                console.log(err)
             })
-        }
+            
+        }   
         else{
             console.log("user login cheythatilla")
             alert('please sign in')
