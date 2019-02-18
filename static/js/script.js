@@ -85,7 +85,7 @@ function signOut(){
                 $('registerDiv').html("<button class='stylebutton' id='reg-button' onclick='googleSignIn()'>Register</button>");
                 $('#viewProfile').remove();
                 localStorage.removeItem("accessToken")
-            localStorage.removeItem("user")
+                localStorage.removeItem("user")
                 $('#login').html('<button class="btn btn-warning" id="login" onclick="login()">Sign in</button> ');
 
              
