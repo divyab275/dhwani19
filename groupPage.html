@@ -295,18 +295,21 @@ initApp = function check() {
 }
 
 function  onload(){
+    var gid = getUrlParameter('gid');
     axios.get(server_url+'/group/reunion/'+gid)
     .then(res=>{
-        // console.log(res)
+        console.log(res)
         document.getElementById('gname').innerHTML = "Group Name  : "+res.data[0].name;
         document.getElementById('gdescription').innerHTML ="Group Description : "+ res.data[0].description;
-        axios.post(server_url+'/group/reunion/findAll',{gid:gid})
-        var users=[]
+        axios.post(server_url+'/group/reunion/studentDetails',{gid:gid})
         .then(resul=>{
-            result.forEach(element => {
-                users.push(element.uid)
-            });
-            
+            console.log(resul)
+            for (let index = 0; index < resul.data.length; index++) {
+                const element = resul.data[index];
+                console.log(element.name)
+                $('#groupMembers').append('<p>'+element.name+'</p>')
+            }
+           console.log("Reached here")
             if(localStorage.accessToken){
                 console.log("User signed in");
                 user_data={}
