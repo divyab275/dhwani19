@@ -63,6 +63,8 @@ function SignIn(provider){
                     console.log(window.location.search.substring(1))
                     $('#join').hide()
                     document.getElementById('Link').innerHTML =  window.location.href;
+                    document.getElementById('copylink').innerHTML = "Copy Link"
+                    window.location.reload()
                 }
                 else{
                     // User not member of the group
@@ -70,6 +72,7 @@ function SignIn(provider){
                    axios.post(server_url+"/student/login",{idToken:localStorage.accessToken})
                    .then(resp=>{
                        console.log("User added");
+                       window.location.reload();
                       // console.log(user)
                        
                    })
@@ -108,6 +111,8 @@ function join(){
                         console.log("User member of the group")
                         $('#join').hide()
                         document.getElementById('Link').innerHTML = window.location.href;
+                        $('#copylink').show();
+
                     }
                     else{
                         //User not member of the group
@@ -259,7 +264,7 @@ h4{
     <div id="join"></div>
     <div id="signin"></div>
     <div id="Link"></div>
-    <button class="btn btn-primary" onclick="copyFunction()" style="margin-top:15px; text-align:center;background-color:#323a82;color:white;">Copy link</button>   <button class="btn btn-primary" onclick="redir()" style="margin-top:15px; text-align:center;background-color:#eb5f3b;color:white;">Go Home</button>
+    <button class="btn btn-primary" id="copylink" onclick="copyFunction()" style="margin-top:15px; text-align:center;background-color:#323a82;color:white;">Copy Link</button>   <button class="btn btn-primary" onclick="redir()" style="margin-top:15px; text-align:center;background-color:#eb5f3b;color:white;">Go Home</button>
 </div>
 </div>
         <div id="myModal" class="modal">
@@ -307,6 +312,7 @@ initApp = function check() {
         else{
             //User not signed in
             $('#Link').hide();
+            $('#copylink').hide()
             createInput();
         }
     });
@@ -340,9 +346,11 @@ function  onload(){
                         //User member of the group
                         console.log(window.location.search.substring(1))
                         document.getElementById('Link').innerHTML =  window.location.href;
+                        $('#copylink').show();
                     }
                     else{
                         //User not member of the group
+                        $('#copylink').hide();
                         createInput();
                     }
                  })
@@ -351,16 +359,20 @@ function  onload(){
                 })
             }
             else{
+                $('#copylink').hide();
                 console.log("User not signed in");
                 createInput();
             }
         })
-        .catch()
+        .catch(err=>{
+            $('#copylink').hide()
+        })
       
 
     })
     .catch(err=>{
         document.getElementById('gname').innerHTML = "err"
+        $('copylink').hide();
     })
 
     
