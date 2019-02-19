@@ -216,8 +216,11 @@ createReunion = function(){
             var query = user.uid      
             axios.get(server_url+'/public/student/'+query)
             .then(res=>{
-                if(res.college)
+                console.log(res)
+                if(res.data.registered){
                     window.location.href="./groupdetails.html";
+                }
+                   
                 else{
                     //User not completed his profile
                     window.location.href = "./profilenew.html"
