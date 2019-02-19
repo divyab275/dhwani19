@@ -22,7 +22,7 @@ html {box-sizing:border-box;}
 }
 
 #events {
-	background-color: #ebf2fa;
+	background-color:white;
 }
 
 #home{
@@ -112,13 +112,6 @@ ol {
 }
 #gettogether{
 	background-color: #f0e0c4;
-}
-#events{
-
-	background-size: contain;
-	background-position: right;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
 }
 .fleaimg{
 	height:100vh;
