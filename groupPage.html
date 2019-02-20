@@ -62,7 +62,7 @@ function SignIn(provider){
                     //User member of the group
                     console.log(window.location.search.substring(1))
                     $('#join').hide()
-                    document.getElementById('Link').innerHTML =  window.location.href;
+                    document.getElementById('Link').innerHTML =  'Share this link with your friends!<br>'+window.location.href;
                     document.getElementById('copylink').innerHTML = "Copy Link"
                     window.location.reload()
                 }
