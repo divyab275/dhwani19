@@ -829,6 +829,8 @@ input[type=text], select, textarea{
     min-height: 100vh;
     width:100vw;
     margin:auto;
+    overflow-x: hidden;
+    border-width:0px;
     }
     .mcontent{
       text-align: center;
@@ -898,4 +900,19 @@ input[type=text], select, textarea{
 .ANT a{
   background-color: #f84548;
   color:white;
+}
+.MIS a{
+  background-color: #5c6bc6;
+}
+.CD a{
+  background-color: #c4b244;
+}
+.DIO a{
+  background-color: #b82d42;
+}
+.KHE a{
+  background-color: #76a5ed;
+}
+.NAD a{
+  background-color: #fdcb04;
 }
