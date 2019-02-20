@@ -699,14 +699,14 @@ input[type=text], select, textarea{
 
 .card {
   position: relative;
-  height: 60vh;
+ 
   background:rgba(255,255,255,0.8);
   margin: 20px 40px;
   transition: 0.4s all;
 }
 
 .card.open {
-  height: 60vh;
+  
   background: #ffffff;
 }
 
@@ -829,6 +829,8 @@ input[type=text], select, textarea{
     min-height: 100vh;
     width:100vw;
     margin:auto;
+    overflow-x: hidden;
+    border-width:0px;
     }
     .mcontent{
       text-align: center;
@@ -872,17 +874,45 @@ input[type=text], select, textarea{
       }
     }
  .eventtag{
-   background-color:rgba(255,255,255,0.6);
-   color:black;
    border-radius:10px;
    padding:10px;
    text-decoration: none;
    margin:5px;
    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-   font-size: 1.3rem;
+   font-size: 1.0rem;
  }
  .eventslisting{
   border-radius:5px;
-  
   padding:15px;
+}
+.festcontent{
+  font-size:0.8rem;
+  padding:3vh;
+  background-color: white;
+  color:black;
+   border-radius:10px;
+   text-align: justify;
+   margin: 10px;
+}
+.bgblock{
+  height:200px;
+}
+.ANT a{
+  background-color: #f84548;
+  color:white;
+}
+.MIS a{
+  background-color: #5c6bc6;
+}
+.CD a{
+  background-color: #c4b244;
+}
+.DIO a{
+  background-color: #b82d42;
+}
+.KHE a{
+  background-color: #76a5ed;
+}
+.NAD a{
+  background-color: #fdcb04;
 }
