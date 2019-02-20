@@ -275,15 +275,42 @@
         <div id="prize2"></div>
         <div id="prize3"></div>
         <div id="contactPhone"></div>
-        <div id = "regEvent"><button class="btn btn-warning" style="margin-top: 10px;"registerEvent()">Register</button></div>
+        <div id = "regEvent"><button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px;">Register</button></div>
     </div>
     </div>
 
     </div>
 </body>
 <script>
-    var registerEvent = function(){
+    var registerEvent = function(eventId){
+        console.log(eventId)
+        firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        // Send token to your backend via HTTPS
+        // ...
+        localStorage.setItem('accessToken',idToken);   
         
+        console.log(idToken)
+        var config = {
+            headers: {
+                
+                'x-auth-token': localStorage.accessToken
+            }
+        };
+
+        axios.put(server_url+'/student/event/'+eventId,config)
+        .then(result=>{
+            alert("Registration successful")
+            modal.display.style='none'
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+
+        }).catch(function(error) {
+        // Handle error
+        console.log(error)
+        });
+
     }
     var modal = document.getElementById('myModal');
     
@@ -359,7 +386,7 @@
     input.placeholder = "Loading options...";
 
     // Set up and make the request.
-    request.open('GET', 'http://localhost:3000/public/college', true);
+    request.open('GET', server_url+'/public/college', true);
     request.send();
 
 
@@ -411,7 +438,7 @@
             });
 
             if (flag === false) {
-                axios.put('http://localhost:3000/public/college', { 'name': inputTemp })
+                axios.put(server_url+'/public/college', { 'name': inputTemp })
                     .then(function (response) {
 
                         collegeId = response.data.id;
@@ -443,7 +470,7 @@
             }
         };
 
-        axios.post('http://localhost:3000/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
+        axios.post(server_url+'/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
             .then(function (response) {
                 console.log(response);
 
@@ -557,9 +584,11 @@ window.addEventListener('load',function(){
 })
 var fun = function(eventId){
     console.log(eventId)
+    console.log("insidefun")
     axios.get(server_url+'/public/event/'+eventId)
     .then(res=>{
         console.log(res)
+        console.log(eventId)
         var modal = document.getElementById('myModal')
         document.getElementById('eventName').innerHTML =res.data.name
         document.getElementById('eventDescription').innerHTML = res.data.description
@@ -570,11 +599,12 @@ var fun = function(eventId){
         document.getElementById('prize3').innerHTML = '<strong> Third Prize&nbsp</strong>'+res.data.prize3
         document.getElementById('eventImage').setAttribute('src',res.data.image);
         document.getElementById('contactPhone').innerHTML = '<strong>'+res.data.contactName1+'&nbsp</strong>'+res.data.contactPhone1+'<br><strong>'+res.data.contactName2+'</strong>&nbsp'+res.data.contactPhone2
-
-        modal.style.display = "block"
+        document.getElementById( "eventRegButton" ).setAttribute( "onClick", "javascript: registerEvent("+eventId+");" );
+        modal.style.display = "block"           
 
     })
     .catch(err=>{
+        console.log("error")
         console.log(err)
     })
     
