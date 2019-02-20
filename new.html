@@ -275,14 +275,15 @@
         <div id="prize2"></div>
         <div id="prize3"></div>
         <div id="contactPhone"></div>
-        <div id = "regEvent"><button class="btn btn-warning" style="margin-top: 10px;"registerEvent()">Register</button></div>
+        <div id = "regEvent"><button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px;">Register</button></div>
     </div>
     </div>
 
     </div>
 </body>
 <script>
-    var registerEvent = function(){
+    var registerEvent = function(eventId){
+        console.log(eventId)
         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
         // Send token to your backend via HTTPS
         // ...
@@ -293,7 +294,7 @@
                 'x-auth-token': accessToken
             }
         };
-        
+        axios.post(server_url+'/student/event')
         }).catch(function(error) {
         // Handle error
         });
@@ -584,7 +585,7 @@ var fun = function(eventId){
         document.getElementById('prize3').innerHTML = '<strong> Third Prize&nbsp</strong>'+res.data.prize3
         document.getElementById('eventImage').setAttribute('src',res.data.image);
         document.getElementById('contactPhone').innerHTML = '<strong>'+res.data.contactName1+'&nbsp</strong>'+res.data.contactPhone1+'<br><strong>'+res.data.contactName2+'</strong>&nbsp'+res.data.contactPhone2
-
+        document.getElementById( "eventRegButton" ).setAttribute( "onClick", "javascript: registerEvent();" );
         modal.style.display = "block"
 
     })

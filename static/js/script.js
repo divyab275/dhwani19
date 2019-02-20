@@ -1,4 +1,4 @@
-var server_url  = "https://dhwaniapi.herokuapp.com"
+var server_url  = "http://localhost:3000"
 var config = {
     apiKey: "AIzaSyCr1tUZ4sGglBsQbRKn1m5klzhiV-IlCLs",
     authDomain: "dhwanicet-7466c.firebaseapp.com",
