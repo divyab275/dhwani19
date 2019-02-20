@@ -22,7 +22,8 @@ html {box-sizing:border-box;}
 }
 
 #events {
-	background-color:white;
+  background-color:white;
+  height:unset;
 }
 
 #home{
@@ -698,14 +699,14 @@ input[type=text], select, textarea{
 
 .card {
   position: relative;
-  height: 200px;
+  height: 60vh;
   background:rgba(255,255,255,0.8);
   margin: 20px 40px;
   transition: 0.4s all;
 }
 
 .card.open {
-  height: 75vh;
+  height: 60vh;
   background: #ffffff;
 }
 
@@ -725,10 +726,10 @@ input[type=text], select, textarea{
     margin: 12px 10px;
   }
 }
-.eventblock{
+/* .eventblock{
 	height:80vh;
 	overflow-y: scroll;
-}
+} */
 
 
 .reunion-body {
@@ -767,20 +768,7 @@ input[type=text], select, textarea{
 .eventblock ::-webkit-scrollbar-thumb:hover {
   background: #b30000; 
 }
-.ANT{
-  text-align: right;
-  background-color: white;
-  margin-top: 210px;
-  border-radius:5px;
-  box-shadow: 0 40px 77px 0 rgba(0, 0, 0, 0.11);
-  padding:15px;
-}
-.ANT a{
-  text-decoration: none;
-  padding-right: 40px;
-  color:grey;
-  
-}
+
 #profcard{
   border-radius: 8px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2), 0px 2px 6px rgba(0, 0, 0, 0.4);
@@ -840,5 +828,61 @@ input[type=text], select, textarea{
 .modal .modal-content {
     min-height: 100vh;
     width:100vw;
-    margin: 0px;
+    margin:auto;
+    }
+    .mcontent{
+      text-align: center;
+      font-size: 1.2rem;
+    }
+    #eventImage{
+      height:30vh;
+    }
+    #eventName{
+      font-size: 2.5rem;
+      font-family: 'Abril Fatface';
+    }
+    #eventDescription{
+      text-align: justify;
+      padding-left:10vh;
+      padding-right: 10vh;
+    }
+    .rules{
+      font-size: 1.8rem;
+      font-family: 'Abril Fatface';
+      text-align: left;
+      
+
+    }
+    #eventRules{
+      text-align:left;
+      padding-left:10vh;
+
+    }
+    @media (max-width: 480px){
+      #eventDescription{
+        
+        padding-left:4vh;
+        padding-right: 4vh;
+
+      }
+    
+      #eventRules{
+        padding-left:4vh;
+
+      }
+    }
+ .eventtag{
+   background-color:rgba(255,255,255,0.6);
+   color:black;
+   border-radius:10px;
+   padding:10px;
+   text-decoration: none;
+   margin:5px;
+   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+   font-size: 1.3rem;
+ }
+ .eventslisting{
+  border-radius:5px;
+  
+  padding:15px;
 }
