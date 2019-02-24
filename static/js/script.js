@@ -202,7 +202,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 };
 
 goToProfile = function(){
-    window.location.href = window.location.origin+'/dhwani19/profilenew.html'
+    window.location.href = window.location.origin+'/profilenew.html'
 }
 
 createReunion = function(){
