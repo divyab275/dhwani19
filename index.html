@@ -110,6 +110,7 @@
             <h3 class="sectiontitle">dhwani flea</h3>
             <p class="desc rcontent"> We refuse to give up on our bohemian vibe. Hence here we are with a brand new 'Dhwani Flea' debuting this year. Everything Indie, everything to fill the holes in you with some sunshine. 
                 You ain't hoppin' aboard? Then it's a miss, mate! </p>
+               <button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="http://www.yepdesk.com/dhwaniflea" style="text-decoration: none; color:black;">Register</a></button>
     </div>
         
 
@@ -216,6 +217,8 @@
                 <p class="festcontent">All the hype, the gut wrenching levels of anticipation and the excitement, all zero down to these nights, which have borne witness to the crème de la crème of entertainers. Everything from thousand beating hearts to the deafening crowd, this is once in a year affair. Long story short, it is the icing on a very, very special cake!
 
                 </p>
+                <button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="http://www.yepdesk.com/dhwaniproshow" style="text-decoration: none; color:black;">Buy tickets</a></button>
+
                     <div class="eventslisting">
                        
                     </div>
@@ -381,7 +384,7 @@
         <div id="prize2"></div>
         <div id="prize3"></div>
         <div id="contactPhone"></div>
-        <div id = "regEvent"><button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px;">Register</button></div>
+        <div id = "regEvent"><button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="http://www.yepdesk.com/dhwani" style="text-decoration: none; color:black;">Register</a></button></div>
     </div>
     </div>
 
@@ -679,7 +682,7 @@ window.addEventListener('load',function(){
         events.forEach(event => {
             var id = event['category'];
             console.log(id)
-            $('.'+id).append('<a class="eventtag" onclick="fun('+event.id+')">'+event.name+'</a>')
+            $('.'+id).append('<a class="eventtag" onclick="fun('+event.id+')">'+event.name+'</a><br><br>')
            // $('.'+id).append('<a onclick="fun()"'+event.name+'Modal" role="button" class="btn btn-primary" data-toggle="modal">'+event.name+'</a><br/>');
             //$('body').append('<div class="modal" id="'+event.name+'Modal" tabindex="-1" role="dialog" aria-hidden="true"> <div class="modal-dialog modal-full" role="document"><div class="modal-content"><div class="modal-header"><h5 class="modal-title">'+event.name+'</h5><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div><div class="modal-body p-4" id="result"><p>The grid inside the modal is responsive too..</p> </div></div></div></div>');
         });
@@ -705,7 +708,7 @@ var fun = function(eventId){
         document.getElementById('prize3').innerHTML = '<strong> Third Prize&nbsp</strong>'+res.data.prize3
         document.getElementById('eventImage').setAttribute('src',res.data.image);
         document.getElementById('contactPhone').innerHTML = '<strong>'+res.data.contactName1+'&nbsp</strong>'+res.data.contactPhone1+'<br><strong>'+res.data.contactName2+'</strong>&nbsp'+res.data.contactPhone2
-        document.getElementById( "eventRegButton" ).setAttribute( "onClick", "javascript: registerEvent("+eventId+");" );
+        // document.getElementById( "eventRegButton" ).setAttribute( "onClick", "javascript: registerEvent("+eventId+");" );
         modal.style.display = "block"           
 
     })
