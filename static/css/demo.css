@@ -837,7 +837,7 @@ input[type=text], select, textarea{
       font-size: 1.2rem;
     }
     #eventImage{
-      height:30vh;
+      height:60vh;
     }
     #eventName{
       font-size: 2.5rem;
@@ -870,6 +870,7 @@ input[type=text], select, textarea{
     
       #eventRules{
         padding-left:4vh;
+        padding-right: 4vh;
 
       }
     }
