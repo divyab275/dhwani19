@@ -234,7 +234,7 @@ createReunion = function(){
             
         }   
         else{
-            console.log("user login cheythatilla")
+           // console.log("user login cheythatilla")
             alert('please sign in')
             $('#login')
         }
