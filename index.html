@@ -392,13 +392,13 @@
 </body>
 <script>
     var registerEvent = function(eventId){
-        console.log(eventId)
+       // console.log(eventId)
         firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
         // Send token to your backend via HTTPS
         // ...
         localStorage.setItem('accessToken',idToken);   
         
-        console.log(idToken)
+      //  console.log(idToken)
         var config = {
             headers: {
                 
@@ -526,10 +526,10 @@
                 accomodation = document.querySelector('input[name = "sex"]:checked').value;
             else
                 accomodation = 'none'
-            console.log(collegeId);
-            console.log(phone);
-            console.log(accoCheck);
-            console.log(accomodation);
+           // console.log(collegeId);
+           // console.log(phone);
+           // console.log(accoCheck);
+            //console.log(accomodation);
 
             var accessToken = localStorage.getItem("accessToken");
 
@@ -551,7 +551,7 @@
                     .then(function (response) {
 
                         collegeId = response.data.id;
-                        console.log(collegeId);
+                       // console.log(collegeId);
 
                         regsiterAxios(accessToken, phone, accomodation, collegeId);
                     });
@@ -581,7 +581,7 @@
 
         axios.post(server_url+'/student/register', { 'phone': phone, 'accomodation': accomodation, 'collegeId': collegeId }, config)
             .then(function (response) {
-                console.log(response);
+                //console.log(response);
 
                 console.log("registration completed");
             }).catch((err) => {alert(err)});
@@ -692,12 +692,12 @@ window.addEventListener('load',function(){
     })
 })
 var fun = function(eventId){
-    console.log(eventId)
-    console.log("insidefun")
+    //console.log(eventId)
+    //console.log("insidefun")
     axios.get(server_url+'/public/event/'+eventId)
     .then(res=>{
-        console.log(res)
-        console.log(eventId)
+        //console.log(res)
+        //console.log(eventId)
         var modal = document.getElementById('myModal')
         document.getElementById('eventName').innerHTML =res.data.name
         document.getElementById('eventDescription').innerHTML = res.data.description
