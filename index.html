@@ -384,7 +384,7 @@
         <div id="prize2"></div>
         <div id="prize3"></div>
         <div id="contactPhone"></div>
-        <div id = "regEvent"><button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="https://www.yepdesk.com/dhwani" style="text-decoration: none; color:black;">Register</a></button></div>
+        <div id = "regEvent"></div>
     </div>
     </div>
 
@@ -708,6 +708,13 @@ var fun = function(eventId){
         document.getElementById('prize3').innerHTML = '<strong> Third Prize&nbsp</strong>'+res.data.prize3
         document.getElementById('eventImage').setAttribute('src',res.data.image);
         document.getElementById('contactPhone').innerHTML = '<strong>'+res.data.contactName1+'&nbsp</strong>'+res.data.contactPhone1+'<br><strong>'+res.data.contactName2+'</strong>&nbsp'+res.data.contactPhone2
+
+
+        if(eventId==163)
+            document.getElementById('regEvent').innerHTML='<button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="https://www.yepdesk.com/blogging-and-content-writing-workshop1" style="text-decoration: none; color:black;">Register</a></button>'
+        else
+             document.getElementById('regEvent').innerHTML='<button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="https://www.yepdesk.com/dhwani" style="text-decoration: none; color:black;">Register</a></button>'
+
         // document.getElementById( "eventRegButton" ).setAttribute( "onClick", "javascript: registerEvent("+eventId+");" );
         modal.style.display = "block"           
 
