@@ -110,7 +110,7 @@
             <h3 class="sectiontitle">dhwani flea</h3>
             <p class="desc rcontent"> We refuse to give up on our bohemian vibe. Hence here we are with a brand new 'Dhwani Flea' debuting this year. Everything Indie, everything to fill the holes in you with some sunshine. 
                 You ain't hoppin' aboard? Then it's a miss, mate! </p>
-               <button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="https://www.yepdesk.com/dhwaniflea" style="text-decoration: none; color:black;">Register</a></button>
+               <a href="https://www.yepdesk.com/dhwaniflea" target="_blank" style="text-decoration: none; color:black;"><button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;">Register</button></a>
     </div>
         
 
@@ -217,7 +217,7 @@
                 <p class="festcontent">All the hype, the gut wrenching levels of anticipation and the excitement, all zero down to these nights, which have borne witness to the crème de la crème of entertainers. Everything from thousand beating hearts to the deafening crowd, this is once in a year affair. Long story short, it is the icing on a very, very special cake!
 
                 </p>
-                <button id="eventRegButton"  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;"><a href="http://www.yepdesk.com/dhwaniproshow" style="text-decoration: none; color:black;">Buy tickets</a></button>
+                <a href="https://www.yepdesk.com/dhwaniproshow" target="_blank" style="text-decoration: none; color:black;"><button  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;">Buy tickets</button></a>
 
                     <div class="eventslisting">
                        
@@ -228,10 +228,19 @@
                     <h4 class="festtitle">spotlight</h4>
                     <p class="festdesc">by CETalks</p>
                 </div>
-                <p class="festcontent">CETALKS, the Official College Radio of CET, organises the most spellbound and rapt performances by crowd entertainers taking Dhwani to a new level. Three enthralling days of Dhwani,a wide spectrum of artists showcase their zest to be applauded.Ace performers like Suhani Shah, Arjun Guru and Rahul Subramaniam have set the stage on fire.
+                <p class="festcontent">The show that left you awestruck last Dhwani is back to take you on an adventure through the labyrinth of illusions. <br><br>
+
+CETALKS presents SPOTLIGHT!<br>
+Enthral your curious minds with Chris Cheong and prepare to get awestruck watching Kupava Chernenko lighten up the stage.
+Laugh your heart out with Sorabh Pant and make your Dhwani ‘19 experience unforgettable. <br><br>
+
+March 16th & 17th<br><br>
+
+Grab your tickets at <strong><a href="https://www.yepdesk.com/dhwanispotlight">yepdesk.com/dhwanispotlight</a></strong> and on BookMyShow.
 
 
                 </p>
+                <a href="https://www.yepdesk.com/dhwanispotlight" target="_blank" style="text-decoration: none; color:black;"><button  class="btn btn-warning" style="margin-top: 10px; margin-left:10px;margin-right: 10px;">Buy tickets</button></a>
                     <div class="eventslisting">
                        
                     </div>
@@ -701,10 +710,14 @@ var fun = function(eventId){
         var modal = document.getElementById('myModal')
         document.getElementById('eventName').innerHTML =res.data.name
         document.getElementById('eventDescription').innerHTML = res.data.description
+         if(res.data.format!=null)
         document.getElementById('eventRules').innerHTML ='<span class="rules">Rules</span><br>'+ res.data.format
         document.getElementById('regFee').innerHTML = '<strong> Registration fee&nbsp</strong>'+res.data.regFee
+         if(res.data.prize1!=null)
         document.getElementById('prize1').innerHTML = '<strong> First Prize&nbsp</strong>'+res.data.prize1
+        if(res.data.prize2!=null)
         document.getElementById('prize2').innerHTML ='<strong> Second Prize&nbsp</strong>'+ res.data.prize2
+    if(res.data.prize3!=null||res.data.prize3!=0)
         document.getElementById('prize3').innerHTML = '<strong> Third Prize&nbsp</strong>'+res.data.prize3
         document.getElementById('eventImage').setAttribute('src',res.data.image);
         document.getElementById('contactPhone').innerHTML = '<strong>'+res.data.contactName1+'&nbsp</strong>'+res.data.contactPhone1+'<br><strong>'+res.data.contactName2+'</strong>&nbsp'+res.data.contactPhone2
