@@ -717,7 +717,7 @@ var fun = function(eventId){
         document.getElementById('prize1').innerHTML = '<strong> First Prize&nbsp</strong>'+res.data.prize1
         if(res.data.prize2!=null)
         document.getElementById('prize2').innerHTML ='<strong> Second Prize&nbsp</strong>'+ res.data.prize2
-    if(res.data.prize3!=null||res.data.prize3!=0)
+    if(res.data.prize3!=null&&res.data.prize3!=0)
         document.getElementById('prize3').innerHTML = '<strong> Third Prize&nbsp</strong>'+res.data.prize3
         document.getElementById('eventImage').setAttribute('src',res.data.image);
         document.getElementById('contactPhone').innerHTML = '<strong>'+res.data.contactName1+'&nbsp</strong>'+res.data.contactPhone1+'<br><strong>'+res.data.contactName2+'</strong>&nbsp'+res.data.contactPhone2
