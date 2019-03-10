@@ -709,6 +709,7 @@ var fun = function(eventId){
         //console.log(eventId)
         var modal = document.getElementById('myModal')
         document.getElementById('eventName').innerHTML =res.data.name
+        if(res.data.description!=null)
         document.getElementById('eventDescription').innerHTML = res.data.description
          if(res.data.format!=null)
         document.getElementById('eventRules').innerHTML ='<span class="rules">Rules</span><br>'+ res.data.format
