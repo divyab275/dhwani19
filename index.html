@@ -51,12 +51,12 @@
             <div class="sidebar">
             <nav>
                 <ul>
-                    <li><a href="#home" class="dot name-active" ><span>home</span></a></li>
-                    <li><a href="#about" class="dot"><span>about</span></a></li>
-                    <li><a href="#dhwaniflea" class="dot"><span>flea</span></a></li>
-                    <li><a href="#events" class="dot"><span>events</span></a></li>
-                    <li><a href="#gettogether" class="dot"><span>gettogether</span></a></li>
-                    <li><a href="#contact" class="dot"><span>contact</span></a></li>
+                    <li><a href="#home" class="dark dot name-active" ><span>home</span></a></li>
+                    <li><a href="#about" class="dark dot"><span>about</span></a></li>
+                    <li><a href="#dhwaniflea" class="dark dot"><span>flea</span></a></li>
+                    <li><a href="#events" class="dark dot"><span>events</span></a></li>
+                    <li><a href="#gettogether" class="dark dot"><span>gettogether</span></a></li>
+                    <li><a href="#contact" class="dark dot"><span>contact</span></a></li>
                 </ul>
             </nav>
         </div>
@@ -268,7 +268,7 @@ Grab your tickets at <strong><a href="https://www.yepdesk.com/dhwanispotlight">y
                     <h4 class="festtitle">food festival</h4>
                     <p class="festdesc"></p>
                 </div>
-                <p class="festcontent">To a vast majority of people food can equate to happiness. Catering to the taste buds of all people attending the events, Dhwani proudly houses a Food Festival with delicacies from all around the globe.We generally aim at educating people regarding the rich history in the culinary world that is brimming with it’s diversity.
+                <p class="festcontent">To a vast majority of people food can equate to happiness. Catering to the taste buds of all people attending the events, Dhwani proudly houses a Food Festival with delicacies from all around the globe. We generally aim at educating people regarding the rich history in the culinary world that is brimming with it’s diversity.
                 </p>
                     <div class="eventslisting">
                        
@@ -714,9 +714,12 @@ var fun = function(eventId){
             modalContent += '<div id="eventDescription"> ' + res.data.description + '</div>'
         if (res.data.format)
             // document.getElementById('eventRules').innerHTML ='<span class="rules">Rules</span><br>'+ res.data.format
-            modalContent += '<div id="eventRules"><span class="rules">Rules</span><br> ' + res.data.format + '<br></div>'
+            modalContent += '<div id="eventRules"><span class="rules">Rules</span><br> ' + res.data.format + '<br></div><br>'
         // document.getElementById('regFee').innerHTML = '<strong> Registration fee&nbsp</strong>'+res.data.regFee
-        modalContent += '<div id="regFee"><strong> Registration fee&nbsp </strong> ₹ ' + res.data.regFee + '</div>'
+        if (res.data.regFee == 0)
+            modalContent += '<div id="regFee"><strong> Registration Fee&nbsp </strong>Free! </div>'
+        else
+            modalContent += '<div id="regFee"><strong> Registration Fee&nbsp </strong> ₹ ' + res.data.regFee + '</div>'
         if (res.data.prize1)
             // document.getElementById('prize1').innerHTML = '<strong> First Prize&nbsp</strong>'+res.data.prize1
             modalContent += '<div id="prize1"><strong>First Prize&nbsp</strong> ₹ ' + res.data.prize1 + '</div>'
@@ -755,7 +758,7 @@ var fun = function(eventId){
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 10000; /* Sit on top of the side bar thingy*/
     left: 0;
     top: 0;
     width: 100%; /* Full width */
