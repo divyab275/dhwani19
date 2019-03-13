@@ -720,6 +720,8 @@ var fun = function(eventId){
             modalContent += '<div id="regFee"><strong> Registration Fee&nbsp </strong>Free! </div>'
         else
             modalContent += '<div id="regFee"><strong> Registration Fee&nbsp </strong> ₹ ' + res.data.regFee + '</div>'
+        if (res.data.group == 1)
+            modalContent += '<div id="gpr"><strong> Maximum Team Size&nbsp </strong> ' + res.data.maxPerGroup
         if (res.data.prize1)
             // document.getElementById('prize1').innerHTML = '<strong> First Prize&nbsp</strong>'+res.data.prize1
             modalContent += '<div id="prize1"><strong>First Prize&nbsp</strong> ₹ ' + res.data.prize1 + '</div>'
